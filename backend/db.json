@@ -1,0 +1,14 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Hugo Dieb",
+        "email": "dieb@dieb.com"
+      },
+      {
+        "id": 2,
+        "name": "Mara SantAnna",
+        "email": "mara@mara.com"
+      }
+    ]
+  }
