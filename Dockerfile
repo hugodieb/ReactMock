@@ -25,4 +25,5 @@ RUN cd frontend && npm install
 COPY frontend frontend
 RUN cd frontend && npm run build
 ENV SHELL=/bin/bash PYTHONUNBUFFERED=1
+COPY . /app
 COPY docker/bin/* /usr/bin/

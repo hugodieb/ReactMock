@@ -59,8 +59,9 @@ function dknpminstall {
 function dkrun_dev {
     docker stop react
     docker rm react
-    docker run --name react -it \
-        -p 3000:3000 \
+    docker run --name react -it \               
+        -p 3000:3000 -p 3001:3001 \
+        -v $CD/frontend:frontend
         react start_npm_dev.sh
 }
 
