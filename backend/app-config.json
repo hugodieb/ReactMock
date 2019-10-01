@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "app-mock",
+            "script": "npm",
+            "args" : "start"
+        }
+    ]
+}
