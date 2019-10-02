@@ -59,9 +59,7 @@ function dknpminstall {
 function dkrun_dev {
     docker stop react
     docker rm react
-    docker run --name react -it \               
-        -p 3000:3000 -p 3001:3001 \        
-        react:latest start_server_mock.sh start_npm_dev.sh 
+    docker run -it --restart unless-stopped --name react -p 3000:3000 -p 3001:3001 react start_dev.sh
 }
 
 function dk {

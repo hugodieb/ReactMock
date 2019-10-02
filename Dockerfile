@@ -16,7 +16,7 @@ RUN cd /tmp && \
     tar xf node-v12.11.0-linux-x64.tar.xz && \
     cp -r node-v12.11.0-linux-x64/* /usr && \
     rm node-v12.11.0-linux-x64.tar.xz && \
-    npm install -g pm2
+    npm install pm2 -g
 
 WORKDIR /app
 
@@ -24,6 +24,10 @@ COPY frontend/package.json frontend/package.json
 RUN cd frontend && npm install
 COPY frontend frontend
 RUN cd frontend && npm run build
+COPY backend/package.json backend/package.json
+RUN cd backend && npm install
+COPY backend backend
+RUN cd backend && npm build
 ENV SHELL=/bin/bash PYTHONUNBUFFERED=1
 COPY . /app
 COPY docker/bin/* /usr/bin/
