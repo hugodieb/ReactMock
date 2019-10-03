@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Main from '../template/Main'
+import AppApi from '~apijs'
 
 const headerProps = {
     icon: 'users',
@@ -21,6 +22,7 @@ export default class UserCrud extends Component {
     componentWillMount() {
         axios(baseUrl).then(resp => {
             this.setState({ list: resp.data })
+            AppApi.msg()
         })
     }
 
