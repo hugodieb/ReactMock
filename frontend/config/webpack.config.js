@@ -1,7 +1,7 @@
 'use strict';
 
-const _apimock = process.env.API_MOCK == '1' || (process.env.API_MOCK == undefined && process.env.npm_lifecycle_event == 'dev')
-const _apijs = _apimock ? 'apimock.js' : 'api.js';
+const _apimock = process.env.API_MOCK === '1' || (process.env.API_MOCK == undefined && process.env.npm_lifecycle_event == 'dev')
+const _apijs = _apimock ? 'apimock' : 'api';
 
 const fs = require('fs');
 const isWsl = require('is-wsl');
@@ -297,7 +297,8 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
-        '~apijs': path.resolve(__dirname, '../src/components/api/' + _apijs)
+        '~apijs': path.resolve(__dirname, '../src/components/api/' + _apijs),
+        '@components': path.resolve(__dirname, '../src/components')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

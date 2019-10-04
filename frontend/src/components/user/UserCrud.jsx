@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Main from '../template/Main'
+import Main from '@components/template/Main'
 import AppApi from '~apijs'
 
 const headerProps = {
@@ -20,9 +20,14 @@ export default class UserCrud extends Component {
     state = { ...initialState }
 
     componentWillMount() {
-        axios(baseUrl).then(resp => {
-            this.setState({ list: resp.data })
-            AppApi.msg()
+        // axios(baseUrl).then(resp => {
+        //     console.log(resp.data)
+        //     this.setState({ list: resp.data })            
+        // })
+
+        AppApi.getUsers().then(response => {
+            console.log(response.data)
+            this.setState({ list: response.data })
         })
     }
 
@@ -44,6 +49,9 @@ export default class UserCrud extends Component {
     getUpdatedList(user, add = true) {
         const list = this.state.list.filter(u => u.id !== user.id)
         if(add) list.unshift(user)
+        AppApi.hello().then(resp => {
+            console.log(resp.data.description)
+        })
         return list
     }
 

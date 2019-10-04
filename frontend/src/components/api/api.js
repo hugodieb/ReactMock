@@ -1,3 +1,14 @@
-const msg = console.log("estou na api de verdade")
+function mockasync (data) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve({data: data}), 600)
+    })
+  }
+  
 
-export default msg
+const api = {
+    hello() {
+        return mockasync({description: 'funfa api mock'})
+    }
+}
+
+export default api
