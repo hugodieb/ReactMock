@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import Main from '@components/template/Main'
 import AppApi from '~apijs'
 
@@ -9,10 +8,10 @@ const headerProps = {
     subtitle: 'Cadastro de usuários: Incluir, Listar, Alterar e Excluir!'
 }
 
-const baseUrl = 'http://localhost:3001/users'
 const initialState = {
     user: { name: '', email: '' },
-    list: []
+    list: [],
+    validField: true
 }
 
 export default class UserCrud extends Component {
@@ -20,11 +19,7 @@ export default class UserCrud extends Component {
     state = { ...initialState }
 
     componentWillMount() {
-        // axios(baseUrl).then(resp => {
-        //     console.log(resp.data)
-        //     this.setState({ list: resp.data })            
-        // })
-
+       
         AppApi.getUsers().then(response => {
             console.log(response.data)
             this.setState({ list: response.data })
@@ -37,21 +32,16 @@ export default class UserCrud extends Component {
 
     save() {
         const user = this.state.user
-        const method = user.id ? 'put' : 'post'
-        const url = user.id ? `${baseUrl}/${user.id}` : baseUrl
-        axios[method](url, user)
-            .then(resp => {
-                const list = this.getUpdatedList(resp.data)
-                this.setState({ user: initialState.user, list })
-            })
+        //this.initialState.validField = user.name && user.email ? true : false
+        AppApi.saveUser(user).then(response => {
+            const list = this.getUpdatedList(response.data)
+            this.setState({ user: initialState.user, list })
+        })
     }
-
+    
     getUpdatedList(user, add = true) {
         const list = this.state.list.filter(u => u.id !== user.id)
         if(add) list.unshift(user)
-        AppApi.hello().then(resp => {
-            console.log(resp.data.description)
-        })
         return list
     }
 
@@ -59,6 +49,24 @@ export default class UserCrud extends Component {
         const user = { ...this.state.user }
         user[event.target.name] = event.target.value
         this.setState({ user })
+        let validField = user.name && user.email ? false : true
+        this.setState({ validField })
+    }    
+
+    load(user) {
+        this.setState({ user })
+    }
+
+    remove(user) {
+        AppApi.removeUser(user).then(response => {
+            const list = this.getUpdatedList(user, false)
+            this.setState({ list })
+        })        
+    }
+
+    sortList() {
+        let list = this.state.list.sort((a, b) => (a.id) - b.id)
+        this.setState({ list })        
     }
 
     renderForm() {
@@ -92,7 +100,8 @@ export default class UserCrud extends Component {
                 <div className="row">
                     <div className="col-12 d-flex justify-content-end">
                         <button className="btn btn-primary"
-                            onClick={e => this.save(e)}>
+                            onClick={e => this.save(e)}
+                            disabled={this.state.validField}>
                             Salvar
                         </button>
 
@@ -106,26 +115,21 @@ export default class UserCrud extends Component {
         )
     }
 
-    load(user) {
-        this.setState({ user })
-    }
-
-    remove(user) {
-        axios.delete(`${baseUrl}/${user.id}`).then(resp => {
-            const list = this.getUpdatedList(user, false)
-            this.setState({ list })
-        })
-    }
-
     renderTable() {
         return (
-            <table className="table mt-4">
+            <table className="table table-hover mt-4">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
                         <th>E-mail</th>
                         <th>Ações</th>
+                        <th><button type="button"
+                                    className="btn btn-link btn-sm"
+                                    onClick={() => this.sortList()}>
+                                <i className="fa fa-sort" aria-hidden="true"></i>
+                            </button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
