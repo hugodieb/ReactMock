@@ -1,1 +1,3 @@
 export const CLICK_UPDATE_VALUE = 'CLICK_UPDATE_VALUE'
+
+export const USER_AUTH = 'USER_AUTH'
