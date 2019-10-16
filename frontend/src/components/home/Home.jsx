@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import Main from '@components/template/Main'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { clickButton, loginButton } from '../../actions'
+import { clickButton } from '../../actions'
+import { loginButton } from '../../actions/auth'
 
 class Home extends Component {
     state = {
@@ -50,7 +51,7 @@ class Home extends Component {
 
 const mapStateToProps = store => ({
     newValue: store.clickState.newValue,
-    authenticated: store.clickState.authenticated
+    authenticated: store.authLogin.authenticated
   })
 
 const mapDispatchToProps = dispatch => 

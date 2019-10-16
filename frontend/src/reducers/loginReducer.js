@@ -1,9 +1,8 @@
-import { CLICK_UPDATE_VALUE, USER_AUTH } from '../actions/actionTypes';
+import { CLICK_UPDATE_VALUE } from '../actions/actionTypes'
 
 const initialState = {
-  newValue: 'Atualizado via redux!',
-  authenticated: true
-};
+  newValue: 'Atualizado via redux!'
+}
 
 export const clickReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,14 +11,8 @@ export const clickReducer = (state = initialState, action) => {
       return {
         ...state,
         newValue: action.newValue        
-      };
-    case USER_AUTH:
-      console.log('loginreducer')      
-      return {
-        ...state,        
-        authenticated: !state.authenticated
-      };
+      }    
     default:
-      return state;
+      return state
   }
 }
