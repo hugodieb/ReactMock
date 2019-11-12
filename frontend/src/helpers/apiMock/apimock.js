@@ -1,17 +1,18 @@
 import axios from 'axios'
 const baseUrl = 'http://localhost:3001'
 
+
+let loggedUser = null
+
 function mockObject (data) {
     return new Promise((resolve, reject) => {
       setTimeout(() => resolve({data: data}), 600)
     })
-  }
-
-var loggedUser = null
+  }  
 
 const api = {
     hello() {
-        return mockObject({description: 'funfa api mock sjsdjsdh'})
+        return mockObject({description: 'funfa api mock cjhsdcbsdcbs'})
     },
     getUsers() {
         let users = get(baseUrl + `/users`)
@@ -27,31 +28,14 @@ const api = {
     removeUser(user) {
         return remove(baseUrl + `/users/${user.id}`, user)        
     },
-    login(email, password) {
-        if(password) {        
-            let dbuser = get(baseUrl + `/user?email=${email}`)
-            let user =  dbuser.then(response => loggedUser = response.data[0])
-            return mockObject(user).then(response => response.data)       
-        } else
-            return mockObject({})
-    },
-    
-    logout() {
-        loggedUser = null
-        return mockObject({})
-    },
-
-    whomi() {
-        return mockObject(loggedUser ? {
-            authenticated: true,
-            user: loggedUser
-        } : {authenticated: false})
+    login() {
+        return hello()                
     }
 }
 
 export default api
 
-function get(url, params){    
+function get(url, params){
     return axios.get(url, params)
 }
 

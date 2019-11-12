@@ -2,6 +2,7 @@
 
 const _apimock = process.env.API_MOCK === '1' || (process.env.API_MOCK == undefined && process.env.npm_lifecycle_event == 'dev')
 const _apijs = _apimock ? 'apimock' : 'api';
+console.log("estou usando " + _apijs)
 
 const fs = require('fs');
 const isWsl = require('is-wsl');
@@ -57,8 +58,7 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
   const isEnvDevelopment = webpackEnv === 'development';
-  const isEnvProduction = webpackEnv === 'production';
-  console.log("estou aquiiiiiii " + _apijs)
+  const isEnvProduction = webpackEnv === 'production';  
 
   // Webpack uses `publicPath` to determine where the app is being served from.
   // It requires a trailing slash, or the file assets will get an incorrect path.

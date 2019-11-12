@@ -1,4 +1,4 @@
-import { clickReducer } from './loginReducer'
+import { clickReducer } from './clickReducer'
 import { authReducer } from './authReducer'
 import { combineReducers } from 'redux';
 

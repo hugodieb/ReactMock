@@ -13,11 +13,6 @@ aside.menu-area {
     padding: 15px;
 }
 
-.menu img {
-    margin-left: 5rem;
-    padding: 2px;
-}
-
 .menu a:hover {
     background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
 }

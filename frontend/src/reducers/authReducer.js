@@ -1,16 +1,13 @@
-import { USER_AUTH } from '../actions/actionTypes'
+import * as types from '../actions/actionTypes'
+//import AppApi from '~apijs'
 
-const initialState = {
-  authenticated: false
-};
-
-export const authReducer = (state = initialState, action) => {
+export const authReducer = (state = {}, action) => {
+  const response = action.user
   switch (action.type) {
-    case USER_AUTH:
-      console.log('loginreducer')      
+    case types.USER_AUTH:          
       return {
-        ...state,        
-        authenticated: !state.authenticated
+        ...state,       
+        response
       }
     default:
       return state

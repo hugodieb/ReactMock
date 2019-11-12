@@ -3,12 +3,11 @@ import Main from '@components/template/Main'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { clickButton } from '../../actions'
-import { loginButton } from '../../actions/auth'
 
 class Home extends Component {
     state = {
         inputValue: '',
-        userLogged: true
+        userLogged: false
     }
 
     inputChange = e => {
@@ -17,25 +16,24 @@ class Home extends Component {
 
     render() {
         const { 
-            clickButton,
-            loginButton,
+            clickButton,            
             newValue,
             authenticated } = this.props
 
         const {
-            inputValue,
-            userLogged } = this.state
+            inputValue } = this.state
         
         return (
             <Main icon="home" title="Início"
-                subtitle="Seu projeto React com uso de dados mock">
+                subtitle="Seu projeto React com uso de dados mock"
+                authenticated={authenticated}>
                 <div className='display-4'>Bem Vindo!</div>
                 <hr />
                 <p className="mb-0">Sistema de cadastro desenvolvido em React!</p>
                 <h1>{newValue}</h1>
                 <input type="text" onChange={this.inputChange} value={inputValue}/>
                 <button onClick={() => clickButton(inputValue)}>Troca a Mensagem</button>
-                <button onClick={() => loginButton(userLogged)}>Login</button>
+                
                 {authenticated
                  ? <div className="alert alert-primary mt-2" role="alert">
                     Estou logado!
@@ -55,6 +53,6 @@ const mapStateToProps = store => ({
   })
 
 const mapDispatchToProps = dispatch => 
-  bindActionCreators({ clickButton, loginButton }, dispatch)
+  bindActionCreators({ clickButton }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

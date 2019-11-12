@@ -1,6 +1,6 @@
-import { USER_AUTH } from './actionTypes';
+import * as types from './actionTypes';
 
-export const loginButton = value => ({
-    type: USER_AUTH,
-    authenticated: value
+export const loginUserAction = (user) => ({
+    type: types.USER_AUTH,    
+    user: user
 })
