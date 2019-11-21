@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import Main from '@components/template/Main'
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { clickButton } from '../../actions'
+import { connect } from 'react-redux'
 
 class Home extends Component {
     state = {
@@ -39,7 +37,7 @@ class Home extends Component {
                     Estou logado!
                 </div>
                  : <div className="alert alert-warning mt-2" role="alert">
-                    Não estou mais logado!
+                    Não estou mais logado!                    
                 </div>
                 }
             </Main>
@@ -52,7 +50,4 @@ const mapStateToProps = store => ({
     authenticated: store.authLogin.authenticated
   })
 
-const mapDispatchToProps = dispatch => 
-  bindActionCreators({ clickButton }, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+  export default connect(mapStateToProps)(Home)

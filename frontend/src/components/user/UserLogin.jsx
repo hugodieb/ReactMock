@@ -21,9 +21,9 @@ class LoginUser extends Component {
     this.setState({input_data})
   }
 
-  componentDidMount() {       
+  componentDidMount() {          
     const { loggedUser } = this.props   
-    if(loggedUser) {      
+    if(loggedUser) {           
       this.props.history.push('/')
     }
   }
@@ -31,10 +31,10 @@ class LoginUser extends Component {
   login() {    
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
-    AppApi.login(email, password).then(user => {           
-        this.props.dispatch(loginUserAction(user))
+    AppApi.login(email, password).then(userCurrent => {                   
+        this.props.dispatch(loginUserAction(userCurrent))
         const { loggedUser } = this.props
-        if(loggedUser) {
+        if(loggedUser) {         
           this.props.history.push('/')
         }
     })             
@@ -48,7 +48,7 @@ class LoginUser extends Component {
   
   logout() {  
     AppApi.logout().then(resp => {
-      console.log(resp.data)
+      this.props.dispatch(loginUserAction(resp.data))
     })       
   }
 
@@ -62,7 +62,7 @@ class LoginUser extends Component {
               <div className="row align-items-center mt-4">
                 <div className="col-12">                  
                   <h1 className="mb-4">Vamos logar meu caro...!</h1>                
-                  <input type="email" name="email" value={this.state.input_data.email}
+                  <input id="mainInput" type="email" name="email" value={this.state.input_data.email}
                    onChange={e => this.inputDataValue(e)}
                    className="form-control" placeholder="Email" />
                 </div>

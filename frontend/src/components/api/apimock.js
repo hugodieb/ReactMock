@@ -30,15 +30,15 @@ const api = {
     login(email, password) {
         if(password) {        
             let dbuser = get(baseUrl + `/user?email=${email}`)
-            let user =  dbuser.then(response => loggedUser = response.data[0])
-            return mockObject(user).then(response => response.data)       
+            loggedUser =  dbuser.then(response => loggedUser = response.data[0])
+            return mockObject(loggedUser).then(response => response.data)       
         } else
-            return mockObject({})
+            return mockObject(loggedUser).then(response => response.data)
     },
     
     logout() {
         loggedUser = null
-        return mockObject({})
+        return mockObject(loggedUser).then(response => response.data)
     },
 
     whomi() {

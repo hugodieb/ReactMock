@@ -20,8 +20,7 @@ export default class UserCrud extends Component {
 
     componentWillMount() {
        
-        AppApi.getUsers().then(response => {
-            console.log(response.data)
+        AppApi.getUsers().then(response => {            
             this.setState({ list: response.data })
         })
     }

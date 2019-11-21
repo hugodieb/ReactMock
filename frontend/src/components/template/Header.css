@@ -12,3 +12,11 @@ header.header h1 {
     color: blueviolet;
     font-family: fantasy;
 }
+
+img.img-thumbnail.user {
+    height: 60px;
+    width: 60px;
+    border: none;
+    padding: unset;
+    border-radius: 100%;
+}
