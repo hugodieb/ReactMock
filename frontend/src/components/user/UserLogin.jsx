@@ -12,17 +12,21 @@ const initialState = {
 }
 
 class LoginUser extends Component {
-
-  state = {...initialState}
-  
+  constructor(props) {
+    super(props)
+    this.state = {...initialState}
+  }  
+    
   inputDataValue(event) {
     let input_data = this.state.input_data
     input_data[event.target.name] = event.target.value
     this.setState({input_data})
   }
 
-  componentDidMount() {          
-    const { loggedUser } = this.props   
+  componentDidMount() {
+    debugger              
+    const { loggedUser } = this.props 
+    this.setState({input_data: {email: "", password: ""}, user: {}})   
     if(loggedUser) {           
       this.props.history.push('/')
     }
@@ -31,26 +35,15 @@ class LoginUser extends Component {
   login() {    
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
-    AppApi.login(email, password).then(userCurrent => {                   
+    AppApi.login(email, password).then(userCurrent => {
+      debugger                   
         this.props.dispatch(loginUserAction(userCurrent))
         const { loggedUser } = this.props
-        if(loggedUser) {         
+        if(loggedUser) {                   
           this.props.history.push('/')
         }
     })             
-  }
-  
-  who() {  
-    AppApi.whomi().then(resp => {
-      console.log(resp.data)
-    })       
-  }
-  
-  logout() {  
-    AppApi.logout().then(resp => {
-      this.props.dispatch(loginUserAction(resp.data))
-    })       
-  }
+  } 
 
   renderFormLogin() {
       return (
@@ -77,11 +70,7 @@ class LoginUser extends Component {
               <div className="row justify-content-start mt-4">
                 <div className="col">
                     <button className="btn btn-login btn-lg btn-block"
-                    onClick={e => this.login(e)}>Entrar</button>
-                    <button className="btn btn-login btn-lg btn-block"
-                    onClick={e => this.who(e)}>who</button>
-                    <button className="btn btn-login btn-lg btn-block"
-                    onClick={e => this.logout(e)}>logout</button>
+                    onClick={e => this.login(e)}>Entrar</button>                   
                 </div>
               </div>
             </div>

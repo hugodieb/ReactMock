@@ -33,7 +33,7 @@ class Nav extends Component {
             return (
                 <div className="btn-out">
                     <button className="btn btn-link"
-                        onClick={() => this.logout()}><i className="fa fa-users"></i> Sair</button>
+                        onClick={() => this.logout()}><i className="fa fa-sign-out"></i> Sair</button>
                 </div>  
             )           
         }
