@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Hugo Dieb Araujo",
+      "email": "dieb@dieb.com"
+    },
+    {
+      "id": 2,
+      "name": "Mara SantAnna",
+      "email": "mara@mara.com"
+    },
+    {
+      "name": "Sheik Dog",
+      "email": "sheik@sheik.com",
+      "id": 3
+    },
+    {
+      "name": "Leonardo Lobato Santanna",
+      "email": "leo@leo.com",
+      "id": 4
+    }
+  ],
+  "user": [
+    {
+      "username": "hugodieb",
+      "first_name": "Hugo",
+      "last_name": "Dieb",
+      "email": "dieb@dieb.com",
+      "photo_url": "https://abroadwayeaqui.files.wordpress.com/2019/06/patolino-e1559765118384.jpg",
+      "permissions": [
+        "ADMIN",
+        "STAFF"
+      ]
+    }
+  ]
+}
