@@ -20,5 +20,15 @@
       "email": "leo@leo.com",
       "id": 4
     }
+  ],
+  "user": [
+    {
+      "username": "hugodieb",
+      "first_name": "Hugo",
+      "last_name": "Dieb",
+      "email": "dieb@dieb.com",
+      "photo_url": "https://abroadwayeaqui.files.wordpress.com/2019/06/patolino-e1559765118384.jpg",
+      "permissions" : ["ADMIN", "STAFF"]
+    }    
   ]
 }
