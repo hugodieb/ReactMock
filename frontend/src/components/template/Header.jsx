@@ -29,8 +29,10 @@ class Header extends Component {
                     <div className="p-2 flex-grow-1 bd-highlight header">
 
                     </div>
-                    <div className="mt-3 bd-highlight">
-                        <Link to="/entrar" className="btn btn-primary">Entra</Link>                  
+                    <div className="bd-highlight">
+                        <Link to="/entrar" className="btn btn-primary btn-lg">
+                            <i className="fa fa-sign-in" aria-hidden="true"></i>
+                        </Link>                  
                     </div>                
                 </div>
             )

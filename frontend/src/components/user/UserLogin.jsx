@@ -23,8 +23,7 @@ class LoginUser extends Component {
     this.setState({input_data})
   }
 
-  componentDidMount() {
-    debugger              
+  componentDidMount() {                  
     const { loggedUser } = this.props 
     this.setState({input_data: {email: "", password: ""}, user: {}})   
     if(loggedUser) {           
@@ -35,13 +34,12 @@ class LoginUser extends Component {
   login() {    
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
-    AppApi.login(email, password).then(userCurrent => {
-      debugger                   
-        this.props.dispatch(loginUserAction(userCurrent))
-        const { loggedUser } = this.props
-        if(loggedUser) {                   
-          this.props.history.push('/')
-        }
+    AppApi.login(email, password).then(userCurrent => {                        
+      this.props.dispatch(loginUserAction(userCurrent))
+      const { loggedUser } = this.props
+      if(loggedUser) {                   
+        this.props.history.push('/')  
+      }
     })             
   } 
 
