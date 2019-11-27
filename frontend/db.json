@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "Hugo Dieb",
+      "name": "Hugo Dieb Araujo",
       "email": "dieb@dieb.com"
     },
     {
@@ -14,22 +14,19 @@
       "name": "Sheik Dog",
       "email": "sheik@sheik.com",
       "id": 3
-    },
-    {
-      "name": "Leonardo Lobato Santanna",
-      "email": "leo@leo.com",
-      "id": 4
     }
   ],
   "user": [
     {
+      "id": 1,
       "username": "hugodieb",
       "first_name": "Hugo",
       "last_name": "Dieb",
       "email": "dieb@dieb.com",
       "photo_url": "http://2.bp.blogspot.com/-EDeCS4EZk90/UvtXYCs3RHI/AAAAAAAAEho/4ImPv84mj5A/s1600/00COMODESENHAROPATOLINO(DODGER)-comodesenhar10.blogspot.com.br.gif",
-      "permission": [
-        "ADMIN", "STAFF"
+      "permissions": [
+        "ADMIN",
+        "STAFF"
       ]
     }
   ]

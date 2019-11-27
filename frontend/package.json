@@ -65,9 +65,11 @@
     "webpack": "4.40.2",
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "4.3.1"
+    "workbox-webpack-plugin": "4.3.1",
+    "json-server": "0.13.0"
   },
   "scripts": {
+    "startdb": "json-server --watch db.json --port 3001",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"

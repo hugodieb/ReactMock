@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 
 class Home extends Component {
     state = {
-        inputValue: '',
-        userLogged: false
+        inputValue: ''
     }
 
     inputChange = e => {
@@ -15,39 +14,28 @@ class Home extends Component {
     render() {
         const { 
             clickButton,            
-            newValue,
-            authenticated } = this.props
+            newValue
+         } = this.props
 
         const {
             inputValue } = this.state
         
         return (
             <Main icon="home" title="Início"
-                subtitle="Seu projeto React com uso de dados mock"
-                authenticated={authenticated}>
+                subtitle="Seu projeto React com uso de dados mock">
                 <div className='display-4'>Bem Vindo!</div>
                 <hr />
                 <p className="mb-0">Sistema de cadastro desenvolvido em React!</p>
                 <h1>{newValue}</h1>
                 <input type="text" onChange={this.inputChange} value={inputValue}/>
-                <button onClick={() => clickButton(inputValue)}>Troca a Mensagem</button>
-                
-                {authenticated
-                 ? <div className="alert alert-primary mt-2" role="alert">
-                    Estou logado!
-                </div>
-                 : <div className="alert alert-warning mt-2" role="alert">
-                    Não estou mais logado!                    
-                </div>
-                }
+                <button onClick={() => clickButton(inputValue)}>Troca a Mensagem</button>               
             </Main>
         )
     }
 }
 
 const mapStateToProps = store => ({
-    newValue: store.clickState.newValue,
-    authenticated: store.authLogin.authenticated
+    newValue: store.clickState.newValue    
   })
 
   export default connect(mapStateToProps)(Home)
