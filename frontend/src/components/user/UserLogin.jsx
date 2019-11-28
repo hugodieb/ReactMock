@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Main from '@components/template/Main'
 import { loginUserAction } from '../../actions/auth'
 import AppApi from '~apijs'
+import Auth from '../../services/auth'
 
 const initialState = {
   input_data: {email: '', password: ''},
@@ -31,13 +32,15 @@ class LoginUser extends Component {
     }
   }
 
-  login() {    
+  login() {
+    debugger    
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
     AppApi.login(email, password).then(userCurrent => {                        
       this.props.dispatch(loginUserAction(userCurrent))
       const { loggedUser } = this.props
-      if(loggedUser) {                   
+      if(loggedUser) {
+        Auth.authentication()
         this.props.history.push('/')  
       }
     })             

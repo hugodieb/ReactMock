@@ -1,4 +1,4 @@
-import AppApi from '~/apijs'
+import AppApi from '~apijs'
 
 class Auth {
     constructor() {
