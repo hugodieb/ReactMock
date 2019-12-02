@@ -25,36 +25,38 @@ class Header extends Component {
         
         if(!this.state.user) {
             return (
-                <div className="d-flex bd-highlight">
-                    <div className="p-2 flex-grow-1 bd-highlight header">
-
-                    </div>
-                    <div className="bd-highlight">
-                        <Link to="/entrar" className="btn btn-primary btn-lg">
-                            <i className="fa fa-sign-in" aria-hidden="true"></i>
-                        </Link>                  
-                    </div>                
+                <div className="buttons">                   
+                    <Link to="/entrar" className="button is-success is-rounded">
+                        <span className="icon">
+                            <i className="fa fa-sign-in"></i>
+                        </span>
+                        <span>Entrar</span>
+                    </Link>
                 </div>
             )
         } else {
             return (
-                <div className="d-flex bd-highlight">
-                    <div className="p-2 flex-grow-1 bd-highlight header">
-                        
-                    </div>
-                    <div className="mt-1 bd-highlight">
-                    <img className="img-thumbnail user" src={this.state.user.photo_url} alt=""/>           
-                    </div>                
-                </div>
+                
+                <img className="user-avatar" src={this.state.user.photo_url} alt="" />
+                
             )
         }
     }
 
     render() {                    
         return (
-            <header className="header d-none d-sm-flex flex-column">
-                {this.loginButton()}       
-            </header>  
+            <nav className="navbar is-danger" role="navigation" aria-label="main navigation">
+                <div className="navbar-brand">
+                    <a href="/" className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-logo.png" alt=""/>
+                    </a>                            
+                </div>
+                <div className="navbar-end">
+                    <div className="navbar-item">
+                        {this.loginButton()}
+                    </div>
+                </div>
+            </nav>             
         )        
     }
 }

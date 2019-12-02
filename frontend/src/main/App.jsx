@@ -1,8 +1,4 @@
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'jquery'
-import 'popper.js'
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './App.sass'
 import 'font-awesome/css/font-awesome.min.css'
 import './App.css'
 import React from 'react'
