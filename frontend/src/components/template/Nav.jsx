@@ -45,17 +45,17 @@ class Nav extends Component {
     render () {
         return (
             <aside className="menu-area">
-            <nav className="menu">
-                {/* Refatorar em casa! */}               
-                <Link to="/">
-                    <i className="fa fa-home"></i> Início
-                </Link>
-                <Link to="/users">
-                    <i className="fa fa-users"></i> Usuários
-                </Link>
-                {this.btnLogout()}              
-            </nav>
-        </aside>
+                <nav className="menu">
+                    {/* Refatorar em casa! */}               
+                    <Link to="/">
+                        <i className="fa fa-home"></i> Início
+                    </Link>
+                    <Link to="/users">
+                        <i className="fa fa-users"></i> Usuários
+                    </Link>
+                    {this.btnLogout()}              
+                </nav>
+            </aside>
         )        
     }    
 }

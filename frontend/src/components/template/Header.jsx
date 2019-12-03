@@ -35,10 +35,8 @@ class Header extends Component {
                 </div>
             )
         } else {
-            return (
-                
-                <img className="user-avatar" src={this.state.user.photo_url} alt="" />
-                
+            return (                
+                <img className="user-avatar" src={this.state.user.photo_url} alt="" />                
             )
         }
     }
@@ -47,15 +45,22 @@ class Header extends Component {
         return (
             <nav className="navbar is-danger" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <a href="/" className="navbar-item">
+                    <Link to="/" className="navbar-item">
                         <img src="https://bulma.io/images/bulma-logo.png" alt=""/>
-                    </a>                            
+                    </Link>
+                    <Link to="" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </Link>                            
                 </div>
-                <div className="navbar-end">
-                    <div className="navbar-item">
-                        {this.loginButton()}
-                    </div>
-                </div>
+                <div id="navbarBasicExample" className="navbar-menu">
+                   <div className="navbar-end">                        
+                        <div className="navbar-item">
+                            {this.loginButton()}
+                        </div>
+                    </div> 
+                </div>                
             </nav>             
         )        
     }

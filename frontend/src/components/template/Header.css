@@ -1,7 +1,10 @@
+
+/* Altura da minha navbar */
 nav.navbar.is-danger {
     height: 4rem;
 }
 
+/* Imagem avatar do usuario logado */
 img.user-avatar {
     width: 50px;
     height: 50px;
@@ -9,4 +12,13 @@ img.user-avatar {
     padding: unset;
     border-radius: 100%;
     max-height: 80px;
+}
+
+/* Cor dos links no Header */
+div.navbar-item a {
+    color: #ffffff;
+}
+
+div.navbar-item a:hover {
+    color: #ece2e2;
 }
