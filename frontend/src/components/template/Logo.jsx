@@ -1,11 +1,10 @@
 import './Logo.css'
-import logo from '../../assets/imgs/lobo.png'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default props =>
-    <aside className="logo">
+    <aside className="logo is-primary">
         <Link to="/" className="logo">
-            <img src={logo} alt="logo" />
+            <img src="https://bulma.io/images/bulma-logo.png" alt=""/>
         </Link>
     </aside>

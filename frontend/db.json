@@ -1,23 +1,23 @@
 {
   "users": [
     {
-      "id": 1,
       "name": "Hugo Dieb Araujo",
-      "email": "dieb@dieb.com"
+      "email": "dieb7@dieb.com",
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Itamara SantAnna",
-      "email": "mara@mara.com"
+      "email": "hugodieb.hd@gmail.com",
+      "id": 2
     },
     {
-      "name": "Sheik Dog",
-      "email": "sheik@sheik.com",
+      "name": "Itamara SantAnna",
+      "email": "hugodieb.py@gmail.com",
       "id": 3
     },
     {
-      "name": "Lucas",
-      "email": "l@l.com",
+      "name": "Hugo Dieb",
+      "email": "dieb7@dieb.com",
       "id": 4
     }
   ],

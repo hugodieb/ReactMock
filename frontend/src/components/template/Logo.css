@@ -1,12 +1,13 @@
 aside.logo {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-danger);
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 64px;
 }
 
 aside.logo img {
-    padding: 0px 0px;
+    padding: 25px 25px;
     width: 100%;
 }
 

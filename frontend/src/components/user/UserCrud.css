@@ -1,3 +1,7 @@
-div.columns.is-centered.gp-button {
-    margin-top: 50px;
+.gp-button {
+    margin-top: 20px;
+}
+
+.tbl-users {
+    width: 100%;
 }

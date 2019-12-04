@@ -71,54 +71,53 @@ export default class UserCrud extends Component {
 
     renderForm() {
         return (
-            <div className="form">               
-                <section className="hero is-primary">
-                    <div className="hero-body">
-                        <div className="container">
-                            <div className="columns is-centered">
-                                <div className="column is-two-fifths">
-                                    <div className="field">
-                                        <div className="control">
-                                            <input className="input is-primary" type="text" name="name"
-                                            value={this.state.user.name}
-                                            onChange={e => this.updateField(e)}
-                                            placeholder="Digite seu nome..." />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="column is-two-fifths">
-                                    <div className="field">
-                                        <div className="control">
-                                            <input className="input is-primary" type="text" name="name"
-                                            value={this.state.user.email}
-                                            onChange={e => this.updateField(e)}
-                                            placeholder="Digite seu email..." />
-                                        </div>
+                          
+            <section className="hero is-primary">
+                <div className="hero-body">
+                    <div className="container">
+                        <div className="columns is-centered">
+                            <div className="column is-two-fifths">
+                                <div className="field">
+                                    <div className="control">
+                                        <input className="input is-primary" type="text" name="name"
+                                        value={this.state.user.name}
+                                        onChange={e => this.updateField(e)}
+                                        placeholder="Digite seu nome..." />
                                     </div>
                                 </div>
                             </div>
-                            <div className="columns is-centered gp-button">
-                                <button className="button is-small is-warning"
-                                    onClick={e => this.save(e)}
-                                    disabled={this.state.validField}>
-                                    Salvar
-                                </button>
-                                <button className="button is-small is-warning has-m-left-5"
-                                    onClick={e => this.clear(e)}>
-                                    Cancelar
-                                </button>
+                            <div className="column is-two-fifths">
+                                <div className="field">
+                                    <div className="control">
+                                        <input className="input is-primary" type="text" name="email"
+                                        value={this.state.user.email}
+                                        onChange={e => this.updateField(e)}
+                                        placeholder="Digite seu email..." />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>                                       
-                </section>
-                <hr/>
-            </div>                
+                        <div className="columns is-centered gp-button">
+                            <button className="button is-small is-warning"
+                                onClick={e => this.save(e)}
+                                disabled={this.state.validField}>
+                                Salvar
+                            </button>
+                            <button className="button is-small is-warning has-m-left-5"
+                                onClick={e => this.clear(e)}>
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>                                                      
+            </section>              
+                            
         )
     }
 
     renderTable() {
         return (
-            <table className="table is-responsive">
+            <table className="table is-responsive tbl-users has-m-top-5">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -151,7 +150,7 @@ export default class UserCrud extends Component {
                             onClick={() => this.load(user)}>
                             <i className="fa fa-pencil"></i>
                         </button>
-                        <button className="button is-small is-danger"
+                        <button className="button is-small is-danger has-m-left-3"
                             onClick={() => this.remove(user)}>
                             <i className="fa fa-trash"></i>
                         </button>
@@ -165,6 +164,7 @@ export default class UserCrud extends Component {
         return (
             <Main {...headerProps}>
                 {this.renderForm()}
+                <hr/>
                 {this.renderTable()}
             </Main>
         )

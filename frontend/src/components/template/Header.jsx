@@ -45,9 +45,7 @@ class Header extends Component {
         return (
             <nav className="navbar is-danger" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <Link to="/" className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-logo.png" alt=""/>
-                    </Link>
+                    
                     <Link to="" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
