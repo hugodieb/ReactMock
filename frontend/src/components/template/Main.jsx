@@ -5,9 +5,11 @@ import Header from '@components/template/Header'
 export default props =>
     <React.Fragment>
         <Header />
-        <main className="content container-fluid">
-            <div className="p-3 mt-3">
-                {props.children}                
+        <section className="hero is-primary is-bold">
+            <div className="hero-body">
+                <div className="container">
+                    {props.children}                        
+                </div>
             </div>
-        </main>
+        </section>        
     </React.Fragment>

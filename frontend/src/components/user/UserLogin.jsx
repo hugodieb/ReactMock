@@ -47,50 +47,20 @@ class LoginUser extends Component {
   } 
 
   renderFormLogin() {
-      return (
-        
-        //<div className="card card-login">
-        //  <div className="card-body">
-        //    <div className="row justify-content-center">
-        //    <div className="col-8 ">                          
-        //      <div className="row align-items-center mt-4">
-        //        <div className="col-12">                  
-        //          <h1 className="mb-4">Vamos logar meu caro...!</h1>                
-        //          <input id="mainInput" type="email" name="email" value={this.state.input_data.email}
-        //           onChange={e => this.inputDataValue(e)}
-        //           className="form-control" placeholder="Email" />
-        //        </div>
-        //      </div>
-        //      <div className="row align-items-center mt-4">
-        //        <div className="col">
-        //          <input type="password" name="password" value={this.state.input_data.password}
-        //          onChange={e => this.inputDataValue(e)}
-        //           className="form-control" placeholder="Password" />
-        //        </div>            
-        //      </div>
-        //      <div className="row justify-content-start mt-4">
-        //        <div className="col">
-        //            <button className="btn btn-login btn-lg btn-block"
-        //            onClick={e => this.login(e)}>Entrar</button>                   
-        //        </div>
-        //      </div>
-        //    </div>
-        //  </div>
-        //  </div>
-        //</div>        
-        <section className="hero is-success is-bold">
+      return (               
+        <section className="hero is-primary is-bold">
           <div className="hero-body">
             <div className="container">
               <div className="columns is-centered">
                 <div className="column is-5-tablet is-4-desktop is-3-widescreen">
-                  <form action="" className="box">
+                  
                     <div className="field">
                       <label className="label">Email</label>
                       <div className="control has-icons-left">
-                        <input type="email" name="email" placeholder="bobsmith@gmail.com"
+                        <input type="email" className="input" name="email" placeholder="bobsmith@gmail.com"
                          value={this.state.input_data.email}
                          onChange={e => this.inputDataValue(e)} 
-                         className="input" required                           
+                         required                           
                         />
                         <span className="icon is-small is-left">
                           <i className="fa fa-envelope"></i>
@@ -100,10 +70,10 @@ class LoginUser extends Component {
                     <div className="field">
                       <label className="label">Password</label>
                       <div className="control has-icons-left">
-                        <input type="password" placeholder="*******" name="password"
+                        <input type="password" className="input" placeholder="*******" name="password"
                          value={this.state.input_data.password}
                          onChange={e => this.inputDataValue(e)}
-                         className="input" required                           
+                         required                           
                         />
                         <span className="icon is-small is-left">
                           <i className="fa fa-lock"></i>
@@ -115,7 +85,7 @@ class LoginUser extends Component {
                         Login
                       </button>
                     </div>
-                  </form>
+                  
                 </div>
               </div>
             </div>

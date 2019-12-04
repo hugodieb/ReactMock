@@ -1,3 +1,4 @@
+import './UserCrud.css'
 import React, { Component } from 'react'
 import Main from '@components/template/Main'
 import AppApi from '~apijs'
@@ -70,61 +71,61 @@ export default class UserCrud extends Component {
 
     renderForm() {
         return (
-            <div className="form">
-                <div className="row">
-                    <div className="col-12 col-md-6">
-                        <div className="form-group">
-                            <label>Nome</label>
-                            <input type="text" className="form-control"
-                                name="name"
-                                value={this.state.user.name}
-                                onChange={e => this.updateField(e)}
-                                placeholder="Digite o nome..." />
+            <div className="form">               
+                <section className="hero is-primary">
+                    <div className="hero-body">
+                        <div className="container">
+                            <div className="columns is-centered">
+                                <div className="column is-two-fifths">
+                                    <div className="field">
+                                        <div className="control">
+                                            <input className="input is-primary" type="text" name="name"
+                                            value={this.state.user.name}
+                                            onChange={e => this.updateField(e)}
+                                            placeholder="Digite seu nome..." />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="column is-two-fifths">
+                                    <div className="field">
+                                        <div className="control">
+                                            <input className="input is-primary" type="text" name="name"
+                                            value={this.state.user.email}
+                                            onChange={e => this.updateField(e)}
+                                            placeholder="Digite seu email..." />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="columns is-centered gp-button">
+                                <button className="button is-small is-warning"
+                                    onClick={e => this.save(e)}
+                                    disabled={this.state.validField}>
+                                    Salvar
+                                </button>
+                                <button className="button is-small is-warning has-m-left-5"
+                                    onClick={e => this.clear(e)}>
+                                    Cancelar
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div className="col-12 col-md-6">
-                        <div className="form-group">
-                            <label>E-mail</label>
-                            <input type="text" className="form-control"
-                                name="email"
-                                value={this.state.user.email}
-                                onChange={e => this.updateField(e)}
-                                placeholder="Digite o e-mail..." />
-                        </div>
-                    </div>
-                </div>
-
-                <hr />
-                <div className="row">
-                    <div className="col-12 d-flex justify-content-end">
-                        <button className="btn btn-primary"
-                            onClick={e => this.save(e)}
-                            disabled={this.state.validField}>
-                            Salvar
-                        </button>
-
-                        <button className="btn btn-secondary ml-2"
-                            onClick={e => this.clear(e)}>
-                            Cancelar
-                        </button>
-                    </div>
-                </div>
-            </div>
+                    </div>                                       
+                </section>
+                <hr/>
+            </div>                
         )
     }
 
     renderTable() {
         return (
-            <table className="table table-hover mt-4">
+            <table className="table is-responsive">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
                         <th>E-mail</th>
                         <th>Ações</th>
-                        <th><button type="button"
-                                    className="btn btn-link btn-sm"
+                        <th><button className="button is-small is-warning"
                                     onClick={() => this.sortList()}>
                                 <i className="fa fa-sort" aria-hidden="true"></i>
                             </button>
@@ -146,11 +147,11 @@ export default class UserCrud extends Component {
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>
-                        <button className="btn btn-warning"
+                        <button className="button is-small is-warning"
                             onClick={() => this.load(user)}>
                             <i className="fa fa-pencil"></i>
                         </button>
-                        <button className="btn btn-danger ml-2"
+                        <button className="button is-small is-danger"
                             onClick={() => this.remove(user)}>
                             <i className="fa fa-trash"></i>
                         </button>
