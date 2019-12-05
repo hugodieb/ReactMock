@@ -1,24 +1,18 @@
 
-/* Altura da minha navbar */
-nav.navbar.is-danger {
-    height: 4rem;
+nav.navbar {
+    background-image: linear-gradient(141deg, #0b0638 0%, #8a4d76 71%, #a05079 100%);
 }
 
 /* Imagem avatar do usuario logado */
+.navbar-item img {
+    max-height: 5rem;
+}
+
 img.user-avatar {
     width: 50px;
     height: 50px;
     border: none;
     padding: unset;
     border-radius: 100%;
-    max-height: 80px;
-}
-
-/* Cor dos links no Header */
-div.navbar-item a {
-    color: #ffffff;
-}
-
-div.navbar-item a:hover {
-    color: #ece2e2;
+    
 }

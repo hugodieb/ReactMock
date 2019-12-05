@@ -26,7 +26,7 @@ class Header extends Component {
         if(!this.state.user) {
             return (
                 <div className="buttons">                   
-                    <Link to="/entrar" className="button is-success is-rounded">
+                    <Link to="/entrar" className="button is-primary is-rounded">
                         <span className="icon">
                             <i className="fa fa-sign-in"></i>
                         </span>
@@ -43,7 +43,7 @@ class Header extends Component {
 
     render() {                    
         return (
-            <nav className="navbar is-danger" role="navigation" aria-label="main navigation">
+            <nav className="navbar is-bold" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     
                     <Link to="" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
