@@ -1,16 +1,21 @@
 import './App.sass'
-import 'font-awesome/css/font-awesome.min.css'
 import './App.css'
+import 'font-awesome/css/font-awesome.min.css'
 import React from 'react'
+import Routes from './Routes'
+import Nav from '@components/navbar/Nav'
+import Hero from '@components/hero-body/Hero-body'
+import Footer from '@components/footer/Footer'
+
 import { BrowserRouter } from 'react-router-dom'
 
-import Routes from './Routes'
-import Footer from '@components/template/Footer'
 
 export default props =>
-    <BrowserRouter>
+    <BrowserRouter>        
         <div className="app">           
-            <Routes />
-            <Footer />
+            <Nav/>
+            <Hero />
+            <Routes/>
+            <Footer />         
         </div>
     </BrowserRouter>

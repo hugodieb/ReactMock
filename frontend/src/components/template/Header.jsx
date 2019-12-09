@@ -43,23 +43,7 @@ class Header extends Component {
 
     render() {                    
         return (
-            <nav className="navbar is-bold" role="navigation" aria-label="main navigation">
-                <div className="navbar-brand">
-                    
-                    <Link to="" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </Link>                            
-                </div>
-                <div id="navbarBasicExample" className="navbar-menu">
-                   <div className="navbar-end">                        
-                        <div className="navbar-item">
-                            {this.loginButton()}
-                        </div>
-                    </div> 
-                </div>                
-            </nav>             
+            <h1>navbar</h1>           
         )        
     }
 }
