@@ -67,11 +67,11 @@ class Nav extends Component {
                                             <li><a href="/">Examples</a></li>                                            
                                         </ul>
                                         <span className="navbar-item">
-                                            <a className="button is-white is-outlined" href="/">
+                                            <a className="button is-white is-outlined" href="/entrar">
                                                 <span className="icon">
-                                                    <i className="fa fa-github"></i>
+                                                    <i className="fa fa-sign-in"></i>
                                                 </span>
-                                                <span title="Hello from the other side">View Source</span>
+                                                <span title="Hello from the other side">Entrar</span>
                                             </a>
                                         </span>
                                     </div>

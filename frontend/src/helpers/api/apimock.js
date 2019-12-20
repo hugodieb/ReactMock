@@ -14,8 +14,7 @@ const api = {
         return mockObject({description: 'funfa api mock sjsdjsdh'})
     },
     getUsers() {
-        let users = get(baseUrl + `/users`)
-        console.log(users)
+        let users = get(baseUrl + `/users`)        
         return users
     },
     saveUser(user) {
@@ -26,6 +25,10 @@ const api = {
     },
     removeUser(user) {
         return remove(baseUrl + `/users/${user.id}`, user)        
+    },
+    getCards() {
+        let cards = get(baseUrl + `/cards`)
+        return cards
     },
     login(email, password) {
         if(password) {        
