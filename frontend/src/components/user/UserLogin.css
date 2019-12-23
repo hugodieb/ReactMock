@@ -1,21 +1,49 @@
-.card-login .card-body h1 {
-    color: coral;
-    font-size: 1.5rem;
+.hero.is-success {
+  background: #F2F6FA;
+}
+.hero .hero.is-success {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
-.btn-login {
-    background-color: var(--bg-orange);
-    color: white;
+h3.title.has-text-black {
+    color: black !important;
 }
 
-.btn-login:hover {
-    background-color: #f56d13;
-    color: white;
+p.subtitle.has-text-black {
+    color: black !important;
+    padding: 0px;
 }
 
-.card-login {
-    margin: auto;
-    width: 35rem;
-    border: 2px solid rgba(90, 0, 0, .300);
-    border-radius: 1.25rem;
+.box {
+  margin-top: 5rem;
+}
+.avatar {
+  margin-top: -70px;
+  padding-bottom: 20px;
+}
+.avatar img {
+  padding: 5px;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+}
+input {
+  font-weight: 300;
+}
+p {
+  font-weight: 700;
+}
+
+.login-hr{
+  border-bottom: 1px solid black;
+}
+
+.field{
+  padding-bottom: 10px;
+}
+
+.fa{
+  margin-left: 5px; 
 }

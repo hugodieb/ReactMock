@@ -1,4 +1,5 @@
 import './UserLogin.css'
+//import './userlogin.js'
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
@@ -32,13 +33,13 @@ class LoginUser extends Component {
     }
   }
 
-  login() {
-    debugger    
+  login() {        
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
     AppApi.login(email, password).then(userCurrent => {                        
       this.props.dispatch(loginUserAction(userCurrent))
       const { loggedUser } = this.props
+      debugger
       if(loggedUser) {
         Auth.authentication()
         this.props.history.push('/')  
@@ -48,14 +49,47 @@ class LoginUser extends Component {
 
   renderFormLogin() {
       return (               
-        <h1>login</h1>
+        <div className="box">
+          <figure className="avatar">
+            <img src="https://cdn.icon-icons.com/icons2/1146/PNG/128/1486485581-account-audience-person-customer-profile-user_81164.png"
+             alt="avatar"/>
+          </figure>
+          
+            <div className="field">
+              <div className="control">
+                <input type="email" className="input is-medium" name="email" value={this.state.input_data.email}
+                 onChange={e => this.inputDataValue(e)}
+                 placeholder="Seu email" autoFocus="" required/>
+              </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <input type="password" className="input is-medium" name="password" value={this.state.input_data.password}
+                 onChange={e => this.inputDataValue(e)}
+                 placeholder="Sua senha" required/>
+              </div>
+            </div>            
+            <button className="button is-block is-info is-large is-fullwidth"
+             onClick={e => this.login(e)}>Login 
+              <i className="fa fa-sign-in" aria-hidden="true"></i></button>
+          
+        </div>
       )
   }
 
   render() {
       return (
           <Main>
-              {this.renderFormLogin()}
+              <section className="hero is-success is-fullheight">
+                <div className="">
+                  <div className="container has-text-centered">
+                    <div className="column is-6 is-offset-3">                      
+                      <p className="subtitle has-text-black">Acesso ao seu login.</p>
+                      {this.renderFormLogin()}
+                    </div>
+                  </div>
+                </div>
+              </section>
           </Main>
           
       )

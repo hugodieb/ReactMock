@@ -71,7 +71,7 @@ class Nav extends Component {
                                                 <span className="icon">
                                                     <i className="fa fa-sign-in"></i>
                                                 </span>
-                                                <span title="Hello from the other side">Entrar</span>
+                                                <span title="Começe seu login por aqui...">Entrar</span>
                                             </a>
                                         </span>
                                     </div>
