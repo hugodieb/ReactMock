@@ -4,9 +4,16 @@
 
 div .hero-baner {
     width: 101%;
+    margin-bottom: 40px;
 }
 
 div .hero-baner .hero-img {
     height: 400px;
     width: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+    div .hero-baner .hero-img {
+        height: 150px;        
+    }
+} 

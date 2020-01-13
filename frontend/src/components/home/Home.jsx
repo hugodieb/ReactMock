@@ -35,8 +35,9 @@ class Home extends Component {
                 subtitle="Seu projeto React com uso de dados mock"
             >
                 <Hero />
-                <section className="container ">
-                    <div className="row columns is-multiline features">
+                <section className="container ">                
+                    <h4 className="title is-4 ">Escolha o modelo da sua loja \o/</h4>
+                    <div className="row columns is-multiline features">                        
                         {this.renderCard()}
                     </div>                  
                 </section>                

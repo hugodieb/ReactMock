@@ -1,3 +1,14 @@
 .hero.nav-hero {
-    background-color: #25f78c;
+    background-color: #ff922f;
+}
+
+.button.is-text {
+    text-decoration: none;
+    color: white;
+}
+
+.button.is-text:hover {
+    background: rgba(255, 255, 255, 0.24);
+    color: white;
+    
 }

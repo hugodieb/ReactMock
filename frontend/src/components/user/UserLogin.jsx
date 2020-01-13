@@ -1,7 +1,5 @@
 import './UserLogin.css'
-//import './userlogin.js'
 import React, { Component } from 'react'
-
 import { connect } from 'react-redux'
 import Main from '@components/template/Main'
 import { loginUserAction } from '../../actions/auth'
@@ -99,6 +97,5 @@ class LoginUser extends Component {
 const mapStateToProps = store => ({  
   loggedUser: store.authLogin.response
 })
-
 
 export default connect(mapStateToProps)(LoginUser)

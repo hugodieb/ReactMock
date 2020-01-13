@@ -24,7 +24,11 @@ class Nav extends Component {
         }       
     }
 
-    logout() {        
+    Renderlogin() {
+        this.props.history.push('/entrar')
+    }
+
+    Renderlogout() {        
         AppApi.logout().then(user => {
             this.props.dispatch(loginUserAction(user))
             Auth.authentication()
@@ -32,14 +36,26 @@ class Nav extends Component {
         })
     }
 
-    btnLogout() {        
+    RenderLoginLogout() {        
         if(this.state.user) {
             return (
-                <div className="btn-out">
-                    <button className="btn btn-link"
-                        onClick={() => this.logout()}><i className="fa fa-sign-out"></i> Sair</button>
-                </div>  
+                <button className="button is-white is-outlined" onClick={() => this.Renderlogout()}>
+                    <span className="icon">
+                        <i className="fa fa-sign-out"></i>
+                    </span>
+                    <span >Sair</span>
+                </button>                 
             )           
+        } else {
+            return (
+                <button className="button is-white is-outlined" onClick={() => this.Renderlogin()}>
+                    <span className="icon">
+                        <i className="fa fa-sign-in"></i>
+                    </span>
+                    <span title="Começe seu login por aqui...">Entrar</span>
+                </button>
+            )
+            
         }
     }
 
@@ -62,17 +78,11 @@ class Nav extends Component {
                             <div id="navbarMenu" className="navbar-menu">
                                 <div className="navbar-end">
                                     <div className="tabs is-right">
-                                        <ul>
-                                            <li><a href="/">Home</a></li>
-                                            <li><a href="/">Examples</a></li>                                            
+                                        <ul>                                            
+                                            <li><button className="button is-text">Me ajude</button></li>                                            
                                         </ul>
                                         <span className="navbar-item">
-                                            <a className="button is-white is-outlined" href="/entrar">
-                                                <span className="icon">
-                                                    <i className="fa fa-sign-in"></i>
-                                                </span>
-                                                <span title="Começe seu login por aqui...">Entrar</span>
-                                            </a>
+                                            {this.RenderLoginLogout()}
                                         </span>
                                     </div>
                                 </div>
