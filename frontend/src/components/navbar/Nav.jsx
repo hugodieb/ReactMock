@@ -41,24 +41,34 @@ class Nav extends Component {
             return (                
                 <div className="navbar-item has-dropdown is-hoverable">
                     <span className="navbar-item is-drop">
-                        <i className="fa fa-user-circle fa-2x is-white" aria-hidden="true"></i>
+                        <i className="fa fa-user-circle fa-2x" aria-hidden="true"></i>
                     </span>
                     
                     <div className="navbar-dropdown is-right is-boxed">
+                        <div className="navbar-item">
+                            <div className="userprofile">
+                                <div className="avatar">
+                                    <i className="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+                                </div>                                
+                                <div className="user">
+                                    <span>Hugo Dieb</span><br/>
+                                    <span>dieb@dieb.com</span>
+                                </div>                              
+                                                                                                                       
+                            </div>                                                       
+                        </div>
+                        <hr className="dropdown-divider"></hr>                                
                         <a className="navbar-item" href="#">
-                            Overview
+                            Perfil
                         </a>
                         <a className="navbar-item" href="#">
-                            Modifiers
-                        </a>
-                        <a className="navbar-item" href="#">
-                            Columns
-                        </a>          
+                            Carrinho
+                        </a>                                  
                         <a className="navbar-item is-active" onClick={() => this.Renderlogout()}>
                             <span >Sair</span>
                         </a>
                     </div>                                    
-                </div>                 
+                </div>                            
             )           
         } else {
             return (
@@ -87,12 +97,15 @@ class Nav extends Component {
                         </span>
                     </div>
                     <div id="navbarExampleTransparentExample" className="navbar-menu">
-                        <div className="navbar-end">                                                                           
-                            <span className="navbar-item">
-                                <a className="button is-text is-nav">
-                                    <i class="fa fa-bell" aria-hidden="true"></i>
+                        <div className="navbar-end">
+                            <span className="navbar-item mb">
+                                <a className="button is-text is-help">
+                                    Ajuda
+                                </a>
+                                <a className="button is-text is-help">
+                                    Como Funciona
                                 </a>                                
-                            </span>                            
+                            </span>                                                                          
                             <span className="navbar-item">
                                 {this.RenderLoginLogout()}
                             </span>                                
