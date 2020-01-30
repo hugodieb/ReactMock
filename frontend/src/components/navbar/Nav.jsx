@@ -25,7 +25,7 @@ class Nav extends Component {
     }
 
     Renderlogin() {
-        this.props.history.push('/entrar')
+        this.props.history.push('/perfil/entrar')
     }
 
     Renderlogout() {        
