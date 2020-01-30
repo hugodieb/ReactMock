@@ -24,16 +24,40 @@ class Nav extends Component {
         }       
     }
 
-    Renderlogin() {
+    renderLogin() {
         this.props.history.push('/perfil/entrar')
     }
 
-    Renderlogout() {        
+    renderLogout() {        
         AppApi.logout().then(user => {
             this.props.dispatch(loginUserAction(user))
             Auth.authentication()
             this.props.history.push('/')
         })
+    }
+
+    ButtonsHelpNav() {
+        if(this.state.user) {
+            return (
+                <span>
+                   <a className="button is-text is-help">
+                        Descontos
+                    </a>
+                    <a className="button is-text is-help">
+                        Me ajude
+                    </a>
+                    <a className="button is-text is-help">
+                        <i className="fa fa-bell-o" aria-hidden="true"></i>
+                    </a>
+                </span>                
+            )
+        } else {
+            return (
+                <a className="button is-text is-help">
+                    Me ajude
+                </a>
+            )
+        }
     }
 
     RenderLoginLogout() {        
@@ -64,7 +88,7 @@ class Nav extends Component {
                         <a className="navbar-item" href="#">
                             Carrinho
                         </a>                                  
-                        <a className="navbar-item is-active" onClick={() => this.Renderlogout()}>
+                        <a className="navbar-item is-active" onClick={() => this.renderLogout()}>
                             <span >Sair</span>
                         </a>
                     </div>                                    
@@ -72,7 +96,7 @@ class Nav extends Component {
             )           
         } else {
             return (
-                <a className="button is-text is-nav" onClick={() => this.Renderlogin()}>
+                <a className="button is-text is-nav" onClick={() => this.renderLogin()}>
                     <span className="icon">
                         <i className="fa fa-sign-in"></i>
                     </span>
@@ -99,12 +123,7 @@ class Nav extends Component {
                     <div id="navbarExampleTransparentExample" className="navbar-menu">
                         <div className="navbar-end">
                             <span className="navbar-item mb">
-                                <a className="button is-text is-help">
-                                    Ajuda
-                                </a>
-                                <a className="button is-text is-help">
-                                    Como Funciona
-                                </a>                                
+                                {this.ButtonsHelpNav()}                                                                                                
                             </span>                                                                          
                             <span className="navbar-item">
                                 {this.RenderLoginLogout()}
