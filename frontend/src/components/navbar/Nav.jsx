@@ -28,6 +28,10 @@ class Nav extends Component {
         this.props.history.push('/perfil/entrar')
     }
 
+    renderProfile() {
+        this.props.history.push('/perfil')
+    }
+
     renderLogout() {        
         AppApi.logout().then(user => {
             this.props.dispatch(loginUserAction(user))
@@ -82,7 +86,7 @@ class Nav extends Component {
                             </div>                                                       
                         </div>
                         <hr className="dropdown-divider"></hr>                                
-                        <a className="navbar-item" href="#">
+                        <a className="navbar-item" onClick={() => this.renderProfile()}>
                             Perfil
                         </a>
                         <a className="navbar-item" href="#">

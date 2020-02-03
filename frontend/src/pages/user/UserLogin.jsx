@@ -34,7 +34,8 @@ class LoginUser extends Component {
   login() {        
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
-    AppApi.login(email, password).then(userCurrent => {                        
+    AppApi.login(email, password).then(userCurrent => {
+      debugger                        
       this.props.dispatch(loginUserAction(userCurrent))
       const { loggedUser } = this.props      
       if(loggedUser) {
@@ -68,27 +69,25 @@ class LoginUser extends Component {
             </div>            
             <button className="button is-block is-info is-large is-fullwidth"
              onClick={e => this.login(e)}>Login 
-              <i className="fa fa-sign-in" aria-hidden="true"></i></button>
-          
+              <i className="fa fa-sign-in" aria-hidden="true"></i></button>          
         </div>
       )
   }
 
   render() {
       return (
-          <Main>
-              <section className="hero is-success is-fullheight">
-                <div className="">
-                  <div className="container has-text-centered">
-                    <div className="column is-6 is-offset-3">                      
-                      <p className="subtitle has-text-black">Acesso ao seu login.</p>
-                      {this.renderFormLogin()}
-                    </div>
+        <Main>
+            <section className="hero is-success is-fullheight">
+              <div className="">
+                <div className="container has-text-centered">
+                  <div className="column is-6 is-offset-3">                      
+                    <p className="subtitle has-text-black">Acesso ao seu login.</p>
+                    {this.renderFormLogin()}
                   </div>
                 </div>
-              </section>
-          </Main>
-          
+              </div>
+            </section>
+        </Main>          
       )
   }
 }

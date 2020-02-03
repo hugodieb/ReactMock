@@ -31,9 +31,10 @@ const api = {
         return cards
     },
     login(email, password) {
+        debugger
         if(password) {        
-            let dbuser = get(baseUrl + `/user?email=${email}`)
-            loggedUser =  dbuser.then(response => loggedUser = response.data[0])
+            let dbuser = get(baseUrl + `/user`)
+            loggedUser =  dbuser.then(response => loggedUser = response.data)
             return mockObject(loggedUser).then(response => response.data)       
         } else
             return mockObject(loggedUser).then(response => response.data)
