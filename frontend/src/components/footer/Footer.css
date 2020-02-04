@@ -1,4 +1,7 @@
 footer.footer {
+    position: fixed;
+    bottom: 0rem;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -6,4 +9,10 @@ footer.footer {
     background-color: #FFF;
     box-shadow: var(--shadow);
     padding: 1rem;
+}
+
+@media screen and (max-width: 600) {
+    footer.footer {
+        position: relative;
+    }
 }

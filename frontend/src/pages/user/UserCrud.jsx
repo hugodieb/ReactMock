@@ -70,8 +70,7 @@ export default class UserCrud extends Component {
     }
 
     renderForm() {
-        return (
-                          
+        return (                          
             <section className="hero is-primary">
                 <div className="hero-body">
                     <div className="container">
