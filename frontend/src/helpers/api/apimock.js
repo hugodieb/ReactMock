@@ -30,8 +30,7 @@ const api = {
         let cards = get(baseUrl + `/cards`)
         return cards
     },
-    login(email, password) {
-        debugger
+    login(email, password) {        
         if(password) {        
             let dbuser = get(baseUrl + `/user`)
             loggedUser =  dbuser.then(response => loggedUser = response.data)

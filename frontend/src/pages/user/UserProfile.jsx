@@ -2,36 +2,56 @@ import './UserProfile.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Main from '@components/template/Main'
+//import formHelpers from '../../helpers/rules'
+import InputField from '@components/InputMask'
 
-class UserProfile extends Component {
+class UserProfile extends Component {  
   
-  validPhone(event) {
-    
+  state = {
+    user: {
+      
+    }
   }
 
-  saveProfile() {
+  componentWillMount() {    
+    const {loggedUser} = this.props
+    this.setState({user : loggedUser})
+    console.log(this.state.user);
+  }
 
+  updateField = (event, value) => {
+    debugger      
+    const user = { ...this.state.user }
+    user[event.target.name] = event.target.value
+    this.setState({user})    
   }
 
   render() {
+    
       return (
-        <Main>
+        <Main> 
+            <p>user: {this.state.user.name} </p>
+            <p>user: {this.state.user.email} </p>
+            <p>user: {this.state.user.cellphone} </p>            
             <section className="section">
               <div className="container">
                 <div id="contact">
-                  <h1 className="title">contact</h1>                 
-                  <form id="contact-form" action="" method="POST">
+                  <h1 className="title">Meu perfil</h1>                 
+                  <form id="contact-form">
                     <label className="label">Nome Completo</label>
                     <p className="control">
-                      <input name="name" className="input" type="text" required />
+                      <input name="name" className="input" type="text"
+                       value={this.state.user.name} onChange={e => this.updateField(e)} required />
                     </p>
                     <label className="label">Email</label>
                     <p className="control">
-                      <input name="email" className="input" type="text" required />
-                    </p>
+                      <input name="email" className="input" type="text"
+                       value={this.state.user.email} onChange={e => this.updateField(e)} required />
+                    </p>                 
                     <label className="label">Celular</label>
                     <p className="control">
-                      <input name="name" className="input" type="text" required />
+                      <InputField className="input"  name="cellphone"
+                        value={this.state.user.cellphone} onChange={this.updateField} mask="phone"/>
                     </p>
                     <br/>
                     <br/>                    

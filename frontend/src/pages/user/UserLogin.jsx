@@ -34,8 +34,7 @@ class LoginUser extends Component {
   login() {        
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
-    AppApi.login(email, password).then(userCurrent => {
-      debugger                        
+    AppApi.login(email, password).then(userCurrent => {                            
       this.props.dispatch(loginUserAction(userCurrent))
       const { loggedUser } = this.props      
       if(loggedUser) {

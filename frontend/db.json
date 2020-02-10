@@ -4,21 +4,6 @@
       "name": "Hugo Dieb Araujo",
       "email": "dieb7@dieb.com",
       "id": 1
-    },
-    {
-      "name": "Itamara SantAnna",
-      "email": "hugodieb.hd@gmail.com",
-      "id": 2
-    },
-    {
-      "name": "Itamara SantAnna",
-      "email": "hugodieb.py@gmail.com",
-      "id": 3
-    },
-    {
-      "name": "Hugo Dieb",
-      "email": "dieb7@dieb.com",
-      "id": 4
     }
   ],
   "user": 
@@ -26,13 +11,15 @@
       "id": 1,
       "username": "hugodieb",      
       "email": "dieb@dieb.com",
+      "name": "Hugo Dieb Araujo",
       "photo_url": "http://2.bp.blogspot.com/-EDeCS4EZk90/UvtXYCs3RHI/AAAAAAAAEho/4ImPv84mj5A/s1600/00COMODESENHAROPATOLINO(DODGER)-comodesenhar10.blogspot.com.br.gif",
+      "birth_date": "1973-03-07",
+      "cellphone": "12987654321",
+      "cpf": "",
       "permissions": [
         "ADMIN",
         "STAFF"
-      ],
-      "birth_date": "1973-03-07",
-      "cell-phone": "12987654321"
+      ]
     },
   "cards": [
     {
