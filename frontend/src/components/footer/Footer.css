@@ -4,8 +4,7 @@ footer.footer {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0 25px;
+    justify-content: flex-end;    
     background-color: #FFF;
     box-shadow: var(--shadow);
     padding: 1rem;

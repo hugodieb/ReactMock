@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import Main from '@components/template/Main'
 import Cards from '@components/template/Cards'
 import Hero from '@components/hero-body/Hero-body'
+import Footer from '@components/footer/Footer'
 import AppApi from '~apijs'
 
 const initialState = {
@@ -31,16 +32,15 @@ class Home extends Component {
     render() {        
         
         return (
-            <Main icon="home" title="Início"
-                subtitle="Seu projeto React com uso de dados mock"
-            >
+            <Main>
                 <Hero />
                 <section className="container ">                
                     <h4 className="title is-4 ">Escolha o modelo da sua loja \o/</h4>
                     <div className="row columns is-multiline features">                        
                         {this.renderCard()}
                     </div>                  
-                </section>                
+                </section>
+                <Footer />                
             </Main>
         )
     }

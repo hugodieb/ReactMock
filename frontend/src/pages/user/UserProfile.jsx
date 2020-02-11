@@ -29,15 +29,11 @@ class UserProfile extends Component {
   render() {
     
       return (
-        <Main> 
-            <p>user: {this.state.user.name} </p>
-            <p>user: {this.state.user.email} </p>
-            <p>user: {this.state.user.cellphone} </p>            
-            <section className="section">
-              <div className="container">
-                <div id="contact">
-                  <h1 className="title">Meu perfil</h1>                 
-                  <form id="contact-form">
+        <Main>               
+            <section className="container">              
+                <div className="profile">
+                  <h1 className="title is-white">Meu perfil</h1>                 
+                  <form>
                     <label className="label">Nome Completo</label>
                     <p className="control">
                       <input name="name" className="input" type="text"
@@ -54,13 +50,17 @@ class UserProfile extends Component {
                         value={this.state.user.cellphone} onChange={this.updateField} mask="phone"/>
                     </p>
                     <br/>
-                    <br/>                    
-                    <p className="control">
-                      <input className="button is-disabled is-primary" type="submit" value="Salvar alterações" />
-                    </p>
+                    <br/>
+                    <div className="field is-grouped">
+                      <div className="control">
+                        <button className="button is-link">Cancelar</button>
+                      </div>
+                      <div className="control">
+                        <button className="button is-link">Salvar Alterações</button>
+                      </div>
+                    </div>                   
                   </form>                
-                </div>
-              </div>            
+                </div>                        
             </section>
         </Main>          
       )

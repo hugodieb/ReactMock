@@ -3,5 +3,8 @@ import React from 'react'
 
 export default props =>
     <React.Fragment>
-        {props.children}                      
+        <div className="main">
+        {props.children} 
+        </div>
+                             
     </React.Fragment>
