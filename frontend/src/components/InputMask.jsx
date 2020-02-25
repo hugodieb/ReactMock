@@ -25,7 +25,6 @@ class InputField extends Component {
     }
     
     phone = (e) => {
-        debugger
         let v = ''
         e !== null ? v = e.target.value : v = this.props.value              
         v = v.replace(/\D/g, "")

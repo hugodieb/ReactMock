@@ -9,9 +9,10 @@
   "user": 
     {
       "id": 1,
-      "username": "hugodieb",      
+      "username": "hugodieb",
+      "name": "Hugo Dieb Araujo",      
       "email": "dieb@dieb.com",
-      "name": "Hugo Dieb Araujo",
+      "fullname": "Hugo Dieb Araujo",
       "photo_url": "http://2.bp.blogspot.com/-EDeCS4EZk90/UvtXYCs3RHI/AAAAAAAAEho/4ImPv84mj5A/s1600/00COMODESENHAROPATOLINO(DODGER)-comodesenhar10.blogspot.com.br.gif",
       "birth_date": "1973-03-07",
       "cellphone": "12987654321",

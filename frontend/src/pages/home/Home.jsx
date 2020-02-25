@@ -21,8 +21,7 @@ class Home extends Component {
     }
 
     renderCard() {
-        return this.state.listCards.map(card => {
-            console.log(card.title)
+        return this.state.listCards.map(card => {            
             return (
                 <Cards key={card.id} title={card.title} description={card.description} image={card.image}/>
             )

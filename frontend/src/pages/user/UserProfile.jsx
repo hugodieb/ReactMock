@@ -2,30 +2,30 @@ import './UserProfile.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Main from '@components/template/Main'
-//import formHelpers from '../../helpers/rules'
+import { snackbarOpen } from '../../actions/snackbar'
 import InputField from '@components/InputMask'
 
 class UserProfile extends Component {  
   
   state = {
-    user: {
-      
-    }
+    user: {}
   }
 
-  componentWillMount() {    
-    const {loggedUser} = this.props
-    this.setState({user : loggedUser})
-    console.log(this.state.user);
-  }
+  componentWillMount() {
+    const { loggedUser } = this.props
+    this.setState({user : loggedUser})    
+  } 
 
-  updateField = (event, value) => {
-    debugger      
-    const user = { ...this.state.user }
+  updateField = (event, value) => {         
+    const { user } = { ...this.state.user }
     user[event.target.name] = event.target.value
     this.setState({user})    
   }
 
+  saveProfile = e => {
+    e.preventDefault();            
+    this.props.dispatch(snackbarOpen({message: "Perfil atualizado com sucesso!", color: "success"}))            
+  }
   render() {
     
       return (
@@ -33,7 +33,7 @@ class UserProfile extends Component {
             <section className="container">              
                 <div className="profile">
                   <h1 className="title is-white">Meu perfil</h1>                 
-                  <form>
+                  <form onSubmit={this.saveProfile}>
                     <label className="label">Nome Completo</label>
                     <p className="control">
                       <input name="name" className="input" type="text"
@@ -56,10 +56,12 @@ class UserProfile extends Component {
                         <button className="button is-link">Cancelar</button>
                       </div>
                       <div className="control">
-                        <button className="button is-link">Salvar Alterações</button>
+                        <button className="button is-link"
+                          type="submit"
+                        >Salvar Alterações</button>
                       </div>
                     </div>                   
-                  </form>                
+                  </form>                                  
                 </div>                        
             </section>
         </Main>          

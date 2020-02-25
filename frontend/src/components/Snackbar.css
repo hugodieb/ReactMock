@@ -1,0 +1,54 @@
+.snackbar {    
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    font-size: 0.85rem;
+    border-radius: 4px; /* Rounded borders */
+    padding: 20px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 5px; /* 30px from the bottom */
+}
+
+.success {
+    background: #4CAF50;
+}
+
+.warning {
+    background: #ff9800;
+}
+
+.error {
+    background: #f44336;
+}
+
+.default {
+    background: #000;
+}
+
+.show {     
+    -webkit-animation: fadein 1.0s, fadeout 1.0s 1.0s;
+    animation: fadeout 1.0s, fadein 1.0s;        
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: -50px; opacity: 0;}
+    to {bottom: 5px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: -50px; opacity: 0;}
+    to {bottom: 5px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: -50px; opacity: 1;}
+    to {bottom: 5px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: -50px; opacity: 1;}
+    to {bottom: 5px; opacity: 0;}
+}
