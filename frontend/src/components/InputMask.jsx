@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { phone }  from '../helpers/rules'
 
 const masks = ['cep', 'cpf', 'phone', 'date']
 
@@ -20,18 +21,20 @@ class InputField extends Component {
     selectMask = (event, masktype) => {
         switch(masktype) {
             case 'phone':
-                this.phone(event)
+                this.phoneMask(event)
         }  
     }
     
-    phone = (e) => {
+    phoneMask = (e) => {
         let v = ''
-        e !== null ? v = e.target.value : v = this.props.value              
+        e !== null ? v = e.target.value : v = this.props.value
+        debugger              
         v = v.replace(/\D/g, "")
         v = v.replace(/^(\d\d)(\d)/g,"($1)$2")
-        v = v.replace(/(\d{5})(\d)/,"$1-$2")
-        if(e) {
+        v = v.length < 13 ? v.replace(/(\d{4})(\d)/, "$1-$2") : v.replace(/(\d{5})(\d)/,"$1-$2")        
+        if(e) {            
             e.target.value = v
+            phone(e)
             this.setState({value: e.target.value})
             return this.props.onChange(e, v)
         } else {
@@ -48,7 +51,7 @@ class InputField extends Component {
                 className={this.props.className}
                 name={this.props.name}
                 value={this.state.value}
-                onChange={e => this.whatmask(e, this.props.mask)}                                                      
+                onChange={e => this.whatmask(e, this.props.mask)}                           
             />    
         )
     }

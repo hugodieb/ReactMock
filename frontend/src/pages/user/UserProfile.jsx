@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Main from '@components/template/Main'
 import { snackbarOpen } from '../../actions/snackbar'
 import InputField from '@components/InputMask'
+import { fullname, email, phone }  from '../../helpers/rules'
 
 class UserProfile extends Component {  
   
@@ -16,8 +17,8 @@ class UserProfile extends Component {
     this.setState({user : loggedUser})    
   } 
 
-  updateField = (event, value) => {         
-    const { user } = { ...this.state.user }
+  updateField = (event, value) => {
+    const user  = { ...this.state.user }
     user[event.target.name] = event.target.value
     this.setState({user})    
   }
@@ -36,12 +37,12 @@ class UserProfile extends Component {
                   <form onSubmit={this.saveProfile}>
                     <label className="label">Nome Completo</label>
                     <p className="control">
-                      <input name="name" className="input" type="text"
+                      <input name="name" className="input" type="text" onInput={e => fullname(e)}
                        value={this.state.user.name} onChange={e => this.updateField(e)} required />
                     </p>
                     <label className="label">Email</label>
                     <p className="control">
-                      <input name="email" className="input" type="text"
+                      <input name="email" className="input is-info" type="text" onInput={e =>  email(e)}
                        value={this.state.user.email} onChange={e => this.updateField(e)} required />
                     </p>                 
                     <label className="label">Celular</label>

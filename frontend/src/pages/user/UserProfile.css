@@ -16,6 +16,10 @@
     color:white;
 }
 
+.profile form .control {
+    margin-bottom: 5px;
+}
+
 .field.is-grouped {
     justify-content: flex-end;
 }
