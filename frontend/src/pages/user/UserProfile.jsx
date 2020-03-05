@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import Main from '@components/template/Main'
 import { snackbarOpen } from '../../actions/snackbar'
 import InputField from '@components/InputMask'
-import { fullname, email, phone }  from '../../helpers/rules'
+import { fullname, email }  from '../../helpers/rules'
+import AppApi from '~apijs'
 
 class UserProfile extends Component {  
   
@@ -24,8 +25,14 @@ class UserProfile extends Component {
   }
 
   saveProfile = e => {
-    e.preventDefault();            
-    this.props.dispatch(snackbarOpen({message: "Perfil atualizado com sucesso!", color: "success"}))            
+    e.preventDefault()
+    debugger
+    const user = {...this.state.user}
+    AppApi.saveProfile(user).then(response => {
+      debugger
+      const resp = response.data
+      this.props.dispatch(snackbarOpen({message: "Perfil atualizado com sucesso!", color: "success"}))
+    })              
   }
   render() {
     
@@ -33,16 +40,21 @@ class UserProfile extends Component {
         <Main>               
             <section className="container">              
                 <div className="profile">
-                  <h1 className="title is-white">Meu perfil</h1>                 
+                  <h1 className="title is-white">Editar perfil</h1>                 
                   <form onSubmit={this.saveProfile}>
                     <label className="label">Nome Completo</label>
                     <p className="control">
                       <input name="name" className="input" type="text" onInput={e => fullname(e)}
                        value={this.state.user.name} onChange={e => this.updateField(e)} required />
                     </p>
+                    <label className="label">Cpf</label>
+                    <p className="control">
+                      <InputField className="input"  name="cpf"
+                        value={this.state.user.cpf} onChange={this.updateField} mask="cpf"/>
+                    </p>
                     <label className="label">Email</label>
                     <p className="control">
-                      <input name="email" className="input is-info" type="text" onInput={e =>  email(e)}
+                      <input name="email" className="input" type="text" onInput={e =>  email(e)}
                        value={this.state.user.email} onChange={e => this.updateField(e)} required />
                     </p>                 
                     <label className="label">Celular</label>
@@ -54,7 +66,9 @@ class UserProfile extends Component {
                     <br/>
                     <div className="field is-grouped">
                       <div className="control">
-                        <button className="button is-link">Cancelar</button>
+                        <button className="button is-link"
+                         onClick={() => this.props.history.push("home")}>Cancelar
+                        </button>
                       </div>
                       <div className="control">
                         <button className="button is-link"

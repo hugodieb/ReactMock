@@ -23,12 +23,18 @@ const api = {
         } else
             return post(baseUrl + `/users`, user)
     },
+    saveProfile(user) {
+        debugger
+        if (user.id) {
+            return put(baseUrl + `/user`, user)
+        }
+    },
     removeUser(user) {
         return remove(baseUrl + `/users/${user.id}`, user)        
     },
     getCards() {
         let cards = get(baseUrl + `/cards`)
-        return cards
+        return mockObject(cards).then(response => response.data)
     },
     login(email, password) {        
         if(password) {        

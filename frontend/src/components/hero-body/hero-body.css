@@ -1,19 +1,36 @@
-.hero.hero-body {
-    background-color: #030840ff;
-}
+
 
 div .hero-baner {
-    width: 101%;
+    width: 100%;
     margin-bottom: 40px;
+    text-align:center;
+    align-items: center;
+    padding:0;
+    border:0 none;   
 }
 
-div .hero-baner .hero-img {
-    height: 400px;
-    width: 100%;
+div .hero-baner h1 {
+    position:absolute;
+    z-index:1;
+    top:33%;
+    left: 30%;   
+    color: white;    
+}
+
+div .hero-baner h4 {
+    position:absolute;
+    z-index:1;
+    top:45%;
+    left: 25%;
+    color: white;   
 }
 
 @media only screen and (max-width: 600px) {
+    div .hero-baner .title {
+        display: none;
+    }
+
     div .hero-baner .hero-img {
-        height: 150px;        
+        height: 180px;        
     }
 } 

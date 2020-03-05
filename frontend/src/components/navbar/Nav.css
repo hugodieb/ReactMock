@@ -1,10 +1,11 @@
 .hero.nav-hero {
-    background-color: #ff922f;
+    background-color: #fbb77a;        
+    width: 100%;    
 }
 
 @media screen and (min-width: 1024px){
     .navbar-dropdown.is-boxed {
-        top: calc(100% + (5px));
+        top: calc(100% + (10px));
         width: 12rem;
     }
     

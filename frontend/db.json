@@ -1,27 +1,19 @@
 {
-  "users": [
-    {
-      "name": "Hugo Dieb Araujo",
-      "email": "dieb7@dieb.com",
-      "id": 1
-    }
-  ],
-  "user": 
-    {
-      "id": 1,
-      "username": "hugodieb",
-      "name": "Hugo Dieb Araujo",      
-      "email": "dieb@dieb.com",
-      "fullname": "Hugo Dieb Araujo",
-      "photo_url": "http://2.bp.blogspot.com/-EDeCS4EZk90/UvtXYCs3RHI/AAAAAAAAEho/4ImPv84mj5A/s1600/00COMODESENHAROPATOLINO(DODGER)-comodesenhar10.blogspot.com.br.gif",
-      "birth_date": "1973-03-07",
-      "cellphone": "12987654321",
-      "cpf": "",
-      "permissions": [
-        "ADMIN",
-        "STAFF"
-      ]
-    },
+  "user": {
+    "id": 1,
+    "username": "hugodieb",
+    "name": "Hugo Dieb Araujo",
+    "email": "dieb@dieb.com",
+    "fullname": "Hugo Dieb Araujo",
+    "photo_url": "http://2.bp.blogspot.com/-EDeCS4EZk90/UvtXYCs3RHI/AAAAAAAAEho/4ImPv84mj5A/s1600/00COMODESENHAROPATOLINO(DODGER)-comodesenhar10.blogspot.com.br.gif",
+    "birth_date": "1973-03-07",
+    "cellphone": "(12)98868-1639",
+    "cpf": "247.073.088-05",
+    "permissions": [
+      "ADMIN",
+      "STAFF"
+    ]
+  },
   "cards": [
     {
       "id": 1,

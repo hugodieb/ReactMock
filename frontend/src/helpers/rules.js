@@ -1,7 +1,6 @@
-let errors = {}
+import { validarCpf }  from './validarCpf'
 
-export const phone = (event) => {
-    debugger    
+export const phone = (event) => {        
     let phone = event.target.value || ""
     //phone =  phone.replace(/\D/g, "")
     if(!phone) {
@@ -36,3 +35,15 @@ export const fullname = (event) => {
     }
     
 }
+
+export const cpf = event => {
+    const cpf = event.target.value || ""
+    if(!cpf) {
+        event.target.setCustomValidity('Kd seu cpf ?')
+    } else if(!validarCpf(cpf) ) {
+        event.target.setCustomValidity('Seu cpf parece inválido...')
+    } else {
+        event.target.setCustomValidity("")
+    }
+}
+
