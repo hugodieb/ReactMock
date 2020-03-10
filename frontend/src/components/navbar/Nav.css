@@ -5,7 +5,7 @@
 
 @media screen and (min-width: 1024px){
     .navbar-dropdown.is-boxed {
-        top: calc(100% + (10px));
+        top: calc(100% + (5px));
         width: 12rem;
     }
     

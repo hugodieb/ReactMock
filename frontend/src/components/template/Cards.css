@@ -1,3 +1,11 @@
+.card button {
+    background-color: #fbb77a;
+}
+
+.card a i {
+    color: #fbb77a;
+}
+
 @media(max-width: 576px) {
     .card {
         max-width: 95%;

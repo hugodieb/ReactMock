@@ -17,8 +17,9 @@ const Card = (props) => {
                         </div>
                     </div>
                     <div className="content">
-                        {props.description}                        
+                        {props.description}                                               
                     </div>
+                    <a className=""><i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>                                   
                 </div>
             </div>
         </div>            
