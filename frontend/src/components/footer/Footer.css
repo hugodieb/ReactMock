@@ -5,7 +5,7 @@ footer.footer {
     display: flex;
     align-items: center;
     justify-content: flex-end;    
-    background-color: #FFF;
+    background-color: rgb(3, 3, 3);
     box-shadow: var(--shadow);
     padding: 1rem;
 }

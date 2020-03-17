@@ -4,9 +4,9 @@ import React from 'react'
 const Card = (props) => {    
     return (        
         <div className="column is-one-third">
-            <div className="card large round">
+            <div className="card">
                 <div className="card-image ">
-                    <figure className="image">
+                    <figure className="image is-4by3">
                         <img src={props.image} alt="" />
                     </figure>
                 </div>
@@ -18,8 +18,15 @@ const Card = (props) => {
                     </div>
                     <div className="content">
                         {props.description}                                               
-                    </div>
-                    <a className=""><i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>                                   
+                    </div>                    
+                    <div className="columns is-vcentered">
+                        <div className="column">
+                            <a className="button is-outlined is-cart"><span><i className="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+                        </div>
+                        <div className="column is-4">
+                            <a href={props.url} className="button is-outlined is-orange"><span> Demo</span></a>                           
+                        </div>
+                    </div>                                  
                 </div>
             </div>
         </div>            

@@ -1,9 +1,29 @@
-.card button {
-    background-color: #fbb77a;
+.button.is-cart {
+    border-radius: 100%;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: rgb(245, 193, 98);
+    color: white;
 }
 
-.card a i {
-    color: #fbb77a;
+.button.is-cart:hover {
+    background-color: white;
+    border-color: rgb(245, 193, 98);
+    color: rgb(245, 193, 98);
+}
+
+.button.is-cart>span>i.fa {
+    margin-left: 0px;
+}
+
+.button.is-orange {
+    border-color: rgb(245, 193, 98);
+    color: rgb(245, 193, 98);
+}
+
+.button.is-orange:hover {
+    background-color: rgb(245, 193, 98);
+    color: white;
 }
 
 @media(max-width: 576px) {

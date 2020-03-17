@@ -5,3 +5,35 @@
 .image img {
     height: 12rem;
 }
+
+.hero-body {
+    background-color: white;
+    padding: 10px 0 30px 0;
+}
+
+.tile.is-child {
+    padding: 10px 10px 10px 10px;
+    background-color: rgb(245, 193, 98);
+}
+
+.shift h2 {
+    color: rgb(245, 193, 98);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
+    margin-bottom: 2rem;
+}
+
+
+
+@media screen and (min-width:1025px) {
+   .container.shift {
+       max-width: 900px;
+   }
+}
+
+@media screen and (max-width:600px) {
+   .container.shift {
+       max-width: 900px;
+   }
+}
