@@ -32,11 +32,15 @@ const api = {
     removeUser(user) {
         return remove(baseUrl + `/users/${user.id}`, user)        
     },
-    getCards() {
-        let cards = get(baseUrl + `/cards`)
-        return mockObject(cards).then(response => response.data)
+    async getTemplates() {
+        let templates = get(baseUrl + `/templates`)
+        return mockObject(templates).then(response => response.data)
     },
-    login(email, password) {        
+    async getTemplate() {
+        let template = get(baseUrl + `/templates/:title`)
+        return mockObject(template).then(response => response.data)
+    },
+    async login(email, password) {        
         if(password) {        
             let dbuser = get(baseUrl + `/user`)
             loggedUser =  dbuser.then(response => loggedUser = response.data)
@@ -45,7 +49,7 @@ const api = {
             return mockObject(loggedUser).then(response => response.data)
     },
     
-    logout() {
+    async logout() {
         loggedUser = null
         return mockObject(loggedUser).then(response => response.data)
     },

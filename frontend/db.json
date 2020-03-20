@@ -14,48 +14,54 @@
       "STAFF"
     ]
   },
-  "cards": [
+  "templates": [
     {
       "id": 1,
       "title": "Template one",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
       "image": "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
-      "url": "/demo/shopmax"
+      "demo": "/demo/shopmax",
+      "name": "shopmax"
     },
     {
       "id": 2,
       "title": "Template two",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
       "image": "https://themehunt.com/media/com_product/products/thumb/1526517/thumbnail.png",
-      "url": "/demo/komoto"
+      "demo": "/demo/komoto",
+      "name": "komoto"
     },
     {
       "id": 3,
       "title": "Template three",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
       "image": "https://colorlib.com/wp/wp-content/uploads/sites/2/electro-free-ecommerce-template.jpg",
-      "url": "/demo/electro"
+      "demo": "/demo/electro",
+      "name": "electro"
     },
     {
       "id": 4,
       "title": "Template four",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
       "image": "https://w3layouts.b-cdn.net/wp-content/uploads/2017/01/staple_food_Free23-01-2017_1568576992.jpg",
-      "url": "/demo/rapid-food"
+      "demo": "/demo/rapid-food",
+      "name": "rapid-food"
     },
     {
       "id": 5,
       "title": "Template five",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
       "image": "https://colorlib.com/wp/wp-content/uploads/sites/2/vegefoods-free-template.jpg",
-      "url": "/demo/vegefoods"
+      "demo": "/demo/vegefoods",
+      "name": "vegefoods"
     },
     {
       "id": 6,
       "title": "Template six",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
       "image": "https://colorlib.com/wp/wp-content/uploads/sites/2/fox-free-template.jpg",
-      "url": "/demo/school"
+      "demo": "/demo/school",
+      "name": "school"
     }
   ]
 }

@@ -14,7 +14,7 @@ import AppApi from '~apijs'
 const initialState = {
     listCards: [],
     articles: [
-        {
+        {   
             "title": "Modernidade",
             "subtitle": "Código em html, css, javascript moderno onde qualquer \
             desenvolvedor lê o código e já sai codificando conforme a necessidade do seu cliente.",
@@ -40,17 +40,17 @@ class Home extends Component {
     state = {...initialState}
 
     componentWillMount() {
-        AppApi.getCards().then(response => {
+        AppApi.getTemplates().then(response => {
             this.setState({listCards: response.data})            
         })
     }
 
     renderCard() {
-        return this.state.listCards.map(card => {            
+        return this.state.listCards.map(template => {            
             return (
-                <Cards key={card.id} title={card.title}
-                 description={card.description} image={card.image}
-                 url={card.url}
+                <Cards key={template.id} title={template.title}
+                 description={template.description} image={template.image}
+                 demo={template.demo} name={template.name}
                  />
             )
         })
@@ -59,7 +59,7 @@ class Home extends Component {
     renderArticle() {
         return this.state.articles.map( article => {
             return (
-                <div className="tile is-parent">
+                <div className="tile is-parent" key={article.title}>
                     <article className="tile is-child box">
                         <figure className="image">
                             <img src={article.img}/>
@@ -84,7 +84,7 @@ class Home extends Component {
                         {this.renderCard()}
                     </div>                  
                 </section>
-                <section className="section">
+                <section className="hero">
                     <div className="hero-body">                   
                         <div className="container shift has-text-centered">
                             <h2>Facilitando o seu tempo</h2>

@@ -4,6 +4,7 @@
     width: 2.5rem;
     background-color: rgb(245, 193, 98);
     color: white;
+    margin-right: 1rem;
 }
 
 .button.is-cart:hover {
@@ -24,6 +25,14 @@
 .button.is-orange:hover {
     background-color: rgb(245, 193, 98);
     color: white;
+}
+
+.card-image .image>a>img {
+    cursor: pointer;    
+}
+
+.card-image .image>a>img:hover {
+    opacity: 0.5;
 }
 
 @media(max-width: 576px) {

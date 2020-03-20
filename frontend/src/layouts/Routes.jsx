@@ -5,6 +5,7 @@ import Home from '../pages/home/Home'
 import UserCrud from '../pages/user/UserCrud'
 import UserProfile from '../pages/user/UserProfile'
 import UserLogin from '../pages/user/UserLogin'
+import Checkout from '../pages/checkout/Checkout'
 import Auth from '../services/auth'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -29,6 +30,7 @@ class Routes extends Component {
                 <PrivateRoute path='/users' component={UserCrud} />                
                 <Route path='/perfil/entrar' component={UserLogin} />
                 <PrivateRoute path='/perfil/' component={UserProfile} />
+                <Route path='/template/:name' component={Checkout} />
                 <Redirect from='*' to='/' />
             </Switch>
         )
