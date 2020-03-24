@@ -48,7 +48,7 @@ class Home extends Component {
     renderCard() {
         return this.state.listCards.map(template => {            
             return (
-                <Cards key={template.id} title={template.title}
+                <Cards key={template.id} id={template.id} title={template.title}
                  description={template.description} image={template.image}
                  demo={template.demo} name={template.name}
                  />

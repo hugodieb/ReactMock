@@ -25,11 +25,9 @@ class UserProfile extends Component {
   }
 
   saveProfile = e => {
-    e.preventDefault()
-    debugger
+    e.preventDefault()    
     const user = {...this.state.user}
-    AppApi.saveProfile(user).then(response => {
-      debugger
+    AppApi.saveProfile(user).then(response => {      
       const resp = response.data
       this.props.dispatch(snackbarOpen({message: "Perfil atualizado com sucesso!", color: "success"}))
     })              

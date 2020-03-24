@@ -7,8 +7,10 @@ const Card = (props) => {
         <div className="column is-one-third">
             <div className="card">
                 <div className="card-image ">
-                    <figure className="image is-4by3">                        
-                        <Link to={`/template/${props.name}`}><img src={props.image} alt="" /></Link>                        
+                    <figure className="image is-4by3">
+                        <Link to={{pathname: `template/${props.name}`, query: { id: props.id }}}>
+                            <img src={props.image} alt="" />
+                        </Link>                                       
                     </figure>
                 </div>
                 <div className="card-content">
@@ -21,8 +23,7 @@ const Card = (props) => {
                         {props.description}                                               
                     </div>                    
                     <div className="columns">
-                        <div className="column">
-                            <a className="button is-outlined is-cart"><span><i className="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+                        <div className="column">                            
                             <a href={props.demo} className="button is-outlined is-orange"><span> Demo</span></a>
                         </div>                        
                     </div>                                  
