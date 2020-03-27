@@ -7,7 +7,7 @@ html,body {
   .hero-body .container {
     max-width: 700px;
   }
-  .hero-body .title {
+  .hero-body .title { 
     color: hsl(192,17%,99%) !important;
   }
   .hero-body .subtitle {
