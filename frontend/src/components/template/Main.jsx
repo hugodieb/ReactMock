@@ -4,7 +4,8 @@ import React from 'react'
 export default props =>
     <React.Fragment>
         <div className="main">
-        {props.children} 
+            {window.scrollTo(0, 0)} 
+            {props.children} 
         </div>
                              
     </React.Fragment>

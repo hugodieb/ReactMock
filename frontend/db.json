@@ -63,5 +63,16 @@
       "demo": "/demo/school",
       "name": "school"
     }
-  ]
+  ],
+  "detail": {
+    "id": "",
+    "thumbnails" :[],
+    "originals": [],
+    "title": "",
+    "skul": "",
+    "price": "",
+    "pricePay": "",
+    "discount": "",
+    "descrption": ""
+  }
 }

@@ -21,7 +21,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     />
 )
 
-class Routes extends Component {
+class Routes extends Component {       
 
     render() {
         return (
