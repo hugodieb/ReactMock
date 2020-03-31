@@ -13,14 +13,16 @@ class Detail extends Component {
     componentWillMount() {                               
        const id = !this.props.location.query || undefined ? null : this.props.location.query.id
        const name = id ? null : this.props.match.params.name
-        
+       debugger 
        if(id) {
-           AppApi.getTemplate(id).then(resp => {
-               this.setState({template: resp.data})
+           AppApi.getTemplateDetail(id).then(resp => {
+               debugger
+               const r = resp
+               this.setState({template: resp})
            })
         } else {
             AppApi.filterTemplate(name).then(resp => {                
-                this.setState({template: resp.data[0]})
+                this.setState({template: resp})
             })
         }
     }
@@ -29,7 +31,8 @@ class Detail extends Component {
         this.props.history.push('/checkout')
     }
 
-    render() {        
+    render() {
+        debugger                
         const {template} = this.state
 
         return (
@@ -44,16 +47,16 @@ class Detail extends Component {
                     </div>
                     <div className="tile is-parent">
                         <article className="tile is-child box">
-                            <p className="title">Nome do meu Template</p>
-                            <p className="subtitle">BRWDMC8</p>
+                            <p className="title">{template.title}</p>
+                            <p className="subtitle">{template.sku}</p>
                             <div className="content">
-                                <h4>De: <span>R$ 120,00</span></h4>
-                                <h5><span>30%</span> de desconto \o/</h5>
+                                <h4>De: <span>R$ {template.price}</span></h4>
+                                <h5><span>{template.discount}</span> de desconto \o/</h5>
                                 <div className="por-price">
-                                    <h1>Por: R$ 89,99</h1>
+                                    <h1>Por: R$ {template.pricePay}</h1>
                                 </div>
                                 <div className="discount">
-                                    <h3>3x <span>sem juros</span> de R$ 29,99</h3>
+                                    <h3>{template.installments}x <span>sem juros</span> de R$ {template.pricePortions}</h3>
                                 </div>
                                 <hr/>
                                 <div className="pay">
@@ -72,18 +75,8 @@ class Detail extends Component {
                                 <hr/>
                                 <div className="description">
                                     <h2>Descrição</h2>
-                                    <p>Loja ecommerce com código  
-                                        <strong> HTML, CSS e JAVASCRIPT</strong> prontinhos
-                                        para voçê iniciar sua loja.
-                                        Seu cliente vai navegar no seu site de forma intuitiva e 
-                                        ágil.
-                                        Pagina de apresentação da sua loja(Home), página de
-                                        detalhe do produto, adicionar ao carrinho, checkout e
-                                        finalização do processo de compra.
-                                        Caso precise de auxilio, teremos muita satisfação em ajudar, 
-                                        inclusive temos nossos desenvolvedores que poderam orientá-lo
-                                        com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, 
-                                        podemos lhe oferecer também este serviço.                                     
+                                    <p>
+                                        {template.descrption}                                     
                                     </p>                                    
                                 </div>
                             </div>

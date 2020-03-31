@@ -64,15 +64,17 @@
       "name": "school"
     }
   ],
-  "detail": {
+  "template": {
     "id": "1",
-    "thumbnails" :["https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6t.jpg"],
-    "originals": ["https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6.jpg"],
+    "thumbnails" :["https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg"],
+    "originals": ["https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template.jpg"],
     "title": "Template one",
     "sku": "BRWDMC8",
-    "price": "120,00",
-    "pricePay": "89,99",
+    "price": "120.00",
+    "pricePay": "89.99",
     "discount": "30%",
-    "descrption": "Loja ecommerce com código <strong> HTML, CSS e JAVASCRIPT</strong> prontinhos para voçê iniciar sua loja. Seu cliente vai navegar no seu site de forma intuitiva e ágil. Pagina de apresentação da sua loja(Home), página de detalhe do produto, adicionar ao carrinho, checkout e finalização do processo de compra. Caso precise de auxilio, teremos muita satisfação em ajudar, inclusive temos nossos desenvolvedores que poderam orientá-lo com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, podemos lhe oferecer também este serviço."
+    "installments": "3",
+    "pricePortions": "29.99",
+    "descrption": "Loja ecommerce com código HTML, CSS e JAVASCRIPT prontinhos para voçê iniciar sua loja. Seu cliente vai navegar no seu site de forma intuitiva e ágil. Pagina de apresentação da sua loja(Home), página de detalhe do produto, adicionar ao carrinho, checkout e finalização do processo de compra. Caso precise de auxilio, teremos muita satisfação em ajudar, inclusive temos nossos desenvolvedores que poderam orientá-lo com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, podemos lhe oferecer também este serviço."
   }
 }

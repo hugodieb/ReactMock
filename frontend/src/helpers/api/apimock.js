@@ -36,12 +36,14 @@ const api = {
         let templates = get(baseUrl + `/templates`)
         return mockObject(templates).then(response => response.data)
     },
-    async getTemplate(id) {
-        let template = get(baseUrl + `/templates/${id}`)
+    async getTemplateDetail(id) {        
+        let template = get(baseUrl + `/template?id=${id}`)
+        template = template.then(response => response.data)
         return mockObject(template).then(response => response.data)
     },
     async filterTemplate(name) {       
-        let template = get(baseUrl + `/templates?name=${name}`)
+        let template = get(baseUrl + `/template?name=${name}`)
+        template = template.then(response => response.data)
         return mockObject(template).then(response => response.data)
     },
     async login(email, password) {        
