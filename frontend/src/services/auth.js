@@ -5,10 +5,12 @@ class Auth {
       this.authenticated = false
     }
     
-    authentication() {        
-        AppApi.whomi().then(response => {            
-            this.authenticated = response.data.authenticated
-        })         
+    authentication() {
+        return (        
+            AppApi.whomi().then(response => {                
+                this.authenticated = response.data.authenticated
+            })
+        )         
     }
   
     isAuthenticated() {

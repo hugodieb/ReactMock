@@ -36,10 +36,16 @@ class LoginUser extends Component {
     let password = this.state.input_data.password      
     AppApi.login(email, password).then(userCurrent => {                            
       this.props.dispatch(loginUserAction(userCurrent))
-      const { loggedUser } = this.props      
+      const { loggedUser } = this.props            
       if(loggedUser) {
-        Auth.authentication()
-        this.props.history.push('/')  
+        Auth.authentication().then( () => {          
+          if(Auth.isAuthenticated()){
+            const location = this.props.location.state
+            location ? this.props.history.push(location.from.pathname) : this.props.history.push('/')
+          } else {
+            this.props.history.push('/perfil/entrar')
+          }
+        })           
       }
     })             
   } 
