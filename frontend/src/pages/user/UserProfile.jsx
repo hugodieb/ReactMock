@@ -14,6 +14,7 @@ class UserProfile extends Component {
   }
 
   componentWillMount() {
+    debugger
     const { loggedUser } = this.props
     this.setState({user : loggedUser})    
   } 

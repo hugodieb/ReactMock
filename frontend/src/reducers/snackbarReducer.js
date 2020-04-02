@@ -4,7 +4,7 @@ const initState = {
     'timeout': 3000
 }
 
-export const snackbarReducer = (state = { ...initState }, action) => {
+export const snackbarReducer = (state = { ...initState }, action) => {    
     let newState = { ...state }
     const data = action.snack_data    
     switch(action.type) {

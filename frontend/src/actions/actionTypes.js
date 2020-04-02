@@ -5,3 +5,5 @@ export const USER_AUTH = 'USER_AUTH'
 export const TOAST_OPEN = 'TOAST_OPEN'
 
 export const TOAST_CLOSE = 'TOAST_CLOSE'
+
+export const TEMPLATE_DETAIL = 'TEMPLATE_DETAIL'

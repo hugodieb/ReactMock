@@ -1,7 +1,9 @@
 import './Detail.css'
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
 import Main from '@components/template/Main'
 import MyGallery from '@components/ImageGallery'
+import { templateDetailAction } from '../../actions/templateDetail'
 import AppApi from '~apijs'
 
 class Detail extends Component {
@@ -12,12 +14,9 @@ class Detail extends Component {
     
     componentWillMount() {                               
        const id = !this.props.location.query || undefined ? null : this.props.location.query.id
-       const name = id ? null : this.props.match.params.name
-       debugger 
+       const name = id ? null : this.props.match.params.name       
        if(id) {
-           AppApi.getTemplateDetail(id).then(resp => {
-               debugger
-               const r = resp
+           AppApi.getTemplateDetail(id).then(resp => {               
                this.setState({template: resp})
            })
         } else {
@@ -27,12 +26,12 @@ class Detail extends Component {
         }
     }
 
-    checkout() {
-        this.props.history.push('/checkout')
+    checkout() {        
+        this.props.history.push('/checkout')        
+        this.props.dispatch(templateDetailAction(this.state.template))
     }
 
     render() {
-        debugger                
         const {template} = this.state
 
         return (
@@ -85,6 +84,11 @@ class Detail extends Component {
                 </div>
             </Main>           
         )
-    }}
+    }
+}
 
-export default Detail
+const mapStateToProps = store => ({  
+    templateDetail: store.templateDetail.response
+})
+
+export default connect(mapStateToProps)(Detail)

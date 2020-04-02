@@ -6,6 +6,5 @@ export const snackbarOpen = (snack_data) => ({
 })
 
 export const snackbarClose = () => ({
-    type: types.TOAST_CLOSE
-    
+    type: types.TOAST_CLOSE    
 })
