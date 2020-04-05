@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import AppApi from '~apijs'
-import { loginUserAction } from '../../actions/auth'
+import { setCurrentUserAction } from '../../actions/auth'
 import Auth from '../../services/auth'
 
 class Nav extends Component {
@@ -34,7 +34,7 @@ class Nav extends Component {
 
     renderLogout() {        
         AppApi.logout().then(user => {
-            this.props.dispatch(loginUserAction(user))
+            this.props.dispatch(setCurrentUserAction(user))
             Auth.authentication()
             this.props.history.push('/')
         })
@@ -141,7 +141,7 @@ class Nav extends Component {
 }
 
 const mapStateToProps = store => ({  
-    loggedUser: store.authLogin.response
+    loggedUser: store.setCurrentUser.response
   })
 
 export default withRouter(connect(mapStateToProps)(Nav))

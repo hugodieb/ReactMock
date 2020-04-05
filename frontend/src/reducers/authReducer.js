@@ -1,13 +1,15 @@
 import * as types from '../actions/actionTypes'
 //import AppApi from '~apijs'
 
-export const authReducer = (state = {}, action) => {
-  const response = action.user
+export const currentUser = {}
+
+export const setCurrentUser = (state = {...currentUser}, action) => {    
   switch (action.type) {
-    case types.USER_AUTH:          
+    case types.USER_AUTH:      
+      Object.assign(currentUser, action.user)                    
       return {
         ...state,       
-        response
+        response: state
       }
     default:
       return state

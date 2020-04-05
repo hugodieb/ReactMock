@@ -1,7 +1,7 @@
 import './Checkout'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { templateDetailAction } from '../../actions/templateDetail'
+
 
 class Checkout extends Component {
 
@@ -17,7 +17,7 @@ class Checkout extends Component {
 
     render() {
         return(
-            <h1>{this.state.template.title}</h1>
+            this.state.template ? <h1>{this.state.template.title}</h1> : <h1>sem template</h1>
         )
     }
 }

@@ -2,7 +2,8 @@ import './UserLogin.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Main from '@components/template/Main'
-import { loginUserAction } from '../../actions/auth'
+import { snackbarOpen } from '../../actions/snackbar'
+import { setCurrentUserAction } from '../../actions/auth'
 import AppApi from '~apijs'
 import Auth from '../../services/auth'
 
@@ -34,19 +35,23 @@ class LoginUser extends Component {
   login() {        
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
-    AppApi.login(email, password).then(userCurrent => {                            
-      this.props.dispatch(loginUserAction(userCurrent))
-      const { loggedUser } = this.props            
-      if(loggedUser) {
+    AppApi.login(email, password).then(user => {
+      debugger                  
+      if(user && user.id) {
         Auth.authentication().then( () => {          
           if(Auth.isAuthenticated()){
+            this.props.dispatch(setCurrentUserAction(user))
             const location = this.props.location.state
             location ? this.props.history.push(location.from.pathname) : this.props.history.push('/')
           } else {
             this.props.history.push('/perfil/entrar')
           }
         })           
+      } else {
+        this.props.dispatch(snackbarOpen({message: "Senha ou email incorreto. Tente novamente!", color: "error"}))
       }
+    }).catch(() => {
+      this.props.dispatch(snackbarOpen({message: "Erro desconhecido, tente mais tarde!", color: "error"}))
     })             
   } 
 
@@ -98,7 +103,7 @@ class LoginUser extends Component {
 }
 
 const mapStateToProps = store => ({  
-  loggedUser: store.authLogin.response
+  loggedUser: store.setCurrentUser.response
 })
 
 export default connect(mapStateToProps)(LoginUser)
