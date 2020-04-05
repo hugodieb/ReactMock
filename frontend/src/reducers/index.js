@@ -1,12 +1,14 @@
 import { clickReducer } from './clickReducer'
-import { setCurrentUser } from './authReducer'
+import { currentUserReducer, setCurrentUserReducer, removeCurrentUserReducer } from './authReducer'
 import { snackbarReducer } from './snackbarReducer'
 import { templateDetailReducer } from './templateDetailReducer'
 import { combineReducers } from 'redux';
 
 export const Reducers = combineReducers({
   clickState: clickReducer,
-  setCurrentUser: setCurrentUser,
+  setCurrentUser: setCurrentUserReducer,
+  removeCurrentUser: removeCurrentUserReducer,
+  currentUser: currentUserReducer,
   snackbar: snackbarReducer,
   templateDetail: templateDetailReducer
 });
