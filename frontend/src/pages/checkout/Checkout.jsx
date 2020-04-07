@@ -9,8 +9,7 @@ class Checkout extends Component {
         template: {}
     }
 
-    componentWillMount() {
-        debugger
+    componentDidMount() {        
         const { templateDetail } = this.props
         this.setState({template : templateDetail})
     }

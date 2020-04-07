@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Main from '@components/template/Main'
 import MyGallery from '@components/ImageGallery'
 import { templateDetailAction } from '../../actions/templateDetail'
+import { snackbarOpen } from '../../actions/snackbar'
 import AppApi from '~apijs'
 
 class Detail extends Component {
@@ -26,9 +27,10 @@ class Detail extends Component {
         }
     }
 
-    checkout() {        
-        this.props.history.push('/checkout')        
+    checkout() {      
+        //const { currentUser } = this.props        
         this.props.dispatch(templateDetailAction(this.state.template))
+        this.props.history.push('/checkout')       
     }
 
     render() {
@@ -87,8 +89,8 @@ class Detail extends Component {
     }
 }
 
-const mapStateToProps = store => ({  
-    templateDetail: store.templateDetail.response
+const mapStateToProps = store => ({    
+    currentUser: store.currentUser.response
 })
 
 export default connect(mapStateToProps)(Detail)

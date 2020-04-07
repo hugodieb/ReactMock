@@ -2,7 +2,7 @@ import * as types from '../actions/actionTypes'
 
 export const currentUser = {}
 
-export const setCurrentUserReducer = (state = {...currentUser}, action) => {    
+export const setCurrentUserReducer = (state = {...currentUser}, action) => {      
   switch (action.type) {
     case types.SET_USER:      
       Object.assign(currentUser, action.user)                    
@@ -28,14 +28,16 @@ export const removeCurrentUserReducer = (state = {...currentUser}, action) => {
   }
 }
 
-export const currentUserReducer = (state = {...currentUser}, action) => {    
+export const currentUserReducer = (state, action) => { 
+  state = Object.keys(currentUser).length != 0 ? {...currentUser} : null   
   switch (action.type) {
-    case types.CURRENT_USER:                       
+    case types.CURRENT_USER:                   
       return {
         ...state,       
         response: state
       }
+      break
     default:
-      return state
+      return {response: state}
   }
 }

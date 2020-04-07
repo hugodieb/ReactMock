@@ -24,10 +24,10 @@ class LoginUser extends Component {
     this.setState({input_data})
   }
 
-  componentDidMount() {                  
-    const { loggedUser } = this.props 
+  componentDidMount() {                     
+    const { currentUser } = this.props 
     this.setState({input_data: {email: "", password: ""}, user: {}})   
-    if(loggedUser) {           
+    if(currentUser) {           
       this.props.history.push('/')
     }
   }
@@ -35,12 +35,11 @@ class LoginUser extends Component {
   login() {        
     let email = this.state.input_data.email
     let password = this.state.input_data.password      
-    AppApi.login(email, password).then(user => {
-      debugger                  
+    AppApi.login(email, password).then(user => {                       
       if(user && user.id) {
         Auth.authentication().then( () => {          
-          if(Auth.isAuthenticated()){
-            this.props.dispatch(setCurrentUserAction(user))
+          if(Auth.isAuthenticated()){            
+            this.props.dispatch(setCurrentUserAction(user))            
             const location = this.props.location.state
             location ? this.props.history.push(location.from.pathname) : this.props.history.push('/')
           } else {
@@ -103,7 +102,7 @@ class LoginUser extends Component {
 }
 
 const mapStateToProps = store => ({  
-  loggedUser: store.setCurrentUser.response
+  currentUser: store.currentUser.response
 })
 
 export default connect(mapStateToProps)(LoginUser)

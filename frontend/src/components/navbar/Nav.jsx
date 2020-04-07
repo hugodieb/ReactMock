@@ -14,18 +14,18 @@ class Nav extends Component {
         this.state = {user: null}       
     }
     
-    componentDidMount() {        
-        this.setState({user: this.props.loggedUser})
+    componentDidMount() {               
+        this.setState({user: this.props.currentUser})
     }
 
-    componentDidUpdate(prevProps, prevState) {            
-        if(this.props.loggedUser !== prevProps.loggedUser) {
-            this.setState({user: this.props.loggedUser})
+    componentDidUpdate(prevProps, prevState) {                    
+        if(this.props.currentUser !== prevProps.currentUser) {
+            this.setState({user: this.props.currentUser})
         }       
     }
 
     renderLogin() {
-        this.props.history.push('/perfil/entrar')
+        this.props.history.push({pathname: '/perfil/entrar', state: {from: this.props.location}})
     }
 
     renderProfile() {
@@ -64,8 +64,8 @@ class Nav extends Component {
         }
     }
 
-    RenderLoginLogout() {        
-        if(this.state.user) {
+    RenderLoginLogout() {                     
+        if(this.state.user != null) {
             return (                
                 <div className="navbar-item has-dropdown is-hoverable">
                     <span className="navbar-item is-drop">
@@ -79,8 +79,8 @@ class Nav extends Component {
                                     <i className="fa fa-user-circle fa-2x" aria-hidden="true"></i>
                                 </div>                                
                                 <div className="user">
-                                    <span>Hugo Dieb</span><br/>
-                                    <span>dieb@dieb.com</span>
+                                    <span>{this.state.user.fullname}</span><br/>
+                                    <span>{this.state.user.email}</span>
                                 </div>                              
                                                                                                                        
                             </div>                                                       
@@ -140,8 +140,8 @@ class Nav extends Component {
     }    
 }
 
-const mapStateToProps = store => ({  
-    loggedUser: store.setCurrentUser.response
+const mapStateToProps = store => ({
+    currentUser: store.currentUser.response
   })
 
 export default withRouter(connect(mapStateToProps)(Nav))

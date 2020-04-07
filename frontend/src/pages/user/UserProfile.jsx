@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Main from '@components/template/Main'
 import { snackbarOpen } from '../../actions/snackbar'
+import { setCurrentUserAction } from '../../actions/auth'
 import InputField from '@components/InputMask'
 import { fullname, email }  from '../../helpers/rules'
 import AppApi from '~apijs'
@@ -13,11 +14,16 @@ class UserProfile extends Component {
     user: {}
   }
 
-  componentWillMount() {
-    debugger
-    const { loggedUser } = this.props
-    this.setState({user : loggedUser})    
-  } 
+  componentWillMount() {    
+    const { currentUser } = this.props
+    this.setState({user : currentUser})    
+  }
+  
+  componentDidUpdate(prevProps, prevState) {                
+    if(this.props.currentUser !== prevProps.currentUser) {
+        this.setState({user: this.props.currentUser})
+    }       
+}
 
   updateField = (event, value) => {
     const user  = { ...this.state.user }
@@ -26,10 +32,10 @@ class UserProfile extends Component {
   }
 
   saveProfile = e => {
-    e.preventDefault()    
+    e.preventDefault()        
     const user = {...this.state.user}
-    AppApi.saveProfile(user).then(response => {      
-      const resp = response.data
+    AppApi.saveProfile(user).then(user => {
+      this.props.dispatch(setCurrentUserAction(user.data))
       this.props.dispatch(snackbarOpen({message: "Perfil atualizado com sucesso!", color: "success"}))
     })              
   }
@@ -60,7 +66,7 @@ class UserProfile extends Component {
                     <p className="control">
                       <InputField className="input"  name="cellphone"
                         value={this.state.user.cellphone} onChange={this.updateField} mask="phone"/>
-                    </p>
+                    </p> <span>{this.state.user.cellphone}</span>
                     <br/>
                     <br/>
                     <div className="field is-grouped">
@@ -84,7 +90,7 @@ class UserProfile extends Component {
 }
 
 const mapStateToProps = store => ({  
-  loggedUser: store.authLogin.response
+  currentUser: store.currentUser.response
 })
 
 export default connect(mapStateToProps)(UserProfile)

@@ -23,8 +23,7 @@ const api = {
         } else
             return post(baseUrl + `/users`, user)
     },
-    saveProfile(user) {
-        debugger
+    saveProfile(user) {        
         if (user.id) {
             return put(baseUrl + `/user`, user)
         }

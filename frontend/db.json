@@ -66,8 +66,18 @@
   ],
   "template": {
     "id": "1",
-    "thumbnails" :["https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg", "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg"],
-    "originals": ["https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template.jpg"],
+    "thumbnails": [
+      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
+      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
+      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
+      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
+      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
+      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
+      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg"
+    ],
+    "originals": [
+      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template.jpg"
+    ],
     "title": "Template one",
     "sku": "BRWDMC8",
     "price": "120.00",
