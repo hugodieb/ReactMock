@@ -6,7 +6,7 @@ import UserCrud from '../pages/user/UserCrud'
 import UserProfile from '../pages/user/UserProfile'
 import UserLogin from '../pages/user/UserLogin'
 import Detail from '../pages/detail/Detail'
-import Checkout from '../pages/checkout/Checkout'
+import NewCart from '../pages/cart/NewCart'
 import Auth from '../services/auth'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -31,7 +31,7 @@ class Routes extends Component {
                 <Route path='/perfil/entrar' component={UserLogin} />
                 <PrivateRoute path='/perfil/' component={UserProfile} />
                 <Route path='/template/:name' component={Detail} />
-                <PrivateRoute path='/checkout' component={Checkout} />
+                <PrivateRoute path='/carrinho' component={NewCart} />
                 <Redirect from='*' to='/' />
             </Switch>
         )

@@ -91,7 +91,10 @@ class Nav extends Component {
                         </a>
                         <a className="navbar-item" href="#">
                             Carrinho
-                        </a>                                  
+                        </a>
+                        <Link className="navbar-item" to={{pathname: `/carrinho`}}>
+                            Carrinho
+                        </Link>                                  
                         <a className="navbar-item is-active" onClick={() => this.renderLogout()}>
                             <span >Sair</span>
                         </a>

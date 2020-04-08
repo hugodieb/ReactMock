@@ -30,7 +30,7 @@ class Detail extends Component {
     checkout() {      
         //const { currentUser } = this.props        
         this.props.dispatch(templateDetailAction(this.state.template))
-        this.props.history.push('/checkout')       
+        this.props.history.push('/carrinho')       
     }
 
     render() {

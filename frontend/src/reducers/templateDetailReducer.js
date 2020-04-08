@@ -1,14 +1,31 @@
 import * as types from '../actions/actionTypes'
 
-export const templateDetailReducer = (state = {}, action) => {        
-    const response = action.template
+const template = {
+    "id": "",
+    "thumbnails": [],
+    "originals": [],
+    "title": "",
+    "sku": "",
+    "price": "",
+    "pricePay": "",
+    "discount": "",
+    "installments": "",
+    "pricePortions": "",
+    "descrption": ""
+}
+
+export const templateDetailReducer = (state, action) => {
+    debugger        
     switch (action.type) {
-        case types.TEMPLATE_DETAIL:          
-        return {
-            ...state,       
-            response
+        case types.TEMPLATE_DETAIL:
+            Object.assign(template, action.template)
+            return {
+                ...state,       
+                response: template
         }
         default:
-        return state
+            return {
+                response: template
+            }
     }
 }
