@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import Main from '@components/template/Main'
-import ItemCart from '@components/template/ItemCart'
+import ItemCart from '@components/cart/ItemCart'
+import ItemCartPay from '@components/cart/ItemCartPay'
 
 
 class Checkout extends Component {
@@ -37,7 +38,7 @@ class Checkout extends Component {
     }
 
     renderCartItems() {
-        if(!this.state.template.id){
+        if(this.state.template.id){
             return (
                 <div className="empty-cart">
                     <div className="has-text-centered">
@@ -47,31 +48,28 @@ class Checkout extends Component {
                         <h2 className="subtitle">
                             Seu carrinho está vazio
                         </h2>
-                        <h3>Adicione um template clicando no botão comprar.</h3>
+                        <h3 className="subtitle">Adicione um template clicando no botão comprar.</h3>
                         <Link className="button is-focused" to="/">
                             Voltar para a página inicial
                         </Link>
                     </div>
+                    <hr/>
                 </div>
             )
         } else {
             return (
                 <div className="tile is-ancestor">                
                     <div className="tile is-parent">
-                        <article className="tile is-child box">
-                            <p className="title"></p>
-                            <p className="subtitle"></p>
+                        <article className="tile is-child box">                            
                             <div className="content">
                                 <ItemCart />                                
                             </div>
                         </article>
                     </div>
-                    <div className="tile is-parent">
-                        <article className="tile is-child box">
-                            <p className="title"></p>
-                            <p className="subtitle"></p>
+                    <div className="tile is-parent checkout">
+                        <article className="tile is-child box checkout">
                             <div className="content">
-                                ndnds                           
+                                <ItemCartPay />                                         
                             </div>
                         </article>
                     </div>

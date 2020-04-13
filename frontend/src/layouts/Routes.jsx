@@ -31,7 +31,7 @@ class Routes extends Component {
                 <Route path='/perfil/entrar' component={UserLogin} />
                 <PrivateRoute path='/perfil/' component={UserProfile} />
                 <Route path='/template/:name' component={Detail} />
-                <PrivateRoute path='/carrinho' component={NewCart} />
+                <Route path='/carrinho' component={NewCart} />
                 <Redirect from='*' to='/' />
             </Switch>
         )

@@ -14,8 +14,7 @@ const template = {
     "descrption": ""
 }
 
-export const templateDetailReducer = (state, action) => {
-    debugger        
+export const templateDetailReducer = (state, action) => {          
     switch (action.type) {
         case types.TEMPLATE_DETAIL:
             Object.assign(template, action.template)

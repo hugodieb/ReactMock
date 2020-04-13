@@ -11,6 +11,8 @@
 
 .notification > span > i {
     transform: rotate(320deg) !important;
+    -moz-transform: rotate(320deg) !important;
+    -ms-transform: rotate(320deg) !important;
     margin-right: 10px;
 }
 
@@ -28,15 +30,26 @@ span.is-mobile {
 }
 
 .empty-cart {
-    margin: 15% auto;
+    margin: 12% auto;
 }
 
 .empty-cart > div > span > i {
     color: orange;
 }
 
+.empty-cart > div > a.button.is-focused {
+    border-color: rgb(243, 113, 6);
+    margin-top: 15px;
+    font-weight: bold;
+    color: #7d7575;
+}
+
 .tile.is-ancestor {
-    margin: 0rem;
+    margin: 5% auto !important;
+}
+
+.tile.is-parent.checkout {
+    max-width: 30rem;
 }
 
 .tile.is-child {
