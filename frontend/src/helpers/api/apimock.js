@@ -66,8 +66,7 @@ const api = {
         } : {authenticated: false})
     },
 
-    async getTokenPaypal() {        
-        //debugger
+    async getTokenPaypal() {      
         const PAYPAL_OAUTH_API = "https://api.sandbox.paypal.com/v1/oauth2/token"
         const AUTH = {
             username: 'AZ-ZY7oH0r_xO-fdIK1DXqOvXkndkBb6daWTjT0dK5UiCNNYAZSrQQQ9Nq5XStccEZZ90zsAuXQ1dxmb',
@@ -82,6 +81,7 @@ const api = {
             grant_type: 'client_credentials'
           }
         try {
+            //debugger
             const { data: { access_token } } = await axios({
               url: PAYPAL_OAUTH_API,
               method: 'post',
@@ -96,60 +96,19 @@ const api = {
             console.log('error: ', error);
         }        
         
-    },
-
-    async getTokenPaypall() {        
-        //debugger
-        const PAYPAL_OAUTH_API = "https://api.sandbox.paypal.com/v1/oauth2/token"
-        const AUTH = {
-            username: 'AZ-ZY7oH0r_xO-fdIK1DXqOvXkndkBb6daWTjT0dK5UiCNNYAZSrQQQ9Nq5XStccEZZ90zsAuXQ1dxmb',
-            password: 'EG9LG36da1egjF0ETsGosheaoCx1Zja-VN2QrMGEywCFvBboN711DSRzPc265Y3Y0Bvn_Jsld-sQrV5t',
-          }
-          const HEADER = {
-            Accept: 'application/json',
-            'Accept-Language': 'en_US',
-            'content-type': 'application/x-www-form-urlencoded',
-          }
-          const PARAMS = {
-            grant_type: 'client_credentials'
-          }
-          const options = {              
-                headers: { 
-                    'Accept': 'application/json', 
-                    'Accept-Language': 'en_US',
-                    'Content-Type':'application/x-www-form-urlencoded'                     
-                },
-                params: { 'grant_type':'client_credentials' }
-          }
-        try {
-            //const { data: { access_token } } = await axios({
-            //  url: PAYPAL_OAUTH_API,
-            //  method: 'post',
-            //  headers: HEADER,
-            //  auth: AUTH,
-            //  params: PARAMS,
-            //});
-
-            const tok = await post(PAYPAL_OAUTH_API, AUTH, { params: options })
-        
-            console.log('access_token: ', tok);
-            return mockObject(tok)
-          } catch (error) {
-            console.log('error: ', error);
-        }        
-        
-    },
+    },   
 
     async paymentPaypal(token) {
         //debugger
+        const tk = `Bearer ${token}`
         try {
-            const { data: { state } } = await axios({
+            const {data: { links }} = await axios({
               url: 'https://api.sandbox.paypal.com/v1/payments/payment',
-              
+              method: 'post',
               headers: {                
                 'Accept-Language': 'en_US',
                 'content-type': 'application/json',
-                'Authorization': 'Bearer A21AAGnsavkooHM5yhbniw9EgdTk-tJ6oEASOpkUShJzo41Cyh9u6nXdA8OBapq16QaDkrTV4Rdh2YRiFUn_82V67XRx0QYaA'
+                'Authorization': tk
               },             
               data: {
                 "intent": "sale",
@@ -159,15 +118,15 @@ const api = {
                 "transactions": [
                     {
                     "amount": {
-                        "total": "99.11",
-                        "currency": "USD",
+                        "total": "16.00",
+                        "currency": "BRL",
                         "details": {
-                        "subtotal": "99.00",
-                        "tax": "0.07",
-                        "shipping": "0.03",
+                        "subtotal": "15.00",
+                        "tax": "0",
+                        "shipping": "0",
                         "handling_fee": "1.00",
-                        "shipping_discount": "-1.00",
-                        "insurance": "0.01"
+                        "shipping_discount": "0",
+                        "insurance": "0"
                         }
                     },
                     "description": "The payment transaction description.",
@@ -182,20 +141,20 @@ const api = {
                         {
                             "name": "hat",
                             "description": "Hot Dog.",
-                            "quantity": "5",
-                            "price": "3",
-                            "tax": "0.01",
+                            "quantity": "1",
+                            "price": "5",
+                            "tax": "0",
                             "sku": "1",
-                            "currency": "USD"
+                            "currency": "BRL"
                         },
                         {
                             "name": "handbag",
                             "description": "Black handbag.",
                             "quantity": "1",
-                            "price": "15",
-                            "tax": "0.02",
+                            "price": "10",
+                            "tax": "0",
                             "sku": "product34",
-                            "currency": "USD"
+                            "currency": "BRL"
                         }
                         ],
                         "shipping_address": {
@@ -213,18 +172,37 @@ const api = {
                 ],
                 "note_to_payer": "Contact us for any questions on your order.",
                 "redirect_urls": {
-                    "return_url": "https://example.com/return",
-                    "cancel_url": "https://example.com/cancel"
+                    "return_url": "http://localhost:3000/perfil",
+                    "cancel_url": "http://localhost:3000/"
                 }
                 
               }
             });
-            debugger
-            console.log('access_token: ', state);
-            return mockObject(state)
+            //debugger
+            console.log('access_token: ', links);
+            return mockObject(links)
           } catch (error) {
             console.log('error: ', error);
         }                
+    },
+
+    async executePayment(token, payerId, paymentId) {
+
+        try {
+            const { data: {data}} = await axios({
+                url: `https://api.sandbox.paypal.com/v1/payments/payment/${paymentId}/execute`,
+                headers: {
+                    'content-type': 'application/json',
+                    'Authorization': token
+                },
+                data: {
+                    "payer_id": payerId
+                }
+            })
+            return data
+        } catch (error) {
+            
+        }
     }
 }
 

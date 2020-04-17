@@ -19,7 +19,7 @@ class Checkout extends Component {
     }   
 
     renderNotification() {
-        if(this.state.template.id) {
+        if(!this.state.template.id) {
             return (
                 <div className="notification has-text-centered">                       
                     <span className="is-desktop">
@@ -37,8 +37,8 @@ class Checkout extends Component {
         
     }
 
-    renderCartItems() {
-        if(this.state.template.id){
+    renderCartItems() {        
+        if(!this.state.template.id){
             return (
                 <div className="empty-cart">
                     <div className="has-text-centered">
