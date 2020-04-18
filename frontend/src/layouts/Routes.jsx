@@ -7,6 +7,8 @@ import UserProfile from '../pages/user/UserProfile'
 import UserLogin from '../pages/user/UserLogin'
 import Detail from '../pages/detail/Detail'
 import NewCart from '../pages/cart/NewCart'
+import Success from '../pages/cart/success/Success'
+import Cancel from '../pages/cart/cancel/Cancel'
 import Auth from '../services/auth'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -29,9 +31,11 @@ class Routes extends Component {
                 <Route exact path='/' component={Home} />
                 <PrivateRoute path='/users' component={UserCrud} />                
                 <Route path='/perfil/entrar' component={UserLogin} />
-                <PrivateRoute path='/perfil/' component={UserProfile} />
+                <PrivateRoute path='/perfil' component={UserProfile} />
                 <Route path='/template/:name' component={Detail} />
-                <Route path='/carrinho' component={NewCart} />
+                <Route path='/sucesso' component={Success} />
+                <Route path='/cancelamento' component={Cancel} />
+                <Route path='/carrinho' component={NewCart} />               
                 <Redirect from='*' to='/' />
             </Switch>
         )

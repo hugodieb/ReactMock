@@ -18,40 +18,41 @@ class ItemCartPay extends Component {
         document.body.appendChild(pagarmeScript)        
     }
     
-    componentDidMount() {
-        let pagarmeScript = document.createElement('script')        
-        pagarmeScript.setAttribute('src', 'https://www.paypalobjects.com/api/checkout.js')
-        document.body.appendChild(pagarmeScript)
-    }
+    //componentDidMount() {
+    //    let pagarmeScript = document.createElement('script')        
+    //    pagarmeScript.setAttribute('src', 'https://www.paypalobjects.com/api/checkout.js')
+    //    document.body.appendChild(pagarmeScript)
+    //}
 
     getToken = () => {
        AppApi.getTokenPaypal().then(resp => {
            //debugger
            console.log("tokk", resp);
-           this.pagamento(resp.data)
+           this.payment(resp.data)
        })
     }
     
-    pagamento = (token) => {
-        AppApi.paymentPaypal(token).then(resp => {            
+    payment = (token) => {
+        AppApi.paymentPaypal(token).then(resp => {
+            //debugger            
             const links = resp.data
             links.map(link => {
-                debugger
+                //debugger
                 if(link.rel === 'approval_url') {
                     window.location.href = link.href
                     //let x = ((window.screen.width) - 400)/2
                     //let y = ((window.screen.height) - 550)/2
                     //window.open(link.href,'diebpaypal',`height=550,width=400,left=${x}, \
                     //top=${y},resizable=yes,scrollbars=yes,toolbar=yes,status=yes`);
-                    window.close()
+                    //window.close()
                     //window.open(link.href)
                     //window.close()
-                    //his.props.history.push(link.href)
+                    //this.props.history.push('/carrinho/sucesso')
                 }
             })
 
         }) 
-    }
+    }   
     
     render() {
         const client = {

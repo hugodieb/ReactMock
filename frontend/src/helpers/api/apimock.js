@@ -91,6 +91,7 @@ const api = {
             });
         
             console.log('access_token: ', access_token);
+            localStorage.setItem("pegasus", access_token)
             return mockObject(access_token)
           } catch (error) {
             console.log('error: ', error);
@@ -98,8 +99,7 @@ const api = {
         
     },   
 
-    async paymentPaypal(token) {
-        //debugger
+    async paymentPaypal(token) {        
         const tk = `Bearer ${token}`
         try {
             const {data: { links }} = await axios({
@@ -118,68 +118,66 @@ const api = {
                 "transactions": [
                     {
                     "amount": {
-                        "total": "16.00",
+                        "total": "20.00",
                         "currency": "BRL",
                         "details": {
                         "subtotal": "15.00",
                         "tax": "0",
                         "shipping": "0",
-                        "handling_fee": "1.00",
+                        "handling_fee": "5.00",
                         "shipping_discount": "0",
                         "insurance": "0"
                         }
                     },
                     "description": "The payment transaction description.",
-                    "custom": "EBAY_EMS_90048630024435",
-                    "invoice_number": "48787589673",
+                    "custom": "EBAY_EMS_75645386957683",
+                    "invoice_number": "36452869463",
                     "payment_options": {
                         "allowed_payment_method": "INSTANT_FUNDING_SOURCE"
-                    },
-                    "soft_descriptor": "ECHI5786786",
+                    },                    
                     "item_list": {
                         "items": [
-                        {
-                            "name": "hat",
-                            "description": "Hot Dog.",
-                            "quantity": "1",
-                            "price": "5",
-                            "tax": "0",
-                            "sku": "1",
-                            "currency": "BRL"
-                        },
-                        {
-                            "name": "handbag",
-                            "description": "Black handbag.",
-                            "quantity": "1",
-                            "price": "10",
-                            "tax": "0",
-                            "sku": "product34",
-                            "currency": "BRL"
-                        }
-                        ],
-                        "shipping_address": {
-                        "recipient_name": "Brian Robinson",
-                        "line1": "4th Floor",
-                        "line2": "Unit #34",
-                        "city": "San Jose",
-                        "country_code": "US",
-                        "postal_code": "95131",
-                        "phone": "011862212345678",
-                        "state": "CA"
-                        }
-                    }
+                            {
+                                "name": "dog",
+                                "description": "Hot Dog.",
+                                "quantity": "1",
+                                "price": "10",
+                                "tax": "0",
+                                "sku": "2",
+                                "currency": "BRL"
+                            },
+                            {
+                                "name": "cat",
+                                "description": "Black handbag.",
+                                "quantity": "1",
+                                "price": "5",
+                                "tax": "0",
+                                "sku": "3",
+                                "currency": "BRL"
+                            }
+                            ],
+                            "shipping_address": {
+                            "recipient_name": "Mara Santanna",
+                            "line1": "Minha rua",
+                            "line2": "601 apto 176",
+                            "city": "São Jose dos Canpos",
+                            "country_code": "BR",
+                            "postal_code": "12246-001",
+                            "phone": "12944548675",
+                            "state": "SP"
+                            }
+                        }   
                     }
                 ],
                 "note_to_payer": "Contact us for any questions on your order.",
                 "redirect_urls": {
-                    "return_url": "http://localhost:3000/perfil",
-                    "cancel_url": "http://localhost:3000/"
-                }
-                
+                    "return_url": "http://localhost:3000/sucesso",
+                    "cancel_url": "http://localhost:3000/cancelamento"
+                }                
               }
             });
             //debugger
-            console.log('access_token: ', links);
+            //console.log('access_token: ', links);
             return mockObject(links)
           } catch (error) {
             console.log('error: ', error);
@@ -187,21 +185,26 @@ const api = {
     },
 
     async executePayment(token, payerId, paymentId) {
-
         try {
+            //debugger
             const { data: {data}} = await axios({
                 url: `https://api.sandbox.paypal.com/v1/payments/payment/${paymentId}/execute`,
-                headers: {
+                method: 'post',
+                headers: {                
+                    'Accept-Language': 'en_US',
                     'content-type': 'application/json',
-                    'Authorization': token
-                },
+                    'Authorization': `Bearer ${token}`
+                  },
                 data: {
                     "payer_id": payerId
                 }
             })
+            debugger
+            console.log(data);  
             return data
         } catch (error) {
-            
+            debugger
+            return error
         }
     }
 }
