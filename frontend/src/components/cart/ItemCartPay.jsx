@@ -1,65 +1,29 @@
 import './ItemCartPay.css'
 import React, {Component} from 'react'
 import { withRouter } from "react-router"
-import paypal from '../../assets/imgs/paypal.png'
-import AppApi from '~apijs'
-
-
-//let PayPalButton = window.paypal.Buttons.driver('react', { React, ReactDOM });
+import paypalImage from '../../assets/imgs/paypal.png'
+import payment from '../../services/paypal'
 
 class ItemCartPay extends Component {
     constructor(props) {
         super(props)        
       }     
   
-    componentWillMount() {
-        let pagarmeScript = document.createElement('script')
-        pagarmeScript.setAttribute('src', 'https://www.paypal.com/sdk/js?client-id=AZ-ZY7oH0r_xO-fdIK1DXqOvXkndkBb6daWTjT0dK5UiCNNYAZSrQQQ9Nq5XStccEZZ90zsAuXQ1dxmb')
-        document.body.appendChild(pagarmeScript)        
+    componentWillMount() {             
+        payment.init(window.document)        
+    }    
+    
+    paymentService () {
+        
+        payment.initPayment().then(resp => {
+            debugger
+            console.log(resp);
+        })        
+        
     }
-    
-    //componentDidMount() {
-    //    let pagarmeScript = document.createElement('script')        
-    //    pagarmeScript.setAttribute('src', 'https://www.paypalobjects.com/api/checkout.js')
-    //    document.body.appendChild(pagarmeScript)
-    //}
 
-    getToken = () => {
-       AppApi.getTokenPaypal().then(resp => {
-           //debugger
-           console.log("tokk", resp);
-           this.payment(resp.data)
-       })
-    }
-    
-    payment = (token) => {
-        AppApi.paymentPaypal(token).then(resp => {
-            //debugger            
-            const links = resp.data
-            links.map(link => {
-                //debugger
-                if(link.rel === 'approval_url') {
-                    window.location.href = link.href
-                    //let x = ((window.screen.width) - 400)/2
-                    //let y = ((window.screen.height) - 550)/2
-                    //window.open(link.href,'diebpaypal',`height=550,width=400,left=${x}, \
-                    //top=${y},resizable=yes,scrollbars=yes,toolbar=yes,status=yes`);
-                    //window.close()
-                    //window.open(link.href)
-                    //window.close()
-                    //this.props.history.push('/carrinho/sucesso')
-                }
-            })
-
-        }) 
-    }   
-    
     render() {
-        const client = {
-            sandbox: "AZ-ZY7oH0r_xO-fdIK1DXqOvXkndkBb6daWTjT0dK5UiCNNYAZSrQQQ9Nq5XStccEZZ90zsAuXQ1dxmb",
-            production: "aa"
-          }                
-
+        
         return (
             <div className="item-cart-parent-checkout">
                 <div className="item-cart-child checkout">
@@ -91,12 +55,12 @@ class ItemCartPay extends Component {
                         <div className="column is-4">
                             <div className="item-imagem">                    
                                 <img className="item-img"
-                                src={paypal} />
+                                src={paypalImage} />
                             </div>
                         </div>
                         <div className="column">
                             <div className="pay">
-                                <button onClick={this.getToken}>pay</button>                                                                                       
+                                <button onClick={this.paymentService}>pay</button>                                                                                       
                             </div>
                         </div>
                     </div>
