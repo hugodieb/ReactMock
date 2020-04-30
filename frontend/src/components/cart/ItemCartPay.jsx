@@ -1,29 +1,44 @@
 import './ItemCartPay.css'
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { withRouter } from "react-router"
 import paypalImage from '../../assets/imgs/paypal.png'
 import payment from '../../services/paypal'
 
-class ItemCartPay extends Component {
-    constructor(props) {
-        super(props)        
-      }     
+
+class ItemCartPay extends Component {   
+    
+    state = {
+        error: '',
+        display: false
+    }
   
     componentWillMount() {             
-        payment.init(window.document)        
-    }    
-    
-    paymentService () {
-        
-        payment.initPayment().then(resp => {
-            debugger
-            console.log(resp);
-        })        
-        
+        payment.init(window.document)                
     }
+    
+    componentDidMount() {
+        payment.generatedToken().then(resp => {            
+            this.setState({error: resp})
+            if(this.state.error) {
+                this.setState({display: true})
+            }            
+        })
+    }
+    componentWillUnmount() {        
+        localStorage.removeItem(process.env.REACT_APP_KEY_NAME)
+    }
+    
+    paymentService () {              
+        payment.paymentTransaction().then(resp => {
+            this.setState({error: resp})
+            if(this.state.error) {
+                this.setState({display: true})
+            }
+        })      
+    }   
 
     render() {
-        
+        const { error, display } = this.state        
         return (
             <div className="item-cart-parent-checkout">
                 <div className="item-cart-child checkout">
@@ -60,7 +75,14 @@ class ItemCartPay extends Component {
                         </div>
                         <div className="column">
                             <div className="pay">
-                                <button onClick={this.paymentService}>pay</button>                                                                                       
+                                <button onClick={() => {this.paymentService()}}>pay</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="columns">
+                        <div className="column">
+                            <div className={`notification is-pay ${display ? "" : "hidden"}`}>
+                                {error}
                             </div>
                         </div>
                     </div>

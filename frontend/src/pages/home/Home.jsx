@@ -41,8 +41,7 @@ class Home extends Component {
 
     componentWillMount() {
         AppApi.getTemplates().then(response => {
-            this.setState({listCards: response.data})
-            console.log("meu .env", process.env.REACT_APP_DIEB);            
+            this.setState({listCards: response.data})                        
         })
     }
 

@@ -18,8 +18,8 @@ class Checkout extends Component {
         this.setState({template : templateDetail})
     }   
 
-    renderNotification() {
-        if(!this.state.template.id) {
+    renderNotification() {        
+        if(this.state.template.id) {
             return (
                 <div className="notification has-text-centered">                       
                     <span className="is-desktop">

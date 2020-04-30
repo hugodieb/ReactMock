@@ -5,3 +5,14 @@
 .item-imagem {
     max-width: 60%;
 }
+
+.notification.is-pay {
+    display: block;
+    padding: 10px;
+    background-color: #fa0000 !important;
+    color: #ffffff;
+}
+
+.notification.hidden {
+    display: none;    
+}

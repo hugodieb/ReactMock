@@ -1,0 +1,45 @@
+.cart-success {
+    margin: 8% auto;
+}
+
+.cart-success > div > p {
+    margin-bottom: 1rem;
+}
+
+.help {
+    color: #f35216;
+}
+
+.help:hover {
+    color: #ec7a51;
+}
+
+.button.is-screw.secondary {
+    transform: skew(45deg);
+    margin-left: 0.8rem;
+    background-color: #fff 
+}
+
+.button.is-screw.secondary > span {
+    transform: skew(-45deg);
+    color: #f5c162
+}
+
+.button.is-screw {
+    transform: skew(45deg);
+    margin-left: 0.8rem;
+    background-color: #f5c162;    
+}
+
+.button.is-screw > span {
+    transform: skew(-45deg);
+    color: #fff;
+}
+
+@media screen and (max-width: 600px){
+    .button.is-screw.secondary {
+        margin-bottom: 0.8rem;
+    }
+} 
+
+

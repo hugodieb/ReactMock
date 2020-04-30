@@ -1,18 +1,28 @@
 import axios from 'axios'
 
-const dataVars = {      
-    error: '',
-    links: [],
-    key_name: process.env.REACT_APP_KEY_NAME 
+const msg = {
+    msgToken: 'Houve um erro de token,\
+    tente novamente em alguns minutos',
+    msgPayment: 'Houve um erro na ordem de pagamento,\
+    tente novamente mais tarde.',
+    msgExecute: 'Houve um erro ao executar o pagamento,\
+    tente novamente mais tarde'
+}
+
+const dataVars = {   
+    key_name: process.env.REACT_APP_KEY_NAME,
+    pay_executed: {
+        error: '',
+        data: {}
+    } 
 }
 
 export default {
-    init(document) {               
+    init(document) {                       
         const clientId = process.env.REACT_APP_CLIENT_ID
         let pagarmeScript = document.createElement('script')
         pagarmeScript.setAttribute('src', `https://www.paypal.com/sdk/js?client-id=${clientId}`)
         document.body.appendChild(pagarmeScript)
-
     },
 
     async generatedToken()  {               
@@ -37,16 +47,14 @@ export default {
                 auth: AUTH,
                 params: PARAMS
             })                                   
-            localStorage.setItem(dataVars.key_name, access_token)
-            return this.paymentTransaction()         
+            localStorage.setItem(dataVars.key_name, access_token)                     
         } catch (error) {                       
             localStorage.removeItem(dataVars.key_name)
-            dataVars.error = {'generatedToken': error.response.statusText}
+            return msg.msgToken          
         }                    
     },
 
-    async paymentTransaction() {
-        debugger                
+    async paymentTransaction() {                      
         const token = localStorage.getItem(dataVars.key_name)
         const URL = 'https://api.sandbox.paypal.com/v1/payments/payment'
         const HEADER = {
@@ -62,30 +70,30 @@ export default {
             "transactions": [
                 {
                     "amount": {
-                        "total": "257.00",
+                        "total": "200.00",
                         "currency": "BRL",
                         "details": {
-                            "subtotal": "257.00",
+                            "subtotal": "180.00",
                             "tax": "0",
-                            "shipping": "0",
+                            "shipping": "22.00",
                             "handling_fee": "0.00",
-                            "shipping_discount": "0",
+                            "shipping_discount": "2.0",
                             "insurance": "0"
                         }
                     },
                     "description": "The payment transaction description.",
-                    "custom": "EBAY_EMS_4035463425368",
-                    "invoice_number": "4035463425368",
+                    "custom": "EBAY_EMS_4035463425371",
+                    "invoice_number": "4035463425371",
                     "payment_options": {
                         "allowed_payment_method": "INSTANT_FUNDING_SOURCE"
                     },
                     "item_list": {
                         "items": [
                             {
-                                "name": "python",
-                                "description": "python programer",
+                                "name": "React",
+                                "description": "React programer",
                                 "quantity": "1",
-                                "price": "257.00",
+                                "price": "180.00",
                                 "tax": "0",
                                 "sku": "28",
                                 "currency": "BRL"
@@ -116,17 +124,24 @@ export default {
                 method: 'post',
                 headers: HEADER,
                 data: PARAMS
-            })            
-            dataVars.links = links            
+            })
+            debugger          
+            if(links.length > 0) {
+                links.map(link => {
+                    debugger
+                    if(link.rel === 'approval_url') {
+                        window.location.href = link.href
+                    }
+                })
+            }            
         } catch (error) {
-            localStorage.removeItem(dataVars.key_name)            
-            dataVars.error = {'paymentTransaction': error.response.statusText}
-            dataVars.links = []      
+                                 
+            return msg.msgPayment
         }        
     },   
 
     async executePayment(payerId, paymentId) {
-        debugger        
+               
         const token = localStorage.getItem(dataVars.key_name)
         const URL = `https://api.sandbox.paypal.com/v1/payments/payment/${paymentId}/execute`
         const   HEADER = {
@@ -146,30 +161,12 @@ export default {
             })            
             if(data.state === 'approved') {
                 localStorage.removeItem(dataVars.key_name)
-            }  
-            return data
-        } catch (error) {
-            localStorage.removeItem(dataVars.key_name)
-            return dataVars.error = error.response.statusText
-        }
-    },
-    
-    initPayment() {
-        return (
-        this.generatedToken().then(() => {
-            if(!dataVars.error){
-                debugger
-                console.log("links", dataVars.links);
-                let links = dataVars.links
-                links.map(link => {                    
-                    if(link.rel === 'approval_url') {
-                        window.location.href = link.href                
-                    }
-                })
-            } else {
-                return dataVars.error
             }
-        })
-        )                         
-    }
+            dataVars.pay_executed.data = data 
+            return dataVars.pay_executed
+        } catch (error) {
+            dataVars.pay_executed.error = msg.msgExecute            
+            return dataVars.pay_executed
+        }
+    }    
 }

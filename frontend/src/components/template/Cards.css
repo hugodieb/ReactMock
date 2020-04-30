@@ -18,8 +18,8 @@
 }
 
 .button.is-orange {
-    border-color: rgb(245, 193, 98);
-    color: rgb(245, 193, 98);
+    border-color: #f5c162;
+    color: #f5c162;
 }
 
 .button.is-orange:hover {
