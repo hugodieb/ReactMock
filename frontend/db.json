@@ -86,5 +86,30 @@
     "installments": "3",
     "pricePortions": "29.99",
     "descrption": "Loja ecommerce com código HTML, CSS e JAVASCRIPT prontinhos para voçê iniciar sua loja. Seu cliente vai navegar no seu site de forma intuitiva e ágil. Pagina de apresentação da sua loja(Home), página de detalhe do produto, adicionar ao carrinho, checkout e finalização do processo de compra. Caso precise de auxilio, teremos muita satisfação em ajudar, inclusive temos nossos desenvolvedores que poderam orientá-lo com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, podemos lhe oferecer também este serviço."
-  }
+  },
+  "invoicePayment": {
+    "id": "1",      
+    "invoice_number": "4035463425373",    
+    "details": {
+      "subtotal": "110.00",
+      "total": "110.00",
+      "tax": "0.00",
+      "shipping": "0.00",
+      "handling_fee": "0.00",
+      "shipping_discount": "0.00",
+      "insurance": "0.00"
+    },  
+    "items": [
+      {
+        "name": "Template one",
+        "description": "Loja ecommerce com código HTML, CSS e JAVASCRIPT prontinhos para voçê iniciar sua loja. Seu cliente vai navegar no seu site de forma intuitiva e ágil. Pagina de apresentação da sua loja(Home), página de detalhe do produto, adicionar ao carrinho, checkout e finalização do processo de compra. Caso precise de auxilio, teremos muita satisfação em ajudar, inclusive temos nossos desenvolvedores que poderam orientá-lo com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, podemos lhe oferecer também este serviço.",
+        "quantity": "1",
+        "price": "110.00",
+        "tax": "0.00",
+        "sku": "BRWDMC8",
+        "currency": "BRL"        
+      }
+    ]
+  }  
 }
+

@@ -45,6 +45,11 @@ const api = {
         template = template.then(response => response.data)
         return mockObject(template).then(response => response.data)
     },
+    async sale(id) {        
+        let sale = get(baseUrl + `/invoicePayment?id=${id}`)
+        sale = sale.then(response => response.data)
+        return mockObject(sale).then(response => response.data)
+    },
     async login(email, password) {        
         if(password) {        
             let dbuser = get(baseUrl + `/user`)
@@ -73,8 +78,7 @@ function get(url, auth, params){
     return axios.get(url, auth, params)
 }
 
-function post(url, auth, params){
-    debugger
+function post(url, auth, params){    
     return axios.post(url, auth, params)
 }
 

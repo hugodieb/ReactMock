@@ -1,19 +1,24 @@
 import './ItemCartPay.css'
 import React, { Component } from 'react'
 import { withRouter } from "react-router"
+import { connect } from 'react-redux'
 import paypalImage from '../../assets/imgs/paypal.png'
 import payment from '../../services/paypal'
+import AppApi from '~apijs'
 
 
 class ItemCartPay extends Component {   
     
     state = {
         error: '',
-        display: false
+        display: false,
+        template: {}
     }
   
     componentWillMount() {             
-        payment.init(window.document)                
+        payment.init(window.document)
+        const { templateDetail } = this.props
+        this.setState({template : templateDetail})                
     }
     
     componentDidMount() {
@@ -28,13 +33,16 @@ class ItemCartPay extends Component {
         localStorage.removeItem(process.env.REACT_APP_KEY_NAME)
     }
     
-    paymentService () {              
-        payment.paymentTransaction().then(resp => {
-            this.setState({error: resp})
-            if(this.state.error) {
-                this.setState({display: true})
-            }
-        })      
+    paymentService () {        
+        const { id } = this.state.template        
+        AppApi.sale(id).then(invoice => {
+            payment.paymentTransaction(invoice).then(resp => {
+                this.setState({error: resp})
+                if(this.state.error) {
+                    this.setState({display: true})
+                }
+            })
+        })             
     }   
 
     render() {
@@ -49,10 +57,10 @@ class ItemCartPay extends Component {
                     </div>
                     <div className="columns">
                         <div className="column">
-                            <p>Template One</p>                      
+                            <p>{this.state.template.title}</p>                      
                         </div>
                         <div className="column">
-                            <p>R$ 65.00</p>                      
+                            <p>R$ {this.state.template.pricePay}</p>                      
                         </div>                    
                     </div>
                     <hr/>
@@ -61,7 +69,7 @@ class ItemCartPay extends Component {
                             <h3>Total</h3>                        
                         </div>
                         <div className="column">
-                            <p>R$ 65.00 <span>
+                            <p>R$ {this.state.template.pricePay} <span>
                                 <strong>(1x no cartão)</strong>
                             </span></p>                        
                         </div>                                        
@@ -77,7 +85,7 @@ class ItemCartPay extends Component {
                             <div className="pay">
                                 <button onClick={() => {this.paymentService()}}>pay</button>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                     <div className="columns">
                         <div className="column">
@@ -97,4 +105,8 @@ class ItemCartPay extends Component {
     }    
 }
 
-export default withRouter(ItemCartPay)
+const mapStateToProps = store => ({  
+    templateDetail: store.templateDetail.response
+})
+
+export default withRouter( connect(mapStateToProps)(ItemCartPay))

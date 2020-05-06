@@ -7,6 +7,7 @@ const SuccessPay = (props) => {
     
     return (
         <div className="container has-text-centered">
+            <p>erro: {data.error}</p>
             <p className="has-text-grey-light is-uppercase is-size-1-desktop">
                 Obrigado pela sua compra!
             </p>
