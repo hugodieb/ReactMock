@@ -85,7 +85,8 @@ class ItemCartPay extends Component {
                             <div className="pay">
                                 <button onClick={() => {this.paymentService()}}>pay</button>
                             </div>
-                        </div>                        
+                            <div id="paypal-button-container"></div>
+                        </div>                                               
                     </div>
                     <div className="columns">
                         <div className="column">

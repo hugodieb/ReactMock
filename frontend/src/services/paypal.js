@@ -8,9 +8,7 @@ const dataVars = {
     } 
 }
 
-const token = localStorage.getItem(dataVars.key_name)
-
-const dataTo = {
+const dataTo = {    
     token: {
         PAYPAL_OAUTH_API: "https://api.sandbox.paypal.com/v1/oauth2/token",
         AUTH: {
@@ -25,13 +23,7 @@ const dataTo = {
         PARAMS: {
             grant_type: 'client_credentials'
         }
-    },
-    URL_PAYMENT: 'https://api.sandbox.paypal.com/v1/payments/payment',    
-    HEADER: {
-        'Accept-Language': 'pt_BR',
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${token}`
-    }    
+    }           
 }
 
 const msg = {
@@ -39,8 +31,8 @@ const msg = {
     tente novamente em alguns minutos',
     msgPayment: 'Houve um erro na ordem de pagamento,\
     tente novamente mais tarde.',
-    msgExecute: 'Houve um erro ao executar o pagamento,\
-    tente novamente mais tarde'
+    msgExecute: 'Houve um erro ao executar o pagamento.\
+    Por algum motivo não ocorreu a cobrança. Tente novamente mais tarde'
 }
 
 export default {
@@ -49,6 +41,10 @@ export default {
         let pagarmeScript = document.createElement('script')
         pagarmeScript.setAttribute('src', `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=BRL`)
         document.body.appendChild(pagarmeScript)
+    },
+
+    getToken() {
+        return localStorage.getItem(dataVars.key_name)
     },
 
     async generatedToken()  {      
@@ -61,13 +57,21 @@ export default {
                 params: dataTo.token.PARAMS
             })                                   
             localStorage.setItem(dataVars.key_name, access_token)                     
-        } catch (error) {                                   
+        } catch (error) {
+            console.log(error);                                   
             localStorage.removeItem(dataVars.key_name)
             return msg.msgToken          
         }                    
     },
 
-    async paymentTransaction(invoice) {      
+    async paymentTransaction(invoice) {
+        const token = this.getToken()
+        const URL_PAYMENT = 'https://api.sandbox.paypal.com/v1/payments/payment'        
+        const HEADER = {
+            'Accept-Language': 'pt_BR',
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }      
         const PARAMS = {
             "intent": "sale",
             "payer": {
@@ -104,11 +108,11 @@ export default {
                 "cancel_url": "http://localhost:3000/cancelamento"
             }           
         }       
-        try {                   
+        try {                
             const {data: {links}} = await axios({
-                url: dataTo.URL_PAYMENT,
+                url: URL_PAYMENT,
                 method: 'post',
-                headers: dataTo.HEADER,
+                headers: HEADER,
                 data: PARAMS
             })                      
             if(links.length > 0) {
@@ -118,13 +122,37 @@ export default {
                     }
                 })
             }            
-        } catch (error) {                                             
+        } catch (error) {
+            console.log(error);                                             
             return msg.msgPayment
         }        
-    },    
+    },
+    
+    async paymentDetail(paymentId) {
+        const URL = `https://api.sandbox.paypal.com/v1/payments/payment/${paymentId}`
+        const token = this.getToken()
+        const   HEADER = {
+            'Accept-Language': 'pt_BR',
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+        
+        try {            
+            const { data } = await axios({
+                url: URL,
+                method: 'get',
+                headers: HEADER                
+            })
+            return data
+        } catch (error) {            
+            dataVars.pay_executed.error = msg.msgExecute            
+            return dataVars.pay_executed
+        }
+    },
 
     async executePayment(payerId, paymentId) {       
         const URL = `https://api.sandbox.paypal.com/v1/payments/payment/${paymentId}/execute`
+        const token = this.getToken()
         const   HEADER = {
             'Accept-Language': 'pt_BR',
             'content-type': 'application/json',
@@ -146,7 +174,9 @@ export default {
             dataVars.pay_executed.data = data 
             return dataVars.pay_executed
         } catch (error) {
-            dataVars.pay_executed.error = msg.msgExecute            
+            if(error.response.data.name === '"DUPLICATE_TRANSACTION"') {
+                dataVars.pay_executed.error = ''
+            }                      
             return dataVars.pay_executed
         }
     }    

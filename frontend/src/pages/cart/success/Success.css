@@ -1,9 +1,17 @@
 .cart-success {
-    margin: 8% auto;
+    margin: 4% auto;
 }
 
-.cart-success > div > p {
+.cart-success > div >div > p {
     margin-bottom: 1rem;
+}
+
+.error-pay {
+    margin: 0px 10px;
+}
+
+.error-pay > p {
+    margin-top: 1rem;
 }
 
 .help {
@@ -17,7 +25,8 @@
 .button.is-screw.secondary {
     transform: skew(45deg);
     margin-left: 0.8rem;
-    background-color: #fff 
+    background-color: #fff;
+    border-color: #f5c162; 
 }
 
 .button.is-screw.secondary > span {

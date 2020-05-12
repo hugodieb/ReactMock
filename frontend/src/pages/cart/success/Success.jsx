@@ -19,13 +19,12 @@ class Success extends Component {
         let values = queryString.parse(this.props.location.search)
         let id = values.paymentId
         let payer = values.PayerID
-        this.executePayment(payer, id)        
+        this.executePayment(payer, id)             
     }   
 
-    executePayment(payer, id) {        
-        payment.executePayment(payer, id).then(resp => {            
-            this.setState({data: resp})
-            this.setState({termineted: true})            
+    executePayment(payer, id) {                
+        payment.executePayment(payer, id).then(resp => {
+            this.setState({data: resp, termineted: true})                                           
         })     
     }   
 
