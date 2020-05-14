@@ -45,19 +45,12 @@
 }
 
 .send-method {
+    font-size: medium;
     color: #7d7575;
 }
 
 .send-method>p>i {
     color: #f35216;
-}
-
-.discount>h3 {
-    color: #f35216;
-}
-
-.discount>h3>span {
-    font-size: 1rem;
 }
 
 .pay {

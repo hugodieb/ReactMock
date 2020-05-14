@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Main from '@components/template/Main'
 import MyGallery from '@components/ImageGallery'
 import { templateDetailAction } from '../../actions/templateDetail'
-import { snackbarOpen } from '../../actions/snackbar'
 import AppApi from '~apijs'
 
 class Detail extends Component {
@@ -54,22 +53,20 @@ class Detail extends Component {
                                 <h5><span>{template.discount}</span> de desconto \o/</h5>
                                 <div className="por-price">
                                     <h1>Por: R$ {template.pricePay}</h1>
-                                </div>
-                                <div className="discount">
-                                    <h3>{template.installments}x <span>sem juros</span> de R$ {template.pricePortions}</h3>
-                                </div>
+                                </div>                                
                                 <hr/>
                                 <div className="pay">
                                     <a className="button is-large" onClick={e => this.checkout()}>Comprar</a>
                                     <span><i className="fa fa-lock fa-2x" aria-hidden="true"></i></span>
-                                    <span>Compra Segura</span>
+                                    <span>Compra Segura Paypal</span>
                                 </div>
                                 <hr/>
                                 <div className="send-method">
                                     <p>
-                                        **Todo o código do Template da sua loja será enviado
-                                        pelo email cadastrado em até 24 horas. 
-                                        <i className="fa fa-paper-plane fa-2x" aria-hidden="true"></i>
+                                        *Após finalizar a compra, será disponibilizado um botão <br/>
+                                            para download do arquivo e também automaticamente, <br/>
+                                             enviaremos o código para sua caixa de email cadastado.* 
+                                        <i className="fa fa-paper-plane" aria-hidden="true"></i>
                                     </p>
                                 </div>
                                 <hr/>

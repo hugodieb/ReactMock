@@ -8,9 +8,7 @@ const template = {
     "sku": "",
     "price": "",
     "pricePay": "",
-    "discount": "",
-    "installments": "",
-    "pricePortions": "",
+    "discount": "",    
     "descrption": ""
 }
 

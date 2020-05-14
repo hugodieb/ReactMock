@@ -15,7 +15,8 @@ class Success extends Component {
     }
 
     componentWillMount() {
-        payment.init(window.document)               
+        payment.init(window.document)
+        debugger               
         let values = queryString.parse(this.props.location.search)
         let id = values.paymentId
         let payer = values.PayerID

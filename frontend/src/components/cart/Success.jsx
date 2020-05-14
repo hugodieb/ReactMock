@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-//import unauthorized from '../../assets/imgs/SVG/401.svg'
-import Modal from '@components/Modal'
+import Modal from '@components/cart/Modal'
 
 const SuccessPay = (props) => {            
     const { data } = props.data    

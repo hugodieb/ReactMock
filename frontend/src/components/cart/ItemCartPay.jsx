@@ -60,7 +60,9 @@ class ItemCartPay extends Component {
                             <p>{this.state.template.title}</p>                      
                         </div>
                         <div className="column">
-                            <p>R$ {this.state.template.pricePay}</p>                      
+                            <p>
+                                R$ {this.state.template.pricePay}
+                            </p>                      
                         </div>                    
                     </div>
                     <hr/>
@@ -69,26 +71,27 @@ class ItemCartPay extends Component {
                             <h3>Total</h3>                        
                         </div>
                         <div className="column">
-                            <p>R$ {this.state.template.pricePay} <span>
-                                <strong>(1x no cartão)</strong>
-                            </span></p>                        
+                            <p>
+                                R$ {this.state.template.pricePay}                                   
+                            </p>                        
                         </div>                                        
                     </div>
                     <div className="columns">
-                        <div className="column is-4">
+                        <div className="column is-half">
                             <div className="item-imagem">                    
                                 <img className="item-img"
                                 src={paypalImage} />
                             </div>
                         </div>
-                        <div className="column">
+                        <div className="column is-8">
                             <div className="pay">
-                                <button onClick={() => {this.paymentService()}}>pay</button>
-                            </div>
-                            <div id="paypal-button-container"></div>
+                                <a className="button is-medium" onClick={() => {this.paymentService()}}>
+                                    PAGAMENTO
+                                </a>
+                            </div>                            
                         </div>                                               
                     </div>
-                    <div className="columns">
+                    <div className={`notification ${display ? "" : "hidden"}`}>
                         <div className="column">
                             <div className={`notification is-pay ${display ? "" : "hidden"}`}>
                                 {error}

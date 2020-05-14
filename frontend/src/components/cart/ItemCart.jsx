@@ -1,7 +1,10 @@
 import './ItemCart.css'
 import React from 'react'
+import { connect } from 'react-redux'
 
-const ItemCart = () => {
+const ItemCart = props => {
+    debugger
+    const { template } = props
     return (
         <div className="item-cart-parent has-text-centered">
             <div className="item-cart-header"></div>
@@ -15,15 +18,15 @@ const ItemCart = () => {
                     </div>
                     <div className="column is-4">
                         <div className="item-info">
-                            <h5>Template One</h5>
+                            <h5>{template.title}</h5>
                             <p>
                                 <span>
-                                    REF: #6484674644   
+                                    REF: #{template.sku}   
                                 </span>
                             </p>
                             <div className="item-price">
-                                <p> <span> R$ 64.99</span> </p>
-                                <p>R$ 65.44</p>
+                                <p> <span> R$ {template.price}</span> </p>
+                                <p>R$ {template.pricePay}</p>
                             </div>
                             <div className="subtitle">
                                 Suporte: 6 meses            
@@ -32,7 +35,7 @@ const ItemCart = () => {
                     </div>
                     <div className="column is-4 item-discount">
                         <span>
-                           30% OFF
+                           {template.discount} OFF
                         </span>
                     </div>                    
                 </div>            
@@ -46,5 +49,9 @@ const ItemCart = () => {
     )
 }
 
-export default ItemCart
+const mapStateToProps = store => ({    
+    template: store.templateDetail.response
+})
+
+export default  connect(mapStateToProps)(ItemCart)
 
