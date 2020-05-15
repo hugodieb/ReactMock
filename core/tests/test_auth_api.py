@@ -9,17 +9,19 @@ class TestAuthApi(TestCase):
     def setUpTestData(cls):
         fixtures.user_sheik()
 
-    def test_auth_whoami_api(self):
+    def test__whoami_api(self):
         client = Client()
         client.force_login(User.objects.get(username='sheikdog'))
         c1 = client.get('/api/whoami')
         self.assertEqual(200, c1.status_code)
-        user = json.loads(c1.content.decode('utf-8'))
-        self.assertNotEquals(user['user']['email'], 'asasa@ds.com')
-        self.assertEquals(user['user']['email'], 'sheik@dog.com')
-        self.assertEquals(user['user']['cpf'], '123456789098')
+        res = json.loads(c1.content.decode('utf-8'))
+        self.assertNotEquals(res['user']['email'], 'asasa@ds.com')
+        self.assertEquals(res['user']['email'], 'sheik@dog.com')
+        self.assertEquals(res['user']['cpf'], '123456789098')
 
-
-
-
-
+    def test_login_api(self):
+        client = Client()
+        r = client.post('/api/login', {'email': 'sheik@dog.com', 'password': 'sheik'})
+        self.assertEquals(200, r.status_code)
+        res = json.loads(r.content.decode('utf-8'))
+        self.assertTrue('cpf' in res['user'])
