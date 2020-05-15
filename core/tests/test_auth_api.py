@@ -10,5 +10,9 @@ class TestAuthApi(TestCase):
 
     def test_aut_api(self):
         client = Client()
+        client.force_login(User.objects.get(username='sheikdog'))
         c1 = client.get('/api/whoami')
         self.assertEqual(200, c1.status_code)
+
+    def test_login_api(self):
+        pass
