@@ -1,4 +1,4 @@
-from django.http.response import JsonResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
 from core.models import User
@@ -16,6 +16,10 @@ def login(request):
             auth.login(request, user, backend=AUTH_BACKEND)
             user_dict = _user2dict(user)
     return JsonResponse({'user': user_dict}, safe=False)
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponse('{}', content_type='application/json')
 
 def whoami(request):
     i_am = {

@@ -25,3 +25,12 @@ class TestAuthApi(TestCase):
         self.assertEquals(200, r.status_code)
         res = json.loads(r.content.decode('utf-8'))
         self.assertTrue('cpf' in res['user'])
+
+    def test_logout_api(self):
+        client = Client()
+        r = client.post('/api/logout')
+        self.assertEqual(200, r.status_code)
+        r = client.post('/api/whoami')
+        self.assertEqual(200, r.status_code)
+        res = json.loads(r.content.decode('utf-8'))
+        self.assertEquals(False, res['authenticated'])
