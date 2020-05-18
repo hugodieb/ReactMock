@@ -9,7 +9,7 @@ class TestAuthApi(TestCase):
     def setUpTestData(cls):
         fixtures.user_sheik()
 
-    def test__whoami_api(self):
+    def test_whoami_api(self):
         client = Client()
         client.force_login(User.objects.get(username='sheikdog'))
         c1 = client.get('/api/whoami')

@@ -28,6 +28,9 @@ def whoami(request):
     } if request.user.is_authenticated else {'authenticated': False}
     return JsonResponse(i_am)
 
+def getTemplates(request):
+    return  JsonResponse({}, safe=False)
+
 
 def _user2dict(user):
     d = {}

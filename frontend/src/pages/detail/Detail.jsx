@@ -50,7 +50,7 @@ class Detail extends Component {
                             <p className="subtitle">{template.sku}</p>
                             <div className="content">
                                 <h4>De: <span>R$ {template.price}</span></h4>
-                                <h5><span>{template.discount}</span> de desconto \o/</h5>
+                                <h5><span>{template.discount}</span> % de desconto \o/</h5>
                                 <div className="por-price">
                                     <h1>Por: R$ {template.pricePay}</h1>
                                 </div>                                
