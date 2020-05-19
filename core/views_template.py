@@ -3,8 +3,6 @@ from core.service import template_svc
 from core.models import Template
 
 
-
-
 def get_templates(request):
     templates = Template.objects.all()
     temp_list = []
