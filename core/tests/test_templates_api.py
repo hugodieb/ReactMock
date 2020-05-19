@@ -21,3 +21,15 @@ class TestTemplatesApi(TestCase):
             self.assertTrue('sku' in r)
             self.assertTrue('price' in r)
             self.assertTrue('description' in r)
+
+    def test_template_detail_api(self):
+        client = Client()
+        t1 = client.get('/api/template', {'id': '1'})
+        self.assertEquals(200, t1.status_code)
+        res = json.loads(t1.content.decode('utf-8'))
+        for r in res:
+            fields = [
+                'id', 'title', 'sku', 'price', 'description'
+            ]
+            for f in fields:
+                self.assertTrue(f in res['Template'])

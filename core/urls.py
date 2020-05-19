@@ -8,4 +8,5 @@ urlpatterns = [
 
     #Templates
     path('api/templates', views.getTemplates),
+    path('api/template', views.templateDetail),
 ]

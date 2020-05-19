@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
+from core.service import template_svc
 from core.models import User, Template
 
 AUTH_BACKEND = 'django.contrib.auth.backends.ModelBackend'
@@ -36,7 +37,17 @@ def getTemplates(request):
 
     return JsonResponse({'Templates': temp_list})
 
+
+def templateDetail(request):
+    id = request.GET['id']
+    detail = template_svc.templateDetail(id)
+    print(detail)
+
+    return JsonResponse({'Template': detail}, safe=False)
+
+
 def _user2dict(user):
     d = {}
     d.update(user.profile.to_dict_json())
     return d
+
