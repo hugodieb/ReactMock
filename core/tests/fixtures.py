@@ -13,11 +13,15 @@ def user_sheik():
     return sheik
 
 def templates():
-    template = Template(
-        title='TemplateOne',
-        sku='32ku052020',
-        price='30.00',
-        description='Template teste'
+    # template = Template(title='TemplateOne', sku='32KU052020', price='32.50', description='teste template')
+    template_1 = Template.objects.create(
+        title='TemplateOne', sku='32KU052020', price='32.50', description='teste template'
     )
-    template.save()
-    return template
+    template_2 = Template.objects.create(
+        title='TemplateTwo', sku='33KU052020', price='45.55', description='teste template'
+    )
+    template_3 = Template.objects.create(
+        title='TemplateThree', sku='34KU052020', price='32.51', description='teste template'
+    )
+
+    return [template_1, template_2, template_3]

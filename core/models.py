@@ -47,7 +47,13 @@ class Template(models.Model):
         pass
 
     def to_dict_json(self):
-        pass
+        return {
+            'id': self.id,
+            'title': self.title,
+            'sku': self.sku,
+            'price': self.price,
+            'description': self.description
+        }
 
 class TemplateImage(models.Model):
     template = models.ForeignKey(Template, related_name='images', on_delete=models.CASCADE)

@@ -1,7 +1,7 @@
 from django.http.response import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
-from core.models import User
+from core.models import User, Template
 
 AUTH_BACKEND = 'django.contrib.auth.backends.ModelBackend'
 
@@ -29,8 +29,12 @@ def whoami(request):
     return JsonResponse(i_am)
 
 def getTemplates(request):
-    return  JsonResponse({}, safe=False)
+    templates = Template.objects.all()
+    temp_list = []
+    for temp in templates:
+        temp_list.append(temp.to_dict_json())
 
+    return JsonResponse({'Templates': temp_list})
 
 def _user2dict(user):
     d = {}
