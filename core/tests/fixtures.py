@@ -1,4 +1,4 @@
-from core.models import User, Profile, Template
+from core.models import User, Profile, Template, Discount, TemplateImage
 
 def user_sheik():
     sheik = User.objects.create_user(
@@ -23,5 +23,11 @@ def templates():
     template_3 = Template.objects.create(
         title='TemplateThree', sku='34KU052020', price='32.51', description='teste template'
     )
+    discount = Discount.objects.create(name='Dad', template=template_1, discount_value='10')
+    discount.save()
+    imagens1 = TemplateImage.objects.create(thumbnails='image1.jpg', originals='image2.jpg', template=template_1)
+    imagens2 = TemplateImage.objects.create(thumbnails='image3.jpg', originals='image4.jpg', template=template_1)
+    imagens1.save()
+    imagens2.save()
 
     return [template_1, template_2, template_3]

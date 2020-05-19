@@ -18,9 +18,11 @@ def login(request):
             user_dict = _user2dict(user)
     return JsonResponse({'user': user_dict}, safe=False)
 
+
 def logout(request):
     auth.logout(request)
     return HttpResponse('{}', content_type='application/json')
+
 
 def whoami(request):
     i_am = {
@@ -29,7 +31,8 @@ def whoami(request):
     } if request.user.is_authenticated else {'authenticated': False}
     return JsonResponse(i_am)
 
-def getTemplates(request):
+
+def get_templates(request):
     templates = Template.objects.all()
     temp_list = []
     for temp in templates:
@@ -38,10 +41,9 @@ def getTemplates(request):
     return JsonResponse({'Templates': temp_list})
 
 
-def templateDetail(request):
+def template_detail(request):
     id = request.GET['id']
-    detail = template_svc.templateDetail(id)
-    print(detail)
+    detail = template_svc.template_detail(id)
 
     return JsonResponse({'Template': detail}, safe=False)
 

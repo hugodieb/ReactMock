@@ -63,6 +63,7 @@ class TemplateImage(models.Model):
     def __str__(self):
         return '%s' % (self.template.title)
 
+
 class Discount(models.Model):
     name = models.CharField(max_length=200)
     template = models.ForeignKey(
@@ -75,3 +76,12 @@ class Discount(models.Model):
 
     def __str__(self):
         return '%s %s' % (self.discount_value, self.discount_value_type)
+
+    def to_dict_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'template': self.template,
+            'discount_value': self.discount_value,
+            'discount_value_type': self.discount_value_type
+        }

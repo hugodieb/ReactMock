@@ -15,7 +15,6 @@ class TestTemplatesApi(TestCase):
         res = json.loads(t1.content.decode('utf-8'))
         self.assertEqual(3, len(res['Templates']))
         for r in res['Templates']:
-            field = ['id', 'title', 'sku', 'price', 'description']
             self.assertTrue('id' in r)
             self.assertTrue('title' in r)
             self.assertTrue('sku' in r)
@@ -27,9 +26,11 @@ class TestTemplatesApi(TestCase):
         t1 = client.get('/api/template', {'id': '1'})
         self.assertEquals(200, t1.status_code)
         res = json.loads(t1.content.decode('utf-8'))
-        for r in res:
-            fields = [
-                'id', 'title', 'sku', 'price', 'description'
-            ]
-            for f in fields:
-                self.assertTrue(f in res['Template'])
+        self.assertTrue('id' in res['Template'])
+        self.assertTrue('title' in res['Template'])
+        self.assertTrue('sku' in res['Template'])
+        self.assertTrue('price' in res['Template'])
+        self.assertTrue('description' in res['Template']),
+        self.assertTrue('discount' in res['Template'])
+        self.assertTrue('thumbnails' in res['Template'])
+        self.assertTrue('originals' in res['Template'])
