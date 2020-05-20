@@ -33,9 +33,13 @@ class ItemCartPay extends Component {
         localStorage.removeItem(process.env.REACT_APP_KEY_NAME)
     }
     
-    paymentService () {        
-        const { id } = this.state.template        
-        AppApi.sale(id).then(invoice => {
+    paymentService () {
+        const params = {
+            'id': this.state.template,
+            'payment_method': 'paypal'
+        }        
+               
+        AppApi.sale(params).then(invoice => {
             payment.paymentTransaction(invoice).then(resp => {
                 this.setState({error: resp})
                 if(this.state.error) {

@@ -45,8 +45,8 @@ const api = {
         template = template.then(response => response.data)
         return mockObject(template).then(response => response.data)
     },
-    async sale(id) {        
-        let sale = get(baseUrl + `/invoicePayment?id=${id}`)
+    async sale(params) {        
+        let sale = get(baseUrl + `/invoicePayment?id=${params.id}`)
         sale = sale.then(response => response.data)
         return mockObject(sale).then(response => response.data)
     },

@@ -13,8 +13,8 @@ class TestTemplatesApi(TestCase):
         t1 = client.get('/api/templates')
         self.assertEquals(200, t1.status_code)
         res = json.loads(t1.content.decode('utf-8'))
-        self.assertEqual(3, len(res['Templates']))
-        for r in res['Templates']:
+        self.assertEqual(3, len(res['templates']))
+        for r in res['templates']:
             self.assertTrue('id' in r)
             self.assertTrue('title' in r)
             self.assertTrue('sku' in r)
@@ -28,12 +28,12 @@ class TestTemplatesApi(TestCase):
             t1 = client.get('/api/template', {'id': id})
             self.assertEquals(200, t1.status_code)
             res = json.loads(t1.content.decode('utf-8'))
-            self.assertTrue('id' in res['Template'])
-            self.assertTrue('title' in res['Template'])
-            self.assertTrue('sku' in res['Template'])
-            self.assertTrue('price' in res['Template'])
-            self.assertTrue('description' in res['Template']),
-            self.assertTrue('discount' in res['Template'])
-            self.assertTrue('thumbnails' in res['Template'])
-            self.assertTrue('originals' in res['Template'])
-            self.assertTrue('price_pay' in res['Template'])
+            self.assertTrue('id' in res['template'])
+            self.assertTrue('title' in res['template'])
+            self.assertTrue('sku' in res['template'])
+            self.assertTrue('price' in res['template'])
+            self.assertTrue('description' in res['template']),
+            self.assertTrue('discount' in res['template'])
+            self.assertTrue('thumbnails' in res['template'])
+            self.assertTrue('originals' in res['template'])
+            self.assertTrue('price_pay' in res['template'])

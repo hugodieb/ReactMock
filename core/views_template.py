@@ -9,14 +9,14 @@ def get_templates(request):
     for temp in templates:
         temp_list.append(temp.to_dict_json())
 
-    return JsonResponse({'Templates': temp_list})
+    return JsonResponse({'templates': temp_list})
 
 
 def template_detail(request):
     id = request.GET['id']
     detail = template_svc.template_detail(id)
 
-    return JsonResponse({'Template': detail}, safe=False)
+    return JsonResponse({'template': detail}, safe=False)
 
 
 

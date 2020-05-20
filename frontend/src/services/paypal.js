@@ -72,42 +72,7 @@ export default {
             'content-type': 'application/json',
             'Authorization': `Bearer ${token}`
         }      
-        const PARAMS = {
-            "intent": "sale",
-            "payer": {
-                "payment_method": "paypal"
-            },
-            "transactions": [
-                {
-                    "amount": {
-                        "total": invoice.details.total,
-                        "currency": "BRL",
-                        "details": {
-                            "subtotal": invoice.details.subtotal,
-                            "tax": invoice.details.tax,
-                            "shipping": invoice.details.shipping,
-                            "handling_fee": invoice.details.handling_fee,
-                            "shipping_discount": invoice.details.shipping_discount,
-                            "insurance": invoice.details.insurance
-                        }
-                    },
-                    "description": "The payment transaction description.",
-                    "custom": "EBAY_EMS_" + invoice.invoice_number,
-                    "invoice_number": invoice.invoice_number,
-                    "payment_options": {
-                        "allowed_payment_method": "INSTANT_FUNDING_SOURCE"
-                    },
-                    "item_list": {
-                        "items": invoice.items
-                    }
-                }
-            ],
-            "note_to_payer": "Contact us for any questions on your order.",
-            "redirect_urls": {
-                "return_url": "http://localhost:3000/sucesso",
-                "cancel_url": "http://localhost:3000/cancelamento"
-            }           
-        }       
+        const PARAMS = this.getInvoicePayment(invoice)    
         try {                
             const {data: {links}} = await axios({
                 url: URL_PAYMENT,
@@ -179,5 +144,44 @@ export default {
             }                      
             return dataVars.pay_executed
         }
-    }    
+    },
+    
+    getInvoicePayment(invoice) {
+        return {
+            "intent": "sale",
+            "payer": {
+                "payment_method": "paypal"
+            },
+            "transactions": [
+                {
+                    "amount": {
+                        "total": invoice.total,
+                        "currency": "BRL",
+                        "details": {
+                            "subtotal": invoice.subtotal,
+                            "tax": "0.00",
+                            "shipping": "0.00",
+                            "handling_fee": "0.00",
+                            "shipping_discount": "0.00",
+                            "insurance": "0.00"
+                        }
+                    },
+                    "description": "The payment transaction.",
+                    "custom": "EBAY_EMS_" + invoice.invoice_number,
+                    "invoice_number": invoice.invoice_number,
+                    "payment_options": {
+                        "allowed_payment_method": "INSTANT_FUNDING_SOURCE"
+                    },
+                    "item_list": {
+                        "items": invoice.items
+                    }
+                }
+            ],
+            "note_to_payer": "Contact us for any questions on your order.",
+            "redirect_urls": {
+                "return_url": "http://localhost:3000/sucesso",
+                "cancel_url": "http://localhost:3000/cancelamento"
+            }           
+        }
+    }
 }
