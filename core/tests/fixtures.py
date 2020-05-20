@@ -1,4 +1,4 @@
-from core.models import User, Profile, Template, Discount, TemplateImage
+from core.models import User, Profile, Template, Discount, TemplateImage, InvoiceOrder
 
 def user_sheik():
     sheik = User.objects.create_user(
@@ -34,5 +34,28 @@ def templates():
 
     return [template_1, template_2, template_3]
 
+
+def template():
+    template_one = Template.objects.create(
+        title='TemplateOne', sku='32KU052020', price='32.50', description='teste template'
+    )
+    return template_one
+
+
 def invoice():
-    pass
+    sheik = user_sheik()
+    template_one = Template.objects.create(
+        title='TemplateOne', sku='32KU052020', price='32.50', description='teste template'
+    )
+    template_one.save()
+    invoice_order = InvoiceOrder.objects.create(
+        user=sheik,
+        template=template,
+        subtotal='100',
+        total='100',
+        order_number='12345678',
+        status='waiting',
+        payment_method='paypal'
+    )
+    invoice_order.save()
+    return invoice_order
