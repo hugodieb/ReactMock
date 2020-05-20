@@ -6,3 +6,6 @@ class DiscountValueType:
         ('F', FIXED),
         ('P', PERCENTAGE)
     )
+
+class StatusPayment:
+    STATUS = [(c, c) for c in ['waiting', 'paid', 'disapproved']]

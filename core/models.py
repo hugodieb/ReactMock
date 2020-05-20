@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from . import DiscountValueType
+from . import DiscountValueType, StatusPayment
 
 
 class Profile(models.Model):
@@ -101,3 +101,18 @@ class Discount(models.Model):
             'discount_value': self.discount_value,
             'discount_value_type': self.discount_value_type
         }
+
+
+class InvoiceOrder(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    template = models.ForeignKey(Template, related_name='invoice', on_delete=models.CASCADE)
+    subtotal = models.DecimalField('Subtotal', decimal_places=2, max_digits=8)
+    total = models.DecimalField('Total', decimal_places=2, max_digits=8)
+    order_number = models.PositiveIntegerField('Ordem Serviço', default=0)
+    status = models.CharField('Status', max_length=32, default='waiting', choices=StatusPayment.STATUS)
+    payment_method = models.CharField('Método de pagamento', max_length=200)
+    created_at = models.DateTimeField('Criado em', auto_now_add=True)
+    update_at = models.DateTimeField('Atualizado em', auto_now=True)
+
+    def __str__(self):
+        return '%s %s' % (self.order_number, self.status)

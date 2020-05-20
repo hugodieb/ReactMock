@@ -90,26 +90,25 @@
     "date_created": "13/05/2020",
     "user_id": 1,
     "template_id": 1,
-    "subtotal": "130.00",
-    "discount": "10.00",
+    "subtotal": "130.00",    
     "total": "120.00",
-    "order_number": "4035463425410",
+    "order_number": "40354634",
     "status": "wating",
     "payment_method": "paypal"
   },
   "invoicePayment": {
     "id": "1",      
-    "invoice_number": "4035463425409",
-    "subtotal": "130.00",
-    "total": "130.00",      
+    "invoice_number": "40354634",
+    "subtotal": "150.00",
+    "total": "150.00",      
     "items": [
       {
-        "name": "Template one",
+        "name": "Template two",
         "description": "Loja ecommerce com código HTML, CSS e JAVASCRIPT prontinhos para voçê iniciar sua loja. Seu cliente vai navegar no seu site de forma intuitiva e ágil. Pagina de apresentação da sua loja(Home), página de detalhe do produto, adicionar ao carrinho, checkout e finalização do processo de compra. Caso precise de auxilio, teremos muita satisfação em ajudar, inclusive temos nossos desenvolvedores que poderam orientá-lo com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, podemos lhe oferecer também este serviço.",
         "quantity": "1",
-        "price": "130.00",
+        "price": "150.00",
         "tax": "0.00",
-        "sku": "BRWDMC9",
+        "sku": "BRWDMC10",
         "currency": "BRL"        
       }
     ]

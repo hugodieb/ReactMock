@@ -33,3 +33,6 @@ def templates():
     imagens2.save()
 
     return [template_1, template_2, template_3]
+
+def invoice():
+    pass
