@@ -22,15 +22,12 @@ def templates():
     template_3 = Template.objects.create(
         title='TemplateThree', sku='34KU052020', price='32.51', description='teste template'
     )
-    discount1 = Discount.objects.create(name='Dad', template=template_1, discount_value='10.50')
-    discount1.save()
-    discount2 = Discount.objects.create\
-        (name='Dad', template=template_2, discount_value='10', discount_value_type='percentage')
-    discount2.save()
-    imagens1 = TemplateImage.objects.create(thumbnails='image1.jpg', originals='image2.jpg', template=template_1)
-    imagens2 = TemplateImage.objects.create(thumbnails='image3.jpg', originals='image4.jpg', template=template_1)
-    imagens1.save()
-    imagens2.save()
+
+    Discount.objects.create(name='Dad', template=template_1, discount_value='10.50')
+    Discount.objects.create(name='whowho', template=template_2, discount_value='10', discount_value_type='percentage')
+
+    TemplateImage.objects.create(thumbnails='image1.jpg', originals='image2.jpg', template=template_1)
+    TemplateImage.objects.create(thumbnails='image3.jpg', originals='image4.jpg', template=template_1)
 
     return [template_1, template_2, template_3]
 
@@ -39,15 +36,15 @@ def template():
     template_one = Template.objects.create(
         title='TemplateOne', sku='32KU052020', price='32.50', description='teste template'
     )
+    Discount.objects.create(name='whowho', template=template_one, discount_value='10', discount_value_type='percentage')
     return template_one
 
 
 def invoice():
     sheik = user_sheik()
-    template_one = Template.objects.create(
+    Template.objects.create(
         title='TemplateOne', sku='32KU052020', price='32.50', description='teste template'
     )
-    template_one.save()
     invoice_order = InvoiceOrder.objects.create(
         user=sheik,
         template=template,

@@ -116,3 +116,24 @@ class InvoiceOrder(models.Model):
 
     def __str__(self):
         return '%s %s' % (self.order_number, self.status)
+
+    def to_dict_json(self):
+        items = []
+        item = {
+            'name': self.template.title,
+            'description': self.template.description,
+            'quantity': "1",
+            'price': self.total,
+            'tax': "0.00",
+            'sku': "BRWDMC10",
+            'currency': "BRL"
+        }
+        items.append(item)
+        d = {
+            'id': self.id,
+            'invoice_number': self.order_number,
+            'subtotal': self.subtotal,
+            'total': self.total,
+            'items': items
+        }
+        return d

@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from core.models import Profile, Template, TemplateImage, Discount
+from core.models import Profile, Template, TemplateImage, Discount, InvoiceOrder
+
 
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'birth_date', 'cell_phone', 'cpf', 'photo_url')
@@ -17,7 +18,12 @@ class DiscountAdmin(admin.ModelAdmin):
     list_display = ('name', 'template', 'discount_value', 'discount_value_type')
 
 
+class InvoiceOrderAdmin(admin.ModelAdmin):
+    list_display = ('user', 'template', 'subtotal', 'total', 'order_number', 'status', 'payment_method', 'created_at', 'update_at')
+
+
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Template, TemplateAdmin)
 admin.site.register(TemplateImage, TemplateImagesAdmin)
 admin.site.register(Discount, DiscountAdmin)
+admin.site.register(InvoiceOrder, InvoiceOrderAdmin)
