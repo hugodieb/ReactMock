@@ -3,6 +3,7 @@ from django.test.client import Client
 from django.test.testcases import TestCase
 from core.tests import fixtures
 
+
 class TestTemplatesApi(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -23,7 +24,7 @@ class TestTemplatesApi(TestCase):
 
     def test_fields_template_detail_api(self):
         client = Client()
-        t1 = client.get('/api/template', {'id': 1})
+        t1 = client.get('/api/template', {'id': 2})
         self.assertEquals(200, t1.status_code)
         res = json.loads(t1.content.decode('utf-8'))
         self.assertTrue('id' in res['template'])
@@ -38,12 +39,11 @@ class TestTemplatesApi(TestCase):
 
     def test_value_fields_template_detail_api(self):
         client = Client()
-        t1 = client.get('/api/template', {'id': 1})
+        t1 = client.get('/api/template', {'id': 2})
         self.assertEquals(200, t1.status_code)
         res1 = json.loads((t1.content.decode('utf-8')))
-        self.assertEqual(1, res1['template']['id'])
+        self.assertEqual(2, res1['template']['id'])
         self.assertEqual('TemplateOne', res1['template']['title'])
-        self.assertEqual('32KU052020', res1['template']['sku'])
         self.assertEqual('32.50', res1['template']['price'])
         self.assertEqual('teste template', res1['template']['description'])
         self.assertEqual('10.50', res1['template']['discount'])

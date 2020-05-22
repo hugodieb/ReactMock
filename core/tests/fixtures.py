@@ -14,13 +14,13 @@ def user_sheik():
 
 def templates():
     template_1 = Template.objects.create(
-        title='TemplateOne', sku='32KU052020', price='32.50', description='teste template'
+        title='TemplateOne', price='32.50', description='teste template'
     )
     template_2 = Template.objects.create(
-        title='TemplateTwo', sku='33KU052020', price='45.99', description='teste template'
+        title='TemplateTwo', price='45.99', description='teste template'
     )
     template_3 = Template.objects.create(
-        title='TemplateThree', sku='34KU052020', price='32.51', description='teste template'
+        title='TemplateThree', price='32.51', description='teste template'
     )
 
     Discount.objects.create(name='Dad', template=template_1, discount_value='10.50')

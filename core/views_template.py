@@ -13,7 +13,7 @@ def get_templates(request):
 
 
 def template_detail(request):
-    id = request.GET['id']
+    id = int(request.GET['id'])
     detail = template_svc.template_detail(id)
 
     return JsonResponse({'template': detail}, safe=False)
