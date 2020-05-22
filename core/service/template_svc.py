@@ -11,6 +11,10 @@ def template_detail(template_id):
         thumbs = template.images.all()
         thumbnails = [thumb.thumbnails.name for thumb in thumbs]
         originals = [thumb.originals.name for thumb in thumbs]
+        gallery = []
+        if len(thumbnails) > 0 and len(thumbnails) == len(originals):
+            for t in range(len(thumbnails)):
+                gallery.append({"thumbnail": thumbnails[t], "original": originals[t]})
         if template.discount.all():
             for temp in template.discount.all():
                 discount = temp.discount_value
@@ -28,7 +32,8 @@ def template_detail(template_id):
             'description': template.description,
             'discount': discount,
             'thumbnails': thumbnails,
-            'originals': originals
+            'originals': originals,
+            'gallery': gallery
         }
     else:
         return None
