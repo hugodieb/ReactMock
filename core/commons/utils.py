@@ -7,5 +7,4 @@ def random_invoice_number(size):
 
 
 def random_sku_template(size):
-
-    return ''.join(random.choices(string.ascii_uppercase + string.digits) for _ in range(size))
+    return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(size))

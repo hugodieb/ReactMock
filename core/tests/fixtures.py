@@ -34,7 +34,7 @@ def templates():
 
 def template():
     template_one = Template.objects.create(
-        title='TemplateOne', sku='32KU052020', price='32.50', description='teste template'
+        title='TemplateOne', price='32.50', description='teste template'
     )
     Discount.objects.create(name='whowho', template=template_one, discount_value='10', discount_value_type='percentage')
     return template_one

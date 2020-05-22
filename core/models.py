@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from . import DiscountValueType, StatusPayment
+from core.commons.utils import random_sku_template
 
 
 class Profile(models.Model):
@@ -31,20 +32,22 @@ class Profile(models.Model):
             'permissions': permissons
         }
 
+
 class Template(models.Model):
     title = models.CharField(max_length=256, null=False, blank=False)
     sku = models.CharField(max_length=32, unique=True, null=False, blank=False)
     price = models.DecimalField('Preço', decimal_places=2, max_digits=8)
     description = models.TextField('Descriçao', blank=True)
 
+    def save(self, *args, **kwargs):
+        self.sku = self.create_sku_template()
+        super(Template, self).save(*args, **kwargs)
+
     def __str__(self):
         return '%s' % (self.title)
 
-    def getTemplateImages(self):
-        pass
-
-    def setDiscountPriceTemplate(self):
-        pass
+    def create_sku_template(self):
+        return random_sku_template(6)
 
     def to_dict_json(self):
         return {
@@ -125,7 +128,7 @@ class InvoiceOrder(models.Model):
             'quantity': "1",
             'price': self.total,
             'tax': "0.00",
-            'sku': "BRWDMC10",
+            'sku': self.template.sku,
             'currency': "BRL"
         }
         items.append(item)

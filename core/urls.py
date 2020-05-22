@@ -12,5 +12,5 @@ urlpatterns = [
     path('api/template', views_template.template_detail),
 
     # Invoice
-    path('api/create_invoice', views_invoice.crate_invoice_order)
+    path('api/create_invoice', views_invoice.crate_invoice_order),
 ]
