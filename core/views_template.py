@@ -15,8 +15,10 @@ def get_templates(request):
 def template_detail(request):
     id = int(request.GET['id'])
     detail = template_svc.template_detail(id)
-
-    return JsonResponse({'template': detail}, safe=False)
+    if detail:
+        return JsonResponse({'template': detail}, safe=False)
+    else:
+        return JsonResponse({}, status=404)
 
 
 

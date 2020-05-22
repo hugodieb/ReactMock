@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from . import DiscountValueType, StatusPayment
-from core.commons.utils import random_sku_template
+from commons.utils import random_sku_template
 
 
 class Profile(models.Model):

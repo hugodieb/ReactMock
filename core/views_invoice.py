@@ -1,6 +1,6 @@
 import json
 from django.http.response import JsonResponse
-from core.commons.views_decorators_utils import ajax_login_required
+from commons.views_decorators_utils import ajax_login_required
 from core.service import invoice_order_svc
 
 

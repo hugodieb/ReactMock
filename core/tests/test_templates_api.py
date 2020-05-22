@@ -22,6 +22,13 @@ class TestTemplatesApi(TestCase):
             self.assertTrue('price' in r)
             self.assertTrue('description' in r)
 
+    def test_template_404_api(self):
+        client = Client()
+        t1 = client.get('/api/template', {'id': 10})
+        self.assertEquals(404, t1.status_code)
+        res = json.loads(t1.content.decode('utf-8'))
+        self.assertEquals({}, res)
+
     def test_fields_template_detail_api(self):
         client = Client()
         t1 = client.get('/api/template', {'id': 2})

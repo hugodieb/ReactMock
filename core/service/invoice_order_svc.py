@@ -1,5 +1,5 @@
 from core.models import InvoiceOrder, User, Template
-from core.commons.utils import random_invoice_number
+from commons.utils import random_invoice_number
 
 def create_invoice_order(user_id, params):
     user = User.objects.get(pk=user_id)
