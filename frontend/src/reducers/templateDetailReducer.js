@@ -9,7 +9,8 @@ const template = {
     "price": "",
     "pricePay": "",
     "discount": "",    
-    "descrption": ""
+    "descrption": "",
+    "gallery": ""
 }
 
 export const templateDetailReducer = (state, action) => {          

@@ -11,10 +11,10 @@ const ItemCart = props => {
             <div className="item-cart-child">
                 <div className="columns">
                     <div className="column is-4">
-                        <div className="item-imagem">                    
+                                           
                             <img className="item-img"
-                             src="https://static.netshoes.com.br/produtos/camisa-corinthians-i-1920-sn-torcedor-nike-masculina/28/HZM-1555-028/HZM-1555-028_vitrine.jpg?ts=1585972809" />
-                        </div>
+                             src={template.thumbnails[0]} />
+                       
                     </div>
                     <div className="column is-4">
                         <div className="item-info">

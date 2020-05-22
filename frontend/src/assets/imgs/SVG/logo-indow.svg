@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="183"
+   inkscape:export-xdpi="183"
+   inkscape:export-filename="/home/dieb/Imagens/logo-indow.jpg.png"
+   sodipodi:docname="logo-indow.jpg.svg"
+   inkscape:version="1.0 (1.0+r73)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 60.397606 88.412506"
+   height="88.412506mm"
+   width="60.397606mm">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:pagecheckerboard="true"
+     inkscape:window-maximized="1"
+     inkscape:window-y="27"
+     inkscape:window-x="41"
+     inkscape:window-height="713"
+     inkscape:window-width="1325"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="363.35558"
+     inkscape:cx="1081.5666"
+     inkscape:zoom="0.35"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-119.47242,-21.790742)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       transform="matrix(0.72193165,0,0,0.65595583,111.02277,16.967534)"
+       id="g879">
+      <rect
+         style="opacity:0.67022;fill:#d40000;fill-opacity:1;stroke:#f4f3ed;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect861"
+         width="69.902771"
+         height="134.78423"
+         x="11.704221"
+         y="7.3529582"
+         ry="17.400631" />
+      <rect
+         ry="17.400631"
+         y="7.352951"
+         x="18.583385"
+         height="134.78423"
+         width="69.902771"
+         id="rect863"
+         style="opacity:1;fill:#ffffff;fill-opacity:0.997067;stroke:#f4f3ed;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;paint-order:fill markers stroke" />
+      <rect
+         style="opacity:0;fill:#ffac00;fill-opacity:1;stroke:#f4f3ed;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect865"
+         width="69.902771"
+         height="134.78423"
+         x="11.704221"
+         y="7.3529582"
+         ry="17.400631" />
+      <rect
+         style="opacity:1;fill:#ff6600;fill-opacity:1;stroke:#f4f3ed;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect867"
+         width="69.902771"
+         height="134.78423"
+         x="25.462563"
+         y="7.3529463"
+         ry="17.400631" />
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:136.154px;line-height:1.25;font-family:Aero;-inkscape-font-specification:'Aero, Medium Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.40386"
+         x="43.559269"
+         y="115.09222"
+         id="text871"
+         transform="scale(0.92561832,1.0803589)"><tspan
+           sodipodi:role="line"
+           id="tspan869"
+           x="43.559269"
+           y="115.09222"
+           style="fill:#ffffff;stroke-width:3.40386">i</tspan></text>
+    </g>
+  </g>
+</svg>

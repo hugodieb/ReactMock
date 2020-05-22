@@ -13,6 +13,10 @@
         height: 30px;
     }
 
+    .navbar-item img {
+        max-height: 3rem;
+    }
+
     .navbar-item.is-drop i.fa.fa-user-circle.fa-2x {
         font-size: 2.5em;
         color: rgb(255, 255, 255);

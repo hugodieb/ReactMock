@@ -33,7 +33,7 @@ class Routes extends Component {
                 <Route path='/perfil/entrar' component={UserLogin} />
                 <PrivateRoute path='/perfil' component={UserProfile} />
                 <Route path='/template/:name' component={Detail} />
-                <Route path='/sucesso' component={Success} />
+                <PrivateRoute path='/sucesso' component={Success} />
                 <PrivateRoute path='/cancelamento' component={Cancel} />
                 <PrivateRoute path='/carrinho' component={NewCart} />               
                 <Redirect from='*' to='/' />

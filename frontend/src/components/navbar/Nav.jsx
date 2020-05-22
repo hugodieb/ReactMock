@@ -1,5 +1,7 @@
 import './Nav.css'
 import './nav-mobile'
+import logo from '../../assets/imgs/SVG/logo-indow.svg'
+import indow from '../../assets/imgs/SVG/indow.svg'
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -119,7 +121,7 @@ class Nav extends Component {
                 <nav className="navbar">                        
                     <div className="navbar-brand">
                         <a className="navbar-item" href="../">
-                            <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                            <img src={indow} alt="Logo" />
                         </a>
                         <span className="navbar-burger burger" data-target="navbarExampleTransparentExample">
                             <span></span>
