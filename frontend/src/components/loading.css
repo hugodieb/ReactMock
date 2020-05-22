@@ -6,18 +6,18 @@
   
 #loading-spinner .spin-icon {
 margin: 12% auto;
-width: 7rem;
-height: 7rem;
+width: 5rem;
+height: 5rem;
 border: solid 10px #f5b238;
 border-top-color: #c1bbbb;
 border-left-color: #efc1c1;
 border-radius: 100%;
 
--webkit-animation: loading-spinner 500ms linear infinite;
--moz-animation:    loading-spinner 500ms linear infinite;
--ms-animation:     loading-spinner 500ms linear infinite;
--o-animation:      loading-spinner 500ms linear infinite;
-animation:         loading-spinner 500ms linear infinite;
+-webkit-animation: loading-spinner 800ms linear infinite;
+-moz-animation:    loading-spinner 800ms linear infinite;
+-ms-animation:     loading-spinner 800ms linear infinite;
+-o-animation:      loading-spinner 800ms linear infinite;
+animation:         loading-spinner 800ms linear infinite;
 }
 
 @media only screen and (max-width: 600px) {

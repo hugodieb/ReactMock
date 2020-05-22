@@ -8,17 +8,16 @@ def get_templates(request):
     temp_list = []
     for temp in templates:
         temp_list.append(temp.to_dict_json())
-
     return JsonResponse({'templates': temp_list})
 
 
 def template_detail(request):
-    id = int(request.GET['id'])
-    detail = template_svc.template_detail(id)
-    if detail:
-        return JsonResponse({'template': detail}, safe=False)
-    else:
+    template_id = request.GET['id']
+    detail = template_svc.template_detail(template_id)
+    if not detail:
         return JsonResponse({}, status=404)
+    return JsonResponse({'template': detail}, safe=False)
+
 
 
 

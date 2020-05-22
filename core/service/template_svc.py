@@ -3,6 +3,7 @@ from commons.model_utils import get_or_none
 
 
 def template_detail(template_id):
+    template_id = int(template_id)
     discount = ''
     price_pay = ''
     template = get_or_none(Template, pk=template_id)

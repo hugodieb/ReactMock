@@ -78,6 +78,32 @@
     "originals": [
       "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template.jpg"
     ],
+    "gallery": [
+      {
+          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6.jpg",
+          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6t.jpg"
+      },
+      {
+          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/8.jpg",
+          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/8t.jpg"
+      },
+      {
+          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4.jpg",
+          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4t.jpg"
+      },
+      {
+          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/1.jpg",
+          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/1t.jpg"
+      },
+      {
+          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/5.jpg",
+          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/5t.jpg"
+      },
+      {
+          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/9.jpg",
+          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/9t.jpg"
+      } 
+    ],
     "title": "Template one",
     "sku": "BRWDMC8",
     "price": "120.00",
