@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+@import './layouts/_layouts.scss';
+@import '../../node_modules/bulma/bulma.sass';
+@import  '../../node_modules/font-awesome/css/font-awesome.min.css';
+// Import only what you need from image-gallery
+@import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
+
+// Import layouts
+@import './layouts/_home.scss';
+@import './layouts/_detail.scss';
+@import './layouts/_userLogin.scss';
+@import './layouts/_userProfile.scss';
+@import './layouts/_newCart.scss';
+@import './layouts/_success.scss';
+
+// Import components
+@import './components/main';
+@import './components/_hero-body.scss';
+@import './components/_nav.scss';
+@import './components/_footer.scss';
+@import './components/loading.scss';
+@import './components/_snackbar.scss';
+@import './components/cards';
+@import './components/header';
+@import './components/itemCartPay';
+@import './components/itemCart';

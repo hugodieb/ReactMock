@@ -1,4 +1,3 @@
-import './hero-body.css'
 import React, { Component } from 'react'
 import baner from '../../assets/imgs/udraw.png'
 //import mobile from '../../assets/imgs/baner-hero-mobile.png'

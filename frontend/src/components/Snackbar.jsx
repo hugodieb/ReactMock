@@ -1,4 +1,3 @@
-import './Snackbar.css'
 import React, { Component } from 'react'
 import { snackbarClose } from '../actions/snackbar'
 import { connect } from 'react-redux'

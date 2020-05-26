@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from '../pages/home/Home'
-import UserCrud from '../pages/user/UserCrud'
 import UserProfile from '../pages/user/UserProfile'
 import UserLogin from '../pages/user/UserLogin'
 import Detail from '../pages/detail/Detail'
@@ -28,12 +27,11 @@ class Routes extends Component {
     render() {
         return (
             <Switch>
-                <Route exact path='/' component={Home} />
-                <PrivateRoute path='/users' component={UserCrud} />                
+                <Route exact path='/' component={Home} />                              
                 <Route path='/perfil/entrar' component={UserLogin} />
                 <PrivateRoute path='/perfil' component={UserProfile} />
                 <Route path='/template/:name' component={Detail} />
-                <PrivateRoute path='/sucesso' component={Success} />
+                <Route path='/sucesso' component={Success} />
                 <PrivateRoute path='/cancelamento' component={Cancel} />
                 <PrivateRoute path='/carrinho' component={NewCart} />               
                 <Redirect from='*' to='/' />

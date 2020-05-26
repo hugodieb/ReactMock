@@ -1,6 +1,4 @@
-import './Nav.css'
 import './nav-mobile'
-import logo from '../../assets/imgs/SVG/logo-indow.svg'
 import indow from '../../assets/imgs/SVG/indow.svg'
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'

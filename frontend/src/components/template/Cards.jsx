@@ -1,9 +1,7 @@
-import './Cards.css'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Card = (props) => {
-    debugger
+const Card = (props) => {    
     const { template } = props   
     return (        
         <div className="column is-one-third">

@@ -1,9 +1,7 @@
-import './ItemCart.css'
 import React from 'react'
 import { connect } from 'react-redux'
 
-const ItemCart = props => {
-    debugger
+const ItemCart = props => {    
     const { template } = props
     return (
         <div className="item-cart-parent has-text-centered">

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import ImageGallery from 'react-image-gallery'
    
-const gallery = props => {
-    debugger
+const gallery = props => {    
     const images = props.images
     const data = {
         showThumbnails: true,

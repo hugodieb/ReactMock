@@ -7,7 +7,7 @@
     "fullname": "Hugo Dieb Araujo",
     "photo_url": "http://2.bp.blogspot.com/-EDeCS4EZk90/UvtXYCs3RHI/AAAAAAAAEho/4ImPv84mj5A/s1600/00COMODESENHAROPATOLINO(DODGER)-comodesenhar10.blogspot.com.br.gif",
     "birth_date": "1973-03-07",
-    "cellphone": "(12)98868-1639",
+    "cellphone": "(12)98868-1645",
     "cpf": "247.073.088-05",
     "permissions": [
       "ADMIN",
@@ -80,35 +80,35 @@
     ],
     "gallery": [
       {
-          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6.jpg",
-          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6t.jpg"
+        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6.jpg",
+        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6t.jpg"
       },
       {
-          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/8.jpg",
-          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/8t.jpg"
+        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/8.jpg",
+        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/8t.jpg"
       },
       {
-          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4.jpg",
-          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4t.jpg"
+        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4.jpg",
+        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4t.jpg"
       },
       {
-          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/1.jpg",
-          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/1t.jpg"
+        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/1.jpg",
+        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/1t.jpg"
       },
       {
-          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/5.jpg",
-          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/5t.jpg"
+        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/5.jpg",
+        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/5t.jpg"
       },
       {
-          "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/9.jpg",
-          "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/9t.jpg"
-      } 
+        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/9.jpg",
+        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/9t.jpg"
+      }
     ],
     "title": "Template one",
     "sku": "BRWDMC8",
     "price": "120.00",
     "pricePay": "89.99",
-    "discount": "30",   
+    "discount": "30",
     "descrption": "Loja ecommerce com código HTML, CSS e JAVASCRIPT prontinhos para voçê iniciar sua loja. Seu cliente vai navegar no seu site de forma intuitiva e ágil. Pagina de apresentação da sua loja(Home), página de detalhe do produto, adicionar ao carrinho, checkout e finalização do processo de compra. Caso precise de auxilio, teremos muita satisfação em ajudar, inclusive temos nossos desenvolvedores que poderam orientá-lo com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, podemos lhe oferecer também este serviço."
   },
   "invoiceOrder": {
@@ -116,17 +116,17 @@
     "date_created": "13/05/2020",
     "user_id": 1,
     "template_id": 1,
-    "subtotal": "130.00",    
+    "subtotal": "130.00",
     "total": "120.00",
     "order_number": "40354634",
     "status": "wating",
     "payment_method": "paypal"
   },
   "invoicePayment": {
-    "id": "1",      
+    "id": "1",
     "invoice_number": "40354634",
     "subtotal": "150.00",
-    "total": "150.00",      
+    "total": "150.00",
     "items": [
       {
         "name": "Template two",
@@ -135,9 +135,8 @@
         "price": "150.00",
         "tax": "0.00",
         "sku": "BRWDMC10",
-        "currency": "BRL"        
+        "currency": "BRL"
       }
     ]
-  }  
+  }
 }
-

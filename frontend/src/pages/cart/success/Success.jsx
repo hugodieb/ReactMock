@@ -1,4 +1,3 @@
-import './Success.css'
 import React, { Component } from 'react'
 import queryString from 'query-string'
 import payment from '../../../services/paypal'
@@ -15,8 +14,7 @@ class Success extends Component {
     }
 
     componentWillMount() {
-        payment.init(window.document)
-        debugger               
+        payment.init(window.document)                       
         let values = queryString.parse(this.props.location.search)
         let id = values.paymentId
         let payer = values.PayerID

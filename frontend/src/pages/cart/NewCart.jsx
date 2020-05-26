@@ -1,4 +1,3 @@
-import './NewCart.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
@@ -60,14 +59,14 @@ class Checkout extends Component {
             return (
                 <div className="tile is-ancestor">                
                     <div className="tile is-parent">
-                        <article className="tile is-child box">                            
+                        <article className="newcart tile is-child box">                            
                             <div className="content">
                                 <ItemCart />                                
                             </div>
                         </article>
                     </div>
                     <div className="tile is-parent checkout">
-                        <article className="tile is-child box checkout">
+                        <article className="newcart tile is-child box checkout">
                             <div className="content">
                                 <ItemCartPay />                                         
                             </div>

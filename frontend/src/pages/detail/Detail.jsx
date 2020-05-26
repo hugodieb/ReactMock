@@ -1,4 +1,3 @@
-import './Detail.css'
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import Main from '@components/template/Main'
@@ -44,7 +43,7 @@ class Detail extends Component {
                     </article>
                 </div>
                 <div className="tile is-parent">
-                    <article className="tile is-child box">
+                    <article className="detail tile is-child box">
                         <p className="title">{template.title}</p>
                         <p className="subtitle">{template.sku}</p>
                         <div className="content">
@@ -82,8 +81,7 @@ class Detail extends Component {
         )      
     }
 
-    render() {
-        debugger
+    render() {        
         const {template, termineted} = this.state
 
         return (

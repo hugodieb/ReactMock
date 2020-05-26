@@ -1,4 +1,3 @@
-import './Home.css'
 import React, {Component} from 'react'
 import Main from '@components/template/Main'
 import Cards from '@components/template/Cards'
@@ -16,8 +15,8 @@ const initialState = {
     articles: [
         {   
             "title": "Modernidade",
-            "subtitle": "Código em html, css, javascript moderno onde qualquer \
-            desenvolvedor lê o código e já sai codificando conforme a necessidade do seu cliente.",
+            "subtitle": "Templates feitos em Html, css e javascript prontos para a \
+            sua equipe inicializar seu tema na web.",
             "img": shift1
         },
         {
@@ -57,7 +56,7 @@ class Home extends Component {
         return this.state.articles.map( article => {
             return (
                 <div className="tile is-parent" key={article.title}>
-                    <article className="tile is-child box">
+                    <article className="home tile is-child box">
                         <figure className="image">
                             <img src={article.img}/>
                         </figure>

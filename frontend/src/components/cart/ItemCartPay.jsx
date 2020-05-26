@@ -1,4 +1,3 @@
-import './ItemCartPay.css'
 import React, { Component } from 'react'
 import { withRouter } from "react-router"
 import { connect } from 'react-redux'
