@@ -21,19 +21,18 @@ class Checkout extends Component {
         if(this.state.template.id) {
             return (
                 <div className="notification has-text-centered">                       
-                    <span className="is-desktop">
+                    <span>
                         <i className="fa fa-trophy" aria-hidden="true"></i>
-                        Parabenś! Voçê está quase lá,
-                        prossiga com a forma de pagamento!! *Após pagamento, disponibilizamos o download*
-                    </span>                        
-                    <span className="is-mobile">
-                        <i className="fa fa-trophy" aria-hidden="true"></i>
-                        Parabéns!! Estamos quase lá.
-                    </span>
+                        <span className="desktop">
+                            Parabenś! Voçê está quase lá!
+                            <span>
+                                Prossiga para o pagamento!! *Após pagamento, disponibilizamos o download* 
+                            </span>                        
+                        </span>                                            
+                    </span>                
                 </div>
             ) 
-        }
-        
+        }        
     }
 
     renderCartItems() {        
@@ -58,8 +57,8 @@ class Checkout extends Component {
         } else {
             return (
                 <div className="tile is-ancestor">                
-                    <div className="tile is-parent">
-                        <article className="newcart tile is-child box">                            
+                    <div className="tile is-parent item">
+                        <article className="tile is-child box">                            
                             <div className="content">
                                 <ItemCart />                                
                             </div>
