@@ -34,7 +34,7 @@ class Detail extends Component {
 
     renderDetail(template) {
         return (
-            <div className="tile is-ancestor">                
+            <div className="detail tile is-ancestor">                
                 <div className="tile is-parent is-7">
                     <article className="tile">                   
                         <div className="content">
@@ -43,13 +43,13 @@ class Detail extends Component {
                     </article>
                 </div>
                 <div className="tile is-parent">
-                    <article className="detail tile is-child box">
+                    <article className="tile is-child box">
                         <p className="title">{template.title}</p>
                         <p className="subtitle">{template.sku}</p>
                         <div className="content">
                             <h4>De: <span>R$ {template.price}</span></h4>
                             <h5><span>{template.discount}</span> % de desconto \o/</h5>
-                            <div className="por-price">
+                            <div className="price">
                                 <h1>Por: R$ {template.pricePay}</h1>
                             </div>                                
                             <hr/>
