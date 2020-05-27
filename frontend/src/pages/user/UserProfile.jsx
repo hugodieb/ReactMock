@@ -42,8 +42,8 @@ class UserProfile extends Component {
     
       return (
         <Main>               
-            <section className="container">              
-                <div className="profile">
+            <section className="container user">              
+                <div className="user__profile">
                   <h1 className="title is-white">Editar perfil</h1>                 
                   <form onSubmit={this.saveProfile}>
                     <label className="label">Nome Completo</label>

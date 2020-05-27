@@ -1,45 +1,38 @@
-
-.profile {
-    background-color: rgba(249, 222, 198, 0.5);
-    border-radius: 10px;
-    width: 60%;
-    padding: 3rem;
-    margin: 1% auto;
-    color: white;
-}
-
-.profile h1.title {
-    color:white;
-}
-
-.profile form label.label {
-    color:white;
-}
-
-.profile form .control {
-    margin-bottom: 5px;
-}
-
-.field.is-grouped {
-    justify-content: flex-end;
-}
-
-.field.is-grouped .control .button.is-link {
-    background: #e99d57;
-}
-
-@media(max-width: 576px) {
-   
-    .profile {
-        background-color: rgba(249, 222, 198, 0.4);
+.user {
+    &__profile {
+        background-color: #f7c08c66;
         border-radius: 10px;
-        width: 90%;
-        padding: 1rem;
-        margin: 10% auto;
+        width: 60%;
+        padding: 3rem;
+        margin: 1% auto;
+        color: white;
+        h1 {
+            color: $white;
+        };
+        form {
+            label {
+                color: $white;
+            };
+            .control {
+                margin-bottom: 5px;
+            };
+            .field.is-grouped {
+                justify-content: flex-end;
+                .control {
+                    .is-link{
+                        background: $is-orange;
+                    }
+                };
+                @media only screen and (max-width: $mobile-up) {
+                    justify-content: center;                    
+                }
+            }
+        };
+        @media only screen and (max-width: $mobile-up) {            
+            border-radius: 10px;
+            width: 90%;
+            padding: 1rem;
+            margin: 10% auto;            
+        }
     }
-
-    .field.is-grouped {
-        justify-content: center;
-    }
-
 }
