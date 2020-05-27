@@ -56,7 +56,7 @@ class Home extends Component {
         return this.state.articles.map( article => {
             return (
                 <div className="tile is-parent" key={article.title}>
-                    <article className="home tile is-child box">
+                    <article className="tile is-child box">
                         <figure className="image">
                             <img src={article.img}/>
                         </figure>
@@ -74,15 +74,15 @@ class Home extends Component {
         return (
             <Main>
                 <Hero />
-                <section className="container ">                
+                <section className="container home has-text-centered">                
                     <h4 className="title is-4 ">Escolha o modelo da sua loja \o/</h4>
-                    <div className="columns is-multiline features">                        
+                    <div className="columns is-multiline home__features">                        
                         {this.renderCard()}
                     </div>                  
                 </section>
-                <section className="hero">
-                    <div className="hero-body">                   
-                        <div className="container shift has-text-centered">
+                <section className="home">
+                    <div className="home__hero-body">                   
+                        <div className="container home__hero-body__shift has-text-centered">
                             <h2>Facilitando o seu tempo</h2>
                             <div className="tile is-ancestor">
                                 {this.renderArticle()}                                               

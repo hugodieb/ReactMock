@@ -15,13 +15,13 @@
 @import './layouts/_success.scss';
 
 // Import components
-@import './components/main';
+@import './components/_main';
 @import './components/_hero-body.scss';
 @import './components/_nav.scss';
 @import './components/_footer.scss';
-@import './components/loading.scss';
+@import './components/_loading.scss';
 @import './components/_snackbar.scss';
-@import './components/cards';
-@import './components/header';
-@import './components/itemCartPay';
-@import './components/itemCart';
+@import './components/_cards';
+@import './components/_header';
+@import './components/_itemCartPay';
+@import './components/_itemCart';
