@@ -1,4 +1,13 @@
 // COLORS
 
 $is-orange: #f5c162;
+$darken-orange: darken($is-orange, 10%); 
 $is-white: #ffffff;
+
+// MEDIA QUERY
+$mobile: 479px;
+$mobile-up:768px;
+$tablet: 769px;
+$tablet-up: 1023px;
+$desktop: 1024px;
+$desktop-up: 1215px;

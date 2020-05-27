@@ -3,12 +3,12 @@
         padding: 0rem;
     };
     &__hero-body {
-        background-color: #ffffff;
+        background-color: $is-white;
         padding: 10px 0 30px 0;        
         &__shift {
             max-width: 1000px;
             h2 {
-                color: #f5c162;
+                color: $is-orange;
                 font-size: 2rem;
                 font-weight: 600;
                 line-height: 1.125;
@@ -21,14 +21,14 @@
                 padding: 1rem;
                 background-color: #ffb778;    
             };
-            @media screen and (max-width:600px) {
-                max-width: 350px;
+            @media only screen and (max-width: $mobile) {
+                max-width: 400px;
                 h2 {
-                    font-size: 1.25rem;
+                    font-size: 1.65rem;
                     margin: 0.8rem 0rem;
                 }
                 .tile.is-child {
-                    padding: 0.55rem;
+                    padding: 0.65rem;
                     background-color: #ffb778;    
                 };                
             };             
