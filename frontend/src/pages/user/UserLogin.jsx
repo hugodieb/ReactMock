@@ -59,25 +59,25 @@ class LoginUser extends Component {
           <figure className="avatar">
             <img src="https://cdn.icon-icons.com/icons2/1146/PNG/128/1486485581-account-audience-person-customer-profile-user_81164.png"
              alt="avatar"/>
-          </figure>
-          
-            <div className="field">
-              <div className="control">
-                <input type="email" className="input is-medium" name="email" value={this.state.input_data.email}
-                 onChange={e => this.inputDataValue(e)}
-                 placeholder="Seu email" autoFocus="" required/>
-              </div>
+          </figure>          
+          <div className="field">
+            <div className="control">
+              <input type="email" className="input is-medium" name="email" value={this.state.input_data.email}
+                onChange={e => this.inputDataValue(e)}
+                placeholder="Seu email" autoFocus="" required/>
             </div>
-            <div className="field">
-              <div className="control">
-                <input type="password" className="input is-medium" name="password" value={this.state.input_data.password}
-                 onChange={e => this.inputDataValue(e)}
-                 placeholder="Sua senha" required/>
-              </div>
-            </div>            
-            <button className="button is-block is-info is-large is-fullwidth"
-             onClick={e => this.login(e)}>Login 
-              <i className="fa fa-sign-in" aria-hidden="true"></i></button>          
+          </div>
+          <div className="field">
+            <div className="control">
+              <input type="password" className="input is-medium" name="password" value={this.state.input_data.password}
+                onChange={e => this.inputDataValue(e)}
+                placeholder="Sua senha" required/>
+            </div>
+          </div>            
+          <button className="button is-block is-info is-large is-fullwidth"
+            onClick={e => this.login(e)}>Login 
+            <i className="fa fa-sign-in" aria-hidden="true"></i>
+          </button>          
         </div>
       )
   }
@@ -85,11 +85,11 @@ class LoginUser extends Component {
   render() {
       return (
         <Main>
-            <section className="hero is-success is-fullheight">
-              <div className="">
+            <section className="login">
+              <div className="login__hero">
                 <div className="container has-text-centered">
                   <div className="column is-6 is-offset-3">                      
-                    <p className="subtitle has-text-black">Acesso ao seu login.</p>
+                    <p className="subtitle">Acesso ao seu login.</p>
                     {this.renderFormLogin()}
                   </div>
                 </div>
