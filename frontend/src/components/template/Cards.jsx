@@ -6,17 +6,17 @@ const Card = (props) => {
     return (        
         <div className="column is-one-third">
             <div className="card">
-                <div className="card-image ">
+                <div className="card__image ">
                     <figure className="image is-4by3">
                         <Link to={{pathname: `template/${template.name}`, query: { id: template.id }}}>
                             <img src={template.image} alt="" />
                         </Link>                                       
                     </figure>
                 </div>
-                <div className="card-content">
+                <div className="card__content has-text-centered">
                     <div className="media">                                    
                         <div className="media-content">
-                            <p className="title is-4 no-padding">{template.title}</p>                                        
+                            <p className="title">{template.title}</p>                                        
                         </div>
                     </div>
                     <div className="content">
@@ -24,7 +24,7 @@ const Card = (props) => {
                     </div>                    
                     <div className="columns">
                         <div className="column">                            
-                            <a href={template.demo} className="button is-outlined is-orange"><span> Demo</span></a>
+                            <a href={template.demo} className="button is-outlined"><span> Demo</span></a>
                         </div>                        
                     </div>                                  
                 </div>
