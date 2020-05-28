@@ -1,29 +1,30 @@
-.notification {
-    margin-top: 1rem;
-    background-color: rgb(255, 180, 41);
-    opacity: 0.5;
-    color: rgb(255, 255, 255);
-    padding: 0.5rem 0rem;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 20px;
-    span {
-        i {
-            transform: rotate(320deg) !important;
-            -moz-transform: rotate(320deg) !important;
-            -ms-transform: rotate(320deg) !important;
-            margin-right: 10px;  
-        };
-        .desktop {            
-            @media only screen and (max-width: $mobile-up) {
-                span {
-                    display: none;
-                };
-                
+.newcart {
+    .notice {
+        margin-top: 1rem;
+        background-color: rgb(255, 180, 41);
+        opacity: 0.5;
+        color: rgb(255, 255, 255);
+        padding: 0.5rem 0rem;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        span {
+            i {
+                transform: rotate(320deg) !important;
+                -moz-transform: rotate(320deg) !important;
+                -ms-transform: rotate(320deg) !important;
+                margin-right: 10px;  
             };
-        }       
-        
-    }
+            .desktop {            
+                @media only screen and (max-width: $mobile-up) {
+                    span {
+                        display: none;
+                    };
+                    
+                };
+            }       
+        }
+    }; 
 };
 
 .empty-cart {

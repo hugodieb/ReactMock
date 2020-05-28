@@ -51,8 +51,8 @@ class ItemCartPay extends Component {
     render() {
         const { error, display } = this.state        
         return (
-            <div className="item-cart-parent-checkout">
-                <div className="item-cart-child checkout">
+            <div className="item-cart-parent item-cart-pay">
+                <div className="item-cart-child item-pay">
                     <div className="columns">
                         <div className="column">
                             <h3>Resumo do pedido</h3>                       
@@ -96,7 +96,7 @@ class ItemCartPay extends Component {
                     </div>
                     <div className={`notification ${display ? "" : "hidden"}`}>
                         <div className="column">
-                            <div className={`notification is-pay ${display ? "" : "hidden"}`}>
+                            <div className={`notification ${display ? "" : "hidden"} is-pay`}>
                                 {error}
                             </div>
                         </div>

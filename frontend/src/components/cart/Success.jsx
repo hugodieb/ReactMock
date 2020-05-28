@@ -46,7 +46,7 @@ const SuccessPay = (props) => {
     const getSucces = () => {
         
         return (
-            <div>
+            <div className="container has-text-centered">
                 <p className="has-text-grey-light is-uppercase is-size-1-desktop">
                     Obrigado pela sua compra!
                 </p>
@@ -95,10 +95,8 @@ const SuccessPay = (props) => {
         )
     }   
     
-    return (        
-        <div className="container has-text-centered">
-            { getSucces() }            
-        </div>               
+    return (
+        getSucces()        
     )
 }
 

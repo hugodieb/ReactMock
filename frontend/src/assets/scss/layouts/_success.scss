@@ -1,54 +1,33 @@
 .cart-success {
     margin: 4% auto;
-}
-
-.cart-success > div >div > p {
-    margin-bottom: 1rem;
-}
-
-.error-pay {
-    margin: 0px 10px;
-}
-
-.error-pay > p {
-    margin-top: 1rem;
-}
-
-.help {
-    color: #f35216;
-}
-
-.help:hover {
-    color: #ec7a51;
-}
-
-.button.is-screw.secondary {
-    transform: skew(45deg);
-    margin-left: 0.8rem;
-    background-color: #fff;
-    border-color: #f5c162; 
-}
-
-.button.is-screw.secondary > span {
-    transform: skew(-45deg);
-    color: #f5c162
-}
-
-.button.is-screw {
-    transform: skew(45deg);
-    margin-left: 0.8rem;
-    background-color: #f5c162;    
-}
-
-.button.is-screw > span {
-    transform: skew(-45deg);
-    color: #fff;
-}
-
-@media screen and (max-width: 600px){
-    .button.is-screw.secondary {
-        margin-bottom: 0.8rem;
-    }
-} 
-
-
+    div {
+        p {
+            margin-bottom: 1rem;
+            .is-screw {
+                transform: skew(45deg);
+                margin-left: 0.8rem;
+                background-color: $darken-orange;
+                span {
+                    transform: skew(-45deg);
+                    color: $is-white;
+                };
+                &.secondary {
+                    background-color: $is-white;
+                    border-color: $darken-orange;
+                    span {                        
+                        color: $darken-orange;
+                    };
+                    @media only screen and (max-width: $mobile-up) {
+                        margin-bottom: 0.8rem;
+                    };
+                }
+            };
+            .help {
+                color: $is-orange;
+                &:hover {
+                    color: $darken-orange;
+                }
+            }
+        };
+    };
+};

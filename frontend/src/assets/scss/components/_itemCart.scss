@@ -1,69 +1,59 @@
 .item-cart-parent {    
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid #e9e9e9;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);    
     border-radius: 5px;
-    padding-bottom: 10px;   
-}
+    padding-bottom: 10px;
+    hr {
+        margin: 1.5rem 1rem;
+    };
+    span {
+        color: $is-grey;
+        font-size: 10px;
+        padding: 1rem;
+    };
+    .item-cart-header {
+        height: 2rem;    
+        width: 100%;
+        background: linear-gradient(-30deg, #f8510f, #ee9d51 45%, #d8553e 45%) #dda06d;
+        border-radius: 5px 5px 0 0;
+    };
+    .item-cart-child {    
+        padding: 1rem 1rem 0rem 1rem;
+        .item-img {    
+            max-width: 100%;  
+            top: 5%;
+            position: relative;    
+        };
+        .item-info {
+            h5 {
+                margin-bottom: 0px;
+            };
+            p {
+                font-size: x-small;
+                font-weight: lighter !important;
+            };
+            .item-price {
+                display: inline-flex;
+                p {                    
+                    width: max-content;
+                    font-size: 0.75rem;
+                    span {
+                        text-decoration: line-through;
+                        color: $is-grey;                        
+                    };
+                };   
+            };
 
-.item-cart-parent  > hr {
-    margin: 1.5rem 1rem;
-}
-
-.item-cart-parent > span {
-    color: #a0754a;
-    font-size: 10px;
-    padding: 1rem;
-}
-
-.item-cart-header {
-    height: 2rem;    
-    width: 100%;
-    background: linear-gradient(-30deg, #f8510f, #ee9d51 45%, #d8553e 45%) #dda06d;
-    border-radius: 5px 5px 0 0;
-}
-
-.item-cart-child {    
-    padding: 1rem 1rem 0rem 1rem;
-}
-
-.column.is-4.item-discount {
-    margin: auto 0;
-    transform: rotate(340deg) !important;
-    -moz-transform: rotate(340deg) !important;
-    -ms-transform: rotate(340deg) !important;
-}
-
-.column.is-4.item-discount > span {
-    color: rgb(255, 123, 0);
-    font-size: 30px;
-    font-weight: 900;    
-}
-
-.item-img {    
-    max-width: 100%;  
-    top: 5%;
-    position: relative;    
-}
-
-.item-info h5 {
-    margin-bottom: 0px;
-}
-
-.item-info > p {
-    font-size: x-small;
-    font-weight: lighter !important;
-}
-
-.item-price {
-    display: flex;    
-}
-
-.item-price > p {
-    margin-right: 1.5rem;
-    width: max-content;
-}
-
-.item-price P span {
-    text-decoration: line-through;
-    color: #a9a0a0;
+        };
+        .item-discount {
+            margin: auto 0;
+            transform: rotate(340deg) !important;
+            -moz-transform: rotate(340deg) !important;
+            -ms-transform: rotate(340deg) !important;
+            span {
+                color: $is-orange;
+                font-size: 30px;
+                font-weight: 900;    
+            };
+        };
+    }   
 }

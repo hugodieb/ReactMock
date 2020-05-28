@@ -20,7 +20,7 @@ class Checkout extends Component {
     renderNotification() {        
         if(this.state.template.id) {
             return (
-                <div className="notification has-text-centered">                       
+                <div className="notice has-text-centered">                       
                     <span>
                         <i className="fa fa-trophy" aria-hidden="true"></i>
                         <span className="desktop">
@@ -79,7 +79,7 @@ class Checkout extends Component {
     render() {        
         return(            
             <Main>
-                <div className="container">
+                <div className="container newcart">
                     {this.renderNotification()}                  
                     {this.renderCartItems()}
                 </div>

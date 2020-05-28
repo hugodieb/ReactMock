@@ -8,11 +8,9 @@ const ItemCart = props => {
             <div className="item-cart-header"></div>
             <div className="item-cart-child">
                 <div className="columns">
-                    <div className="column is-4">
-                                           
-                            <img className="item-img"
-                             src={template.thumbnails[0]} />
-                       
+                    <div className="column is-4">                                           
+                        <img className="item-img"
+                            src={template.thumbnails[0]} />                       
                     </div>
                     <div className="column is-4">
                         <div className="item-info">
@@ -33,7 +31,7 @@ const ItemCart = props => {
                     </div>
                     <div className="column is-4 item-discount">
                         <span>
-                           {template.discount} OFF
+                           {template.discount}% OFF
                         </span>
                     </div>                    
                 </div>            

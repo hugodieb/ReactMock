@@ -1,18 +1,25 @@
-.item-cart-child.checkout > p {
-    color: #a9a0a0;
-}
+.item-cart-pay {
+    .item-pay {
+        p {
+            color: $is-grey;            
+        };
+        .item-image {
+            max-width: 60%;
+        };
+        .notification {
+            &.hidden {
+                display: none;
+                &.is-pay {
+                    display: block;
+                    padding: 10px;
+                    background-color: $is-orange;
+                    color: #ffffff; 
+                };
+            };            
+        }
+    };
+};
 
-.item-imagem {
-    max-width: 60%;
-}
 
-.notification.is-pay {
-    display: block;
-    padding: 10px;
-    background-color: #fa0000 !important;
-    color: #ffffff;
-}
 
-.notification.hidden {
-    display: none;    
-}
+
