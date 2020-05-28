@@ -1,9 +1,10 @@
 // COLORS
 
+$is-white: #ffffff;
 $is-orange: #f5c162;
 $darken-orange: darken($is-orange, 10%); 
-$is-white: #ffffff;
 $is-grey: #7d7575;
+$darken-grey: darken($is-grey, 10%);
 
 // MEDIA QUERY
 $mobile: 479px;

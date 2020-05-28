@@ -24,7 +24,10 @@ const Card = (props) => {
                     </div>                    
                     <div className="columns">
                         <div className="column">                            
-                            <a href={template.demo} className="button is-outlined"><span> Demo</span></a>
+                            <a href={template.demo} className="button is-outlined"><span>Detalhes</span></a>
+                        </div>
+                        <div className="column">                            
+                            <a href={template.demo} className="button"><span>Demonstração</span></a>
                         </div>                        
                     </div>                                  
                 </div>
