@@ -1,42 +1,44 @@
 import * as types from '../actions/actionTypes'
 
-export const currentUser = {}
+const currentUser = {}
 
-export const setCurrentUserReducer = (state = {...currentUser}, action) => {      
+export const setCurrentUserReducer = (state = {...currentUser}, action) => {
+  debugger      
   switch (action.type) {
     case types.SET_USER:      
       Object.assign(currentUser, action.user)                    
       return {
         ...state,       
-        response: state
+        response: action.user
       }
     default:
-      return state
+      return {response: state}    
   }
 }
 
-export const removeCurrentUserReducer = (state = {...currentUser}, action) => {    
+export const removeCurrentUserReducer = (state = {...currentUser}, action) => {
+  debugger    
   switch (action.type) {
     case types.REMOVE_USER:      
-      Object.assign(currentUser, action.user)                    
+      Object.keys(currentUser).forEach(function(key) { delete currentUser[key]; });                  
       return {
         ...state,       
         response: state
       }
     default:
-      return state
+      return {response: state}    
   }
 }
 
-export const currentUserReducer = (state, action) => { 
+export const currentUserReducer = (state, action) => {
+  debugger 
   state = Object.keys(currentUser).length != 0 ? {...currentUser} : null   
   switch (action.type) {
     case types.CURRENT_USER:                   
       return {
         ...state,       
         response: state
-      }
-      break
+      }      
     default:
       return {response: state}
   }

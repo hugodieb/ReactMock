@@ -8,7 +8,7 @@ export const Reducers = combineReducers({
   clickState: clickReducer,
   setCurrentUser: setCurrentUserReducer,
   removeCurrentUser: removeCurrentUserReducer,
-  currentUser: currentUserReducer,
+  currentUser: currentUserReducer,  
   snackbar: snackbarReducer,
   templateDetail: templateDetailReducer
 });

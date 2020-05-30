@@ -4,16 +4,14 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import AppApi from '~apijs'
-import { setCurrentUserAction } from '../../actions/auth'
+import { removeCurrentUserAction } from '../../actions/auth'
 import Auth from '../../services/auth'
 
 class Nav extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {user: null}       
+    state = {
+        user: {}
     }
-    
+
     componentDidMount() {               
         this.setState({user: this.props.currentUser})
     }
@@ -32,13 +30,13 @@ class Nav extends Component {
         this.props.history.push('/perfil')
     }
 
-    renderLogout() {
-        debugger        
+    renderLogout() {                
         AppApi.logout().then(user => {
-            debugger
-            this.props.dispatch(setCurrentUserAction(user))
+            debugger            
+            this.props.dispatch(removeCurrentUserAction())
             Auth.authentication()
-            this.props.history.push('/')
+            this.props.history.push('/')  
+                     
         })
     }
 

@@ -61,7 +61,7 @@ const api = {
     
     async logout() {
         loggedUser = null
-        return mockObject(loggedUser).then(response => response.data)
+        return mockObject({}).then(response => response.data)
     },
 
     whomi() {

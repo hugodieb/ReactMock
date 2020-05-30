@@ -7,7 +7,7 @@ class Auth {
     
     authentication() {
         return (        
-            AppApi.whomi().then(response => {                
+            AppApi.whomi().then(response => {                               
                 this.authenticated = response.data.authenticated
             })
         )         

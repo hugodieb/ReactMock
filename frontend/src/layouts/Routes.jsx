@@ -11,7 +11,7 @@ import Cancel from '../pages/cart/cancel/Cancel'
 import Auth from '../services/auth'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-        
+    debugger  
     return (
         <Route
             {...rest}

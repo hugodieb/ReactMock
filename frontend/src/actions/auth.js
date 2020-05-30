@@ -9,7 +9,6 @@ export const setCurrentUserAction = (user) => ({
     user: user
 })
 
-export const removeCurrentUserAction = (user) => ({
-    type: types.REMOVE_USER,    
-    user: user
+export const removeCurrentUserAction = () => ({
+    type: types.REMOVE_USER   
 })
