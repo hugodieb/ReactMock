@@ -12,7 +12,7 @@ HOST_PROD=3.130.167.180
 # 3) Be happy
 
 
-# workon reactMock  # Change this to your project's name
+# workon .indow  # Change this to your project's name
 
 export PROJ_BASE="$(dirname "${BASH_SOURCE[0]}")"
 CD=$(pwd)
@@ -28,7 +28,9 @@ function devhelp {
     echo -e "${GREEN}dkbuild${RESTORE}           Builds a ${RED}docker image${RESTORE} for this project"
     echo -e ""
     echo -e "${GREEN}dknpminstall${RESTORE}      Download node dependencies to ${RED}./node_modules/${RESTORE}"
-    echo -e ""    
+    echo -e ""
+    echo -e "${GREEN}dknginx${RESTORE}           Starts a nginx dockerized ${RED} for this project${RESTORE}"
+    echo -e ""
     echo -e "${GREEN}dkrun_dev${RESTORE}        Starts Frontend (dockerized) in dev mode."
     echo -e ""    
     echo -e "${GREEN}dk <command>${RESTORE}      Runs ${RED}<command>${RESTORE} inside main container"
@@ -51,6 +53,15 @@ function dknpminstall {
     CD=$(pwd)
     cd $PROJ_BASE
     docker run -it --rm -v $(pwd):/app -w /app/frontend -e NODE_ENV=development react npm install
+    exitcode=$?
+    cd $CD
+    return $exitcode
+}
+
+function dknginx {
+    CD=$(pwd)
+    cd $PROJ_BASE
+    docker-compose -f docker/compose/nginx.yaml up
     exitcode=$?
     cd $CD
     return $exitcode
