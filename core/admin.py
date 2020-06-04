@@ -15,7 +15,7 @@ class TemplateImagesAdmin(admin.ModelAdmin):
 
 
 class DiscountAdmin(admin.ModelAdmin):
-    list_display = ('name', 'template', 'discount_value', 'discount_value_type')
+    list_display = ('name', 'discount_value', 'discount_value_type')
 
 
 class InvoiceOrderAdmin(admin.ModelAdmin):

@@ -69,9 +69,9 @@ class TemplateImage(models.Model):
 
 class Discount(models.Model):
     name = models.CharField(max_length=200)
-    template = models.ForeignKey(
+    template = models.ManyToManyField(
         Template, related_name='discount',
-        on_delete=models.CASCADE, blank=True, null=True)
+        blank=True, null=True)
     discount_value = models.DecimalField('Desconto', decimal_places=2, max_digits=8)
     discount_value_type = models.CharField(
         max_length=10, choices=DiscountValueType.DISCOUNT_CHOICES,
