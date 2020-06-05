@@ -1,4 +1,9 @@
-from ...models import Profile, User, Template
+from ...models import (
+    Profile, User, Template,
+    Discount, TemplateImage)
+from django.conf import settings
+from django.core.files import File
+import os
 import unicodedata
 import random
 import string
@@ -21,12 +26,12 @@ def create_fake_user():
         cell_phone=cell_phone,
         cpf=cpf
     )
-    profile.save()
-    return user
+
+    return profile
 
 
-def create_fake_template():
-    title = fake.language_name()
+def create_fake_template(dummy):
+    title = dummy
     description = fake.text()
     price = generate_price()
     template = Template.objects.create(
@@ -34,8 +39,29 @@ def create_fake_template():
         price=price,
         description=description
     )
+    create_images_template(template)
 
     return template
+
+
+def create_fake_template_images():
+    image = TemplateImage.objects.create(
+        template='',
+        thumbnails='',
+        originals=''
+    )
+
+    return image
+
+
+def create_fake_discount():
+    name = fake.language_name()
+    discount = Discount.objects.create(
+        name=name,
+        discount_value='5.00'
+    )
+
+    return discount
 
 
 def generate_email(first_name, last_name):
@@ -63,3 +89,18 @@ def generate_price():
     value = ''.join(random.choice(string.digits) for _ in range(4))
     value = int(value) / 100
     return value
+
+
+def create_images_template(template):
+    title = template.title
+    static_path = 'core/static/placehoders'
+    originals_dir = '%s/%s/%s' % (static_path, title, 'originals')
+    originals_path = os.path.join(settings.BASE_DIR, originals_dir)
+    thumbnails_dir = '%s/%s/%s' % (static_path, title, 'thumbnails')
+    thumbnails_path = os.path.join(settings.BASE_DIR, thumbnails_dir)
+    for index in range(1, 7):
+        originals_root = '%s/%s' % (originals_path, title + str(index) + '.png')
+        thumbnails_root = '%s/%s' % (thumbnails_path, title + str(index) + '.png')
+        TemplateImage.objects.create(
+            thumbnails=File(open(thumbnails_root, 'rb')),
+            originals=File(open(originals_root, 'rb')), template=template)
