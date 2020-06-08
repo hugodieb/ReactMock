@@ -9,12 +9,12 @@ def template_detail(template_id):
     template = get_or_none(Template, pk=template_id)
     if template:
         thumbs = template.images.all()
-        thumbnails = [thumb.thumbnails.name for thumb in thumbs]
-        originals = [thumb.originals.name for thumb in thumbs]
+        thumbnails_url = [thumb.thumbnails for thumb in thumbs]
+        originals_url = [thumb.originals for thumb in thumbs]
         gallery = []
-        if len(thumbnails) > 0 and len(thumbnails) == len(originals):
-            for t in range(len(thumbnails)):
-                gallery.append({"thumbnail": thumbnails[t], "original": originals[t]})
+        if len(thumbnails_url) > 0 and len(thumbnails_url) == len(originals_url):
+            for t in range(len(thumbnails_url)):
+                gallery.append({"thumbnail": thumbnails_url[t], "original": originals_url[t]})
         if template.discount.all():
             for temp in template.discount.all():
                 discount = temp.discount_value
@@ -31,8 +31,8 @@ def template_detail(template_id):
             'price_pay': price_pay,
             'description': template.description,
             'discount': discount,
-            'thumbnails': thumbnails,
-            'originals': originals,
+            'thumbnails': thumbnails_url,
+            'originals': originals_url,
             'gallery': gallery
         }
     else:

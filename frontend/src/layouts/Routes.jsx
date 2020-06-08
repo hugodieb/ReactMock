@@ -10,8 +10,7 @@ import Success from '../pages/cart/success/Success'
 import Cancel from '../pages/cart/cancel/Cancel'
 import Auth from '../services/auth'
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-    debugger  
+const PrivateRoute = ({ component: Component, ...rest }) => {    
     return (
         <Route
             {...rest}

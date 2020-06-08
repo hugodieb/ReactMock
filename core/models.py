@@ -60,8 +60,8 @@ class Template(models.Model):
 
 class TemplateImage(models.Model):
     template = models.ForeignKey(Template, related_name='images', on_delete=models.CASCADE)
-    thumbnails = models.ImageField(null=False, blank=False)
-    originals = models.ImageField(null=False, blank=False)
+    thumbnails = models.CharField(max_length=1024)
+    originals = models.CharField(max_length=1024)
 
     def __str__(self):
         return '%s' % (self.template.title)
@@ -81,19 +81,21 @@ class Discount(models.Model):
         return '%s %s' % (self.discount_value, self.discount_value_type)
 
     def calculate_discount_to_template(self):
-        if self.template.discount:
-            price = self.template.price
-            discount = self.discount_value
-            discount_type = self.discount_value_type
-            price_pay = 0.00
-            if discount > 0:
-                if discount_type == 'percentage':
-                    price_pay = (price - (price*discount)/100)
-                elif discount_type == 'fixed':
-                    price_pay = price - discount
-                return round(price_pay, 2)
-            else:
-                return round(price, 2)
+        templates = self.template.all()
+        if templates:
+            for template in templates:
+                price = template.price
+                discount = self.discount_value
+                discount_type = self.discount_value_type
+                price_pay = 0.00
+                if discount > 0:
+                    if discount_type == 'percentage':
+                        price_pay = (price - (price*discount)/100)
+                    elif discount_type == 'fixed':
+                        price_pay = price - discount
+                    return round(price_pay, 2)
+                else:
+                    return round(price, 2)
         return round(self.template.price, 2)
 
     def to_dict_json(self):

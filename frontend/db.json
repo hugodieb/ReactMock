@@ -17,49 +17,49 @@
   "templates": [
     {
       "id": 1,
-      "title": "Template one",
+      "title": "Shopmax",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
+      "image": "/imagens/shopmax/shopmax.png",
       "demo": "/demo/shopmax",
       "name": "shopmax"
     },
     {
       "id": 2,
-      "title": "Template two",
+      "title": "Komoto",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "https://themehunt.com/media/com_product/products/thumb/1526517/thumbnail.png",
+      "image": "/imagens/komoto/komoto.png",
       "demo": "/demo/komoto",
       "name": "komoto"
     },
     {
       "id": 3,
-      "title": "Template three",
+      "title": "Electro",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "https://colorlib.com/wp/wp-content/uploads/sites/2/electro-free-ecommerce-template.jpg",
+      "image": "/imagens/electro/electro.png",
       "demo": "/demo/electro",
       "name": "electro"
     },
     {
       "id": 4,
-      "title": "Template four",
+      "title": "Rapid-Food",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "https://w3layouts.b-cdn.net/wp-content/uploads/2017/01/staple_food_Free23-01-2017_1568576992.jpg",
+      "image": "/imagens/rapid-food/rapid-food.png",
       "demo": "/demo/rapid-food",
       "name": "rapid-food"
     },
     {
       "id": 5,
-      "title": "Template five",
+      "title": "Vegefoods",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "https://colorlib.com/wp/wp-content/uploads/sites/2/vegefoods-free-template.jpg",
+      "image": "/imagens/vegefoods/vegefoods.png",
       "demo": "/demo/vegefoods",
       "name": "vegefoods"
     },
     {
       "id": 6,
-      "title": "Template six",
+      "title": "School",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "https://colorlib.com/wp/wp-content/uploads/sites/2/fox-free-template.jpg",
+      "image": "/imagens/school/school.png",
       "demo": "/demo/school",
       "name": "school"
     }

@@ -31,8 +31,7 @@ class Nav extends Component {
     }
 
     renderLogout() {                
-        AppApi.logout().then(user => {
-            debugger            
+        AppApi.logout().then(user => {                  
             this.props.dispatch(removeCurrentUserAction())
             Auth.authentication()
             this.props.history.push('/')  

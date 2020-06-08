@@ -12,13 +12,36 @@ from faker import Factory
 fake = Factory.create()
 
 
+def create_users_and_profiles(how_many=5):
+    for dummy in range(how_many):
+        user_profile = create_fake_user()
+        yield 'User: %s' % (user_profile.user.email,)
+
+
+def create_templates(how_many):
+    for dummy in how_many:
+        template = create_fake_template(dummy)
+        yield 'Template: %s' % (template.title,)
+
+
+def create_discount(how_many=5):
+    for dummy in range(how_many):
+        discount = create_fake_discount()
+        yield 'Discount: %s' % (discount.name,)
+
+
 def create_fake_user():
     first_name = fake.first_name()
     last_name = fake.last_name()
+    username = (first_name + last_name).lower()
     email = generate_email(first_name, last_name)
     cell_phone = generate_phone()
     cpf = generate_cpf()
-    user = User.objects.create_user(email=email, password='password')
+    user = User.objects.create_user(username=username,
+                                    first_name=first_name,
+                                    last_name=last_name,
+                                    email=email,
+                                    password='password')
     user.is_active = True
     user.save()
     profile = Profile.objects.create(
@@ -55,7 +78,7 @@ def create_fake_template_images():
 
 
 def create_fake_discount():
-    name = fake.language_name()
+    name = fake.street_suffix()
     discount = Discount.objects.create(
         name=name,
         discount_value='5.00'
@@ -93,7 +116,7 @@ def generate_price():
 
 def create_images_template(template):
     title = template.title
-    static_path = 'core/static/placehoders'
+    static_path = '/images/static/placeholders'
     originals_dir = '%s/%s/%s' % (static_path, title, 'originals')
     originals_path = os.path.join(settings.BASE_DIR, originals_dir)
     thumbnails_dir = '%s/%s/%s' % (static_path, title, 'thumbnails')
@@ -101,6 +124,10 @@ def create_images_template(template):
     for index in range(1, 7):
         originals_root = '%s/%s' % (originals_path, title + str(index) + '.png')
         thumbnails_root = '%s/%s' % (thumbnails_path, title + str(index) + '.png')
-        TemplateImage.objects.create(
-            thumbnails=File(open(thumbnails_root, 'rb')),
-            originals=File(open(originals_root, 'rb')), template=template)
+        # ft = File(open(thumbnails_root, 'rb'))
+        # fo = File(open(originals_root, 'rb'))
+        TemplateImage(
+            originals=originals_root,
+            thumbnails=thumbnails_root,
+            template=template
+        ).save()

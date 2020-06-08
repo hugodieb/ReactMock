@@ -1,13 +1,17 @@
 from django.http.response import JsonResponse
 from core.service import template_svc
-from core.models import Template
+from core.models import Template, TemplateImage
 
 
 def get_templates(request):
     templates = Template.objects.all()
     temp_list = []
     for temp in templates:
-        temp_list.append(temp.to_dict_json())
+        image = temp.images.all()
+        for i in image:
+            temp_dict = temp.to_dict_json()
+            temp_dict['image'] = '/%s/%s' % ('imagens', i.originals)
+            temp_list.append(temp_dict)
     return JsonResponse({'templates': temp_list})
 
 

@@ -23,11 +23,14 @@ def templates():
         title='TemplateThree', price='32.51', description='teste template'
     )
 
-    Discount.objects.create(name='Dad', template=template_1, discount_value='10.50')
-    Discount.objects.create(name='whowho', template=template_2, discount_value='10', discount_value_type='percentage')
-
-    TemplateImage.objects.create(thumbnails='image1.jpg', originals='image2.jpg', template=template_1)
-    TemplateImage.objects.create(thumbnails='image3.jpg', originals='image4.jpg', template=template_1)
+    d1 = Discount(name='Dad', discount_value='10.50')
+    d1.save()
+    d1.template.add(template_1)
+    d2 = Discount(name='whowho', discount_value='10', discount_value_type='percentage')
+    d2.save()
+    d2.template.add(template_2)
+    TemplateImage.objects.create(thumbnails='/images/image1.jpg', originals='/images/image2.jpg', template=template_1)
+    TemplateImage.objects.create(thumbnails='/images/image3.jpg', originals='/images/image4.jpg', template=template_1)
 
     return [template_1, template_2, template_3]
 
@@ -36,7 +39,9 @@ def template():
     template_one = Template.objects.create(
         title='TemplateOne', price='32.50', description='teste template'
     )
-    Discount.objects.create(name='whowho', template=template_one, discount_value='10', discount_value_type='percentage')
+    d = Discount.objects.create(name='whowho', discount_value='10', discount_value_type='percentage')
+    d.save()
+    d.template.add(template_one)
     return template_one
 
 
