@@ -19,7 +19,7 @@
       "id": 1,
       "title": "Shopmax",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "/imagens/shopmax/shopmax.png",
+      "image": "/imagens/shopmax/shopmax.svg",
       "demo": "/demo/shopmax",
       "name": "shopmax"
     },
@@ -27,7 +27,7 @@
       "id": 2,
       "title": "Komoto",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "/imagens/komoto/komoto.png",
+      "image": "/imagens/komoto/komoto.svg",
       "demo": "/demo/komoto",
       "name": "komoto"
     },
@@ -35,7 +35,7 @@
       "id": 3,
       "title": "Electro",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "/imagens/electro/electro.png",
+      "image": "/imagens/electro/electro.svg",
       "demo": "/demo/electro",
       "name": "electro"
     },
@@ -43,7 +43,7 @@
       "id": 4,
       "title": "Rapid-Food",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "/imagens/rapid-food/rapid-food.png",
+      "image": "/imagens/rapid-food/rapid-food.svg",
       "demo": "/demo/rapid-food",
       "name": "rapid-food"
     },
@@ -51,7 +51,7 @@
       "id": 5,
       "title": "Vegefoods",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "/imagens/vegefoods/vegefoods.png",
+      "image": "/imagens/vegefoods/vegefoods.svg",
       "demo": "/demo/vegefoods",
       "name": "vegefoods"
     },
@@ -59,7 +59,7 @@
       "id": 6,
       "title": "School",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam.",
-      "image": "/imagens/school/school.png",
+      "image": "/imagens/school/school.svg",
       "demo": "/demo/school",
       "name": "school"
     }
@@ -67,44 +67,43 @@
   "template": {
     "id": "1",
     "thumbnails": [
-      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
-      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
-      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
-      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
-      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
-      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg",
-      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template-353x278.jpg"
+      "/imagens/shopmax/thumbnails/shopmax1.svg",
+      "/imagens/shopmax/thumbnails/shopmax2.svg",
+      "/imagens/shopmax/thumbnails/shopmax3.svg",
+      "/imagens/shopmax/thumbnails/shopmax4.svg",
+      "/imagens/shopmax/thumbnails/shopmax5.svg",
+      "/imagens/shopmax/thumbnails/shopmax6.svg"      
     ],
     "originals": [
-      "https://colorlib.com/wp/wp-content/uploads/sites/2/shopmax-free-template.jpg"
+      "/imagens/shopmax/originals/shopmax1.svg"
     ],
     "gallery": [
       {
-        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6.jpg",
-        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/6t.jpg"
+        "original": "/imagens/shopmax/originals/shopmax1.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax1.svg"
       },
       {
-        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/8.jpg",
-        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/8t.jpg"
+        "original": "/imagens/shopmax/originals/shopmax2.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax2.svg"
       },
       {
-        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4.jpg",
-        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/4t.jpg"
+        "original": "/imagens/shopmax/originals/shopmax3.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax3.svg"
       },
       {
-        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/1.jpg",
-        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/1t.jpg"
+        "original": "/imagens/shopmax/originals/shopmax4.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax4.svg"
       },
       {
-        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/5.jpg",
-        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/5t.jpg"
+        "original": "/imagens/shopmax/originals/shopmax5.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax5.svg"
       },
       {
-        "original": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/9.jpg",
-        "thumbnail": "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/9t.jpg"
+        "original": "/imagens/shopmax/originals/shopmax6.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax6.svg"
       }
     ],
-    "title": "Template one",
+    "title": "Shopmax",
     "sku": "BRWDMC8",
     "price": "120.00",
     "pricePay": "89.99",
