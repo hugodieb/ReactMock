@@ -116,14 +116,14 @@ def generate_price():
 
 def create_images_template(template):
     title = template.title
-    static_path = '/images/static/placeholders'
+    static_path = '/imagens'
     originals_dir = '%s/%s/%s' % (static_path, title, 'originals')
     originals_path = os.path.join(settings.BASE_DIR, originals_dir)
     thumbnails_dir = '%s/%s/%s' % (static_path, title, 'thumbnails')
     thumbnails_path = os.path.join(settings.BASE_DIR, thumbnails_dir)
     for index in range(1, 7):
-        originals_root = '%s/%s' % (originals_path, title + str(index) + '.png')
-        thumbnails_root = '%s/%s' % (thumbnails_path, title + str(index) + '.png')
+        originals_root = '%s/%s' % (originals_path, title + str(index) + '.svg')
+        thumbnails_root = '%s/%s' % (thumbnails_path, title + str(index) + '.svg')
         # ft = File(open(thumbnails_root, 'rb'))
         # fo = File(open(originals_root, 'rb'))
         TemplateImage(
