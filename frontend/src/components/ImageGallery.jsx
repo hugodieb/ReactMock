@@ -12,6 +12,7 @@ const gallery = props => {
         showPlayButton: false,
         showGalleryPlayButton: false,
         showFullscreenButton: false,
+        slideOnThumbnailOver: true
     }
     
     return ( 
@@ -23,6 +24,7 @@ const gallery = props => {
             showNav={data.showNav}            
             showPlayButton={data.showPlayButton && data.showGalleryPlayButton}
             showFullscreenButton={data.showFullscreenButton && data.showGalleryFullscreenButton}
+            slideOnThumbnailOver={data.slideOnThumbnailOver}
         />
     )
    
