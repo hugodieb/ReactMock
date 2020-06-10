@@ -1,6 +1,7 @@
 .card {
     margin-bottom: 2.5rem;
     &__image {
+        padding: 6px;
         .image a {
             cursor: pointer;
             img {

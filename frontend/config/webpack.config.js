@@ -299,6 +299,7 @@ module.exports = function(webpackEnv) {
         'react-native': 'react-native-web',
         '~apijs': path.resolve(__dirname, '../src/helpers/api/' + _apijs),
         '@components': path.resolve(__dirname, '../src/components'),
+        '@filter': path.resolve(__dirname, '../src/helpers/filters'),
         '@imgs': path.resolve(__dirname, '../src/assets/imgs')
       },
       plugins: [
