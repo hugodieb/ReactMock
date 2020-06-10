@@ -106,7 +106,7 @@
     "title": "Shopmax",
     "sku": "BRWDMC8",
     "price": "120.00",
-    "pricePay": "89.99",
+    "price_pay": "89.99",
     "discount": "30",
     "descrption": "Loja ecommerce com código HTML, CSS e JAVASCRIPT prontinhos para voçê iniciar sua loja. Seu cliente vai navegar no seu site de forma intuitiva e ágil. Pagina de apresentação da sua loja(Home), página de detalhe do produto, adicionar ao carrinho, checkout e finalização do processo de compra. Caso precise de auxilio, teremos muita satisfação em ajudar, inclusive temos nossos desenvolvedores que poderam orientá-lo com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, podemos lhe oferecer também este serviço."
   },

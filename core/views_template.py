@@ -8,11 +8,10 @@ def get_templates(request):
     temp_list = []
     for temp in templates:
         image = temp.images.all()
-        for i in image:
-            temp_dict = temp.to_dict_json()
-            temp_dict['image'] = '/%s/%s' % ('imagens', i.originals)
-            temp_list.append(temp_dict)
-    return JsonResponse({'templates': temp_list})
+        temp_dict = temp.to_dict_json()
+        temp_dict['image'] = image[0].originals if image else ''
+        temp_list.append(temp_dict)
+    return JsonResponse(temp_list, safe=False)
 
 
 def template_detail(request):
@@ -20,7 +19,7 @@ def template_detail(request):
     detail = template_svc.template_detail(template_id)
     if not detail:
         return JsonResponse({}, status=404)
-    return JsonResponse({'template': detail}, safe=False)
+    return JsonResponse(detail, safe=False)
 
 
 

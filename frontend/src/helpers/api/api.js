@@ -1,14 +1,42 @@
-function mockasync (data) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve({data: data}), 600)
-    })
-  }
-  
+import axios from 'axios'
+
+axios.defaults.xsrfHeaderName = "X-CSRFToken"
+axios.defaults.xsrfCookieName = "csrftoken"
 
 const api = {
-    hello() {
-        return mockasync({description: 'funfa api mock'})
-    }
+  login(email, password){
+      return post('/api/login', {email: email, password: password})
+  },
+  logout(){
+      return post('/api/logout').then(response => response.data)
+  },
+  whoami(){
+      return get('/api/whoami')
+  }, 
+  async getTemplates(){
+      return get('/api/templates')
+  },
+  async getTemplateDetail(id){
+    return get('/api/template', {id: id})
+  },
+  async filterTemplate(name){
+    return {}
+  },
+  async sale(params){
+    return post('')
+  }
+}
+export default api
+
+function get(url, params){
+  return axios.get(url, {params: params})
 }
 
-export default api
+function post(url, params){
+  var fd = new FormData();
+  params = params || {}
+  Object.keys(params).map((k) => {
+      return fd.append(k, params[k]);
+  })
+  return axios.post(url, fd);
+}

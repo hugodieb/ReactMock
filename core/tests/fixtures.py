@@ -30,7 +30,7 @@ def templates():
     d2.save()
     d2.template.add(template_2)
     TemplateImage.objects.create(thumbnails='/images/image1.jpg', originals='/images/image2.jpg', template=template_1)
-    TemplateImage.objects.create(thumbnails='/images/image3.jpg', originals='/images/image4.jpg', template=template_1)
+    TemplateImage.objects.create(thumbnails='/images/image3.jpg', originals='/images/image4.jpg', template=template_2)
 
     return [template_1, template_2, template_3]
 

@@ -8,7 +8,7 @@ const Card = (props) => {
             <div className="card">
                 <div className="card__image ">
                     <figure className="image is-4by3">
-                        <Link to={{pathname: `template/${template.name}`, query: { id: template.id }}}>
+                        <Link to={{pathname: `template/${template.title}`, query: { id: template.id }}}>
                             <img src={template.image} alt="" />
                         </Link>                                       
                     </figure>

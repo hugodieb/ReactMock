@@ -17,8 +17,9 @@ class Detail extends Component {
        const id = !this.props.location.query || undefined ? null : this.props.location.query.id
        const name = id ? null : this.props.match.params.name       
        if(id) {
-           AppApi.getTemplateDetail(id).then(resp => {                             
-               this.setState({template: resp, termineted: true})
+           AppApi.getTemplateDetail(id).then(resp => {
+               debugger                             
+               this.setState({template: resp.data, termineted: true})
            })
         } else {
             AppApi.filterTemplate(name).then(resp => {                              
@@ -50,7 +51,7 @@ class Detail extends Component {
                             <h4>De: <span>R$ {template.price}</span></h4>
                             <h5><span>{template.discount}</span> % de desconto \o/</h5>
                             <div className="price">
-                                <h1>Por: R$ {template.pricePay}</h1>
+                                <h1>Por: R$ {template.price_pay}</h1>
                             </div>                                
                             <hr/>
                             <div className="pay">

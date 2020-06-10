@@ -1,6 +1,6 @@
 'use strict';
 
-const _apimock = process.env.API_MOCK === '1' || (process.env.API_MOCK == undefined && process.env.npm_lifecycle_event == 'dev')
+const _apimock = process.env.API_MOCK === '1' || (process.env.API_MOCK === undefined && process.env.npm_lifecycle_event === 'dev')
 const _apijs = _apimock ? 'apimock' : 'api';
 console.log("estou usando " + _apijs)
 

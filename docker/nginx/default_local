@@ -1,15 +1,15 @@
+upstream django {
+    server 127.0.0.1:8000;
+}
+
 server {
     listen       80;
     server_name  localhost;
 
-    location /api {
-        proxy_pass http://localhost:8000/api;
-    }
-    location /admin {
-        proxy_pass http://localhost:8000/admin;
-    }
-    location /static {
-        proxy_pass http://localhost:8000/static;
+    location ~ ^/(api|admin) {
+        proxy_pass  http://django;
+        include     /etc/nginx/proxy_params;
+        client_max_body_size 0;
     }
     location / {
         proxy_pass http://localhost:3000/;

@@ -14,8 +14,8 @@ class TestTemplatesApi(TestCase):
         t1 = client.get('/api/templates')
         self.assertEquals(200, t1.status_code)
         res = json.loads(t1.content.decode('utf-8'))
-        self.assertEqual(2, len(res['templates']))
-        for r in res['templates']:
+        self.assertEqual(3, len(res))
+        for r in res:
             self.assertTrue('id' in r)
             self.assertTrue('title' in r)
             self.assertTrue('sku' in r)
@@ -55,8 +55,7 @@ class TestTemplatesApi(TestCase):
         self.assertEqual('32.50', res['template']['price'])
         self.assertEqual('teste template', res['template']['description'])
         self.assertEqual('10.50', res['template']['discount'])
-        self.assertEqual(['/images/image3.jpg', '/images/image1.jpg'], res['template']['thumbnails'])
-        self.assertEqual(['/images/image4.jpg', '/images/image2.jpg'], res['template']['originals'])
+        self.assertEqual(['/images/image1.jpg'], res['template']['thumbnails'])
+        self.assertEqual(['/images/image2.jpg'], res['template']['originals'])
         self.assertEqual('22.00', res['template']['price_pay'])
-        self.assertEqual({'thumbnail': '/images/image3.jpg', 'original': '/images/image4.jpg'}, res['template']['gallery'][0])
-        self.assertEqual({'thumbnail': '/images/image1.jpg', 'original': '/images/image2.jpg'}, res['template']['gallery'][1])
+        self.assertEqual({'thumbnail': '/images/image1.jpg', 'original': '/images/image2.jpg'}, res['template']['gallery'][0             ])

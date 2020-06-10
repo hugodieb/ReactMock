@@ -11,8 +11,7 @@ HOST_PROD=3.130.167.180
 # 2) "devhelp"
 # 3) Be happy
 
-
-# workon .indow  # Change this to your project's name
+workon .indow  # Change this to your project's name
 
 export PROJ_BASE="$(dirname "${BASH_SOURCE[0]}")"
 CD=$(pwd)
@@ -43,7 +42,7 @@ function devhelp {
 function dkbuild {
     CD=$(pwd)
     cd $PROJ_BASE
-    docker build -t react .
+    docker build -t indow .
     exitcode=$?
     cd $CD
     return $exitcode
@@ -68,13 +67,13 @@ function dknginx {
 }
 
 function dkrun_dev {
-    docker stop react
-    docker rm react
-    docker run -it --restart unless-stopped --name react -p 3000:3000 -p 3001:3001 react start_dev.sh
+    docker stop indow
+    docker rm indow
+    docker run -it --restart unless-stopped --name indow -p 3000:3000 -p 3001:3001 indow start_dev.sh
 }
 
 function dk {
-    docker exec -it react $@
+    docker exec -it indow $@
 }
 
 function echo_red {
