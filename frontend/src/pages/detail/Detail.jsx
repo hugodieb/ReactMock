@@ -55,7 +55,7 @@ class Detail extends Component {
                             </div>                                
                             <hr/>
                             <div className="pay">
-                                <a className="button is-large" onClick={e => this.checkout()}>Comprar</a>
+                                <button className="button is-large" onClick={e => this.checkout()}>Comprar</button>
                                 <span><i className="fa fa-lock fa-2x" aria-hidden="true"></i></span>
                                 <span>Compra Segura Paypal</span>
                             </div>
@@ -72,7 +72,7 @@ class Detail extends Component {
                             <div className="description">
                                 <h2>Descrição</h2>
                                 <p>
-                                    {template.descrption}                                     
+                                    {template.description}                                     
                                 </p>                                    
                             </div>
                         </div>

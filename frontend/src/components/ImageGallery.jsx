@@ -8,7 +8,7 @@ const gallery = props => {
         slideDuration: 450,
         slideInterval: 2000,
         thumbnailPosition: 'left',
-        showNav: true,
+        showNav: false,
         showPlayButton: false,
         showGalleryPlayButton: false,
         showFullscreenButton: false,
