@@ -3,6 +3,7 @@ import { withRouter } from "react-router"
 import { connect } from 'react-redux'
 import paypalImage from '../../assets/imgs/paypal.png'
 import payment from '../../services/paypal'
+import { UpperCase } from '@filter'
 import AppApi from '~apijs'
 
 
@@ -60,7 +61,7 @@ class ItemCartPay extends Component {
                     </div>
                     <div className="columns">
                         <div className="column">
-                            <p>{this.state.template.title}</p>                      
+                            <p>{ UpperCase(this.state.template.title) }</p>                      
                         </div>
                         <div className="column">
                             <p>

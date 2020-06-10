@@ -3,8 +3,13 @@
     .tile.is-parent {
         .tile.is-child.box {
             box-shadow: initial;
+            .title {
+                margin-bottom: 1.1rem;
+                color: $darken-grey;
+            };
             .subtitle {
-                color: $is-grey;
+                color: $light-grey;
+                font-size: small;
             }            
             .content {
                 h4 {

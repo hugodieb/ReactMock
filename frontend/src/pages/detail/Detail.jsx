@@ -4,6 +4,7 @@ import Main from '@components/template/Main'
 import Gallery from '@components/ImageGallery'
 import Loading from '@components/loading'
 import { templateDetailAction } from '../../actions/templateDetail'
+import { UpperCase } from '@filter'
 import AppApi from '~apijs'
 
 class Detail extends Component {
@@ -45,7 +46,7 @@ class Detail extends Component {
                 </div>
                 <div className="tile is-parent">
                     <article className="tile is-child box">
-                        <p className="title">{template.title}</p>
+                        <p className="title">{UpperCase(template.title)}</p>
                         <p className="subtitle">{template.sku}</p>
                         <div className="content">
                             <h4>De: <span>R$ {template.price}</span></h4>
