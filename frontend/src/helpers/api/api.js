@@ -14,14 +14,11 @@ const api = {
       return get('/api/whoami')
   }, 
   async getTemplates(){
-      return get('/api/templates')
+      return get('/api/templates').then(response => response.data)
   },
-  async getTemplateDetail(id){
-    return get('/api/template', {id: id})
-  },
-  async filterTemplate(name){
-    return {}
-  },
+  async getTemplateDetail(id, name){
+    return get('/api/template', {id: id, name: name}).then(response => response.data)
+  }, 
   async sale(params){
     return post('')
   }

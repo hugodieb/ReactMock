@@ -2,11 +2,13 @@ from core.models import Template
 from commons.model_utils import get_or_none
 
 
-def template_detail(template_id):
-    template_id = int(template_id)
+def template_detail(template_id, template_title):
+    template_id = template_id if not template_id else int(template_id)
+    template_title = template_title
     discount = ''
     price_pay = ''
-    template = get_or_none(Template, pk=template_id)
+
+    template = get_or_none(Template, pk=template_id) if template_id else get_or_none(Template, title=template_title)
     if template:
         thumbs = template.images.all()
         thumbnails_url = [thumb.thumbnails for thumb in thumbs]

@@ -58,4 +58,20 @@ class TestTemplatesApi(TestCase):
         self.assertEqual(['/images/image1.jpg'], res['thumbnails'])
         self.assertEqual(['/images/image2.jpg'], res['originals'])
         self.assertEqual('22.00', res['price_pay'])
-        self.assertEqual({'thumbnail': '/images/image1.jpg', 'original': '/images/image2.jpg'}, res['gallery'][0             ])
+        self.assertEqual({'thumbnail': '/images/image1.jpg', 'original': '/images/image2.jpg'}, res['gallery'][0])
+
+    def test_filter_template_api(self):
+        client = Client()
+        t = client.get('/api/template', {'name': 'TemplateOne'})
+        self.assertEquals(200, t.status_code)
+        res = json.loads((t.content.decode('utf-8')))
+        self.assertEqual(2, res['id'])
+        self.assertEqual('TemplateOne', res['title'])
+        self.assertEqual('32.50', res['price'])
+        self.assertEqual('teste template', res['description'])
+        self.assertEqual('10.50', res['discount'])
+        self.assertEqual(['/images/image1.jpg'], res['thumbnails'])
+        self.assertEqual(['/images/image2.jpg'], res['originals'])
+        self.assertEqual('22.00', res['price_pay'])
+        self.assertEqual({'thumbnail': '/images/image1.jpg', 'original': '/images/image2.jpg'}, res['gallery'][0])
+

@@ -32,19 +32,15 @@ const api = {
         return remove(baseUrl + `/users/${user.id}`, user)        
     },
     async getTemplates() {
-        let templates = get(baseUrl + `/templates`)
+        let templates = get(baseUrl + `/templates`).then(response => response.data)
         return mockObject(templates).then(response => response.data)
     },
-    async getTemplateDetail(id) {        
-        let template = get(baseUrl + `/template?id=${id}`)
-        template = template.then(response => response.data)
-        return mockObject(template).then(response => response.data)
-    },
-    async filterTemplate(name) {       
-        let template = get(baseUrl + `/template?name=${name}`)
-        template = template.then(response => response.data)
-        return mockObject(template).then(response => response.data)
-    },
+    async getTemplateDetail(id, name) {
+        let template = id ?
+         get(baseUrl + `/template?id=${id}`).then(response => response.data)
+         : get(baseUrl + `/template?name=${name}`).then(response => response.data) 
+        return mockObject(template).then(response => response.data)      
+    },   
     async sale(params) {        
         let sale = get(baseUrl + `/invoicePayment?id=${params.id}`)
         sale = sale.then(response => response.data)

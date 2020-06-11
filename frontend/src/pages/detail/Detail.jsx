@@ -14,19 +14,13 @@ class Detail extends Component {
         termineted: false
     }
     
-    componentWillMount() {                                 
-       const id = !this.props.location.query || undefined ? null : this.props.location.query.id
-       const name = id ? null : this.props.match.params.name       
-       if(id) {
-           AppApi.getTemplateDetail(id).then(resp => {
-               debugger                             
-               this.setState({template: resp.data, termineted: true})
-           })
-        } else {
-            AppApi.filterTemplate(name).then(resp => {                              
-                this.setState({template: resp, termineted: true})
-            })
-        }
+    componentWillMount() {
+        const id = !this.props.location.query || undefined ? null : this.props.location.query.id
+        const name = id ? null : this.props.match.params.name     
+        AppApi.getTemplateDetail(id, name).then(response => {
+            debugger                             
+            this.setState({template: response, termineted: true})
+        })
     }
 
     checkout() {       

@@ -15,8 +15,9 @@ def get_templates(request):
 
 
 def template_detail(request):
-    template_id = request.GET['id']
-    detail = template_svc.template_detail(template_id)
+    template_id = request.GET['id'] if 'id' in request.GET else None
+    template_title = request.GET['name'] if 'name' in request.GET else None
+    detail = template_svc.template_detail(template_id, template_title)
     if not detail:
         return JsonResponse({}, status=404)
     return JsonResponse(detail, safe=False)
