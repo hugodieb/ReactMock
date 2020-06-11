@@ -19,7 +19,8 @@ def template_detail(template_id, template_title):
                 gallery.append({"thumbnail": thumbnails_url[t], "original": originals_url[t]})
         if template.discount.all():
             for temp in template.discount.all():
-                discount = temp.discount_value
+                discount = temp.discount_value\
+                    if temp.discount_value == 'fixed' else round(temp.discount_value)
                 price_pay = temp.calculate_discount_to_template()
         else:
             discount = 0

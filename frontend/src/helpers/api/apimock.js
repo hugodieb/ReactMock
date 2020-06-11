@@ -60,11 +60,11 @@ const api = {
         return mockObject({}).then(response => response.data)
     },
 
-    whomi() {
+    async whoami() {
         return mockObject(loggedUser ? {
             authenticated: true,
             user: loggedUser
-        } : {authenticated: false})
+        } : {authenticated: false}).then(response => response.data)
     }    
 }
 

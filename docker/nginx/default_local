@@ -6,7 +6,7 @@ server {
     listen       80;
     server_name  localhost;
 
-    location ~ ^/(api|admin) {
+    location ~ ^/(api|admin|staticfiles) {
         proxy_pass  http://django;
         include     /etc/nginx/proxy_params;
         client_max_body_size 0;

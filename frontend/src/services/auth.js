@@ -5,10 +5,11 @@ class Auth {
       this.authenticated = false
     }
     
-    authentication() {
+    authentication() {        
         return (        
-            AppApi.whomi().then(response => {                               
-                this.authenticated = response.data.authenticated
+            AppApi.whoami().then(response => {
+                debugger                               
+                this.authenticated = response.authenticated
             })
         )         
     }

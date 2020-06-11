@@ -6,12 +6,13 @@ axios.defaults.xsrfCookieName = "csrftoken"
 const api = {
   login(email, password){
       return post('/api/login', {email: email, password: password})
+      .then(response => response.data)
   },
   logout(){
       return post('/api/logout').then(response => response.data)
   },
   whoami(){
-      return get('/api/whoami')
+      return get('/api/whoami').then(response => response.data)
   }, 
   async getTemplates(){
       return get('/api/templates').then(response => response.data)

@@ -15,7 +15,7 @@ def login(request):
         if user.is_active and user.check_password(password):
             auth.login(request, user, backend=AUTH_BACKEND)
             user_dict = _user2dict(user)
-    return JsonResponse({'user': user_dict}, safe=False)
+    return JsonResponse(user_dict, safe=False)
 
 
 def logout(request):

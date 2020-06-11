@@ -39,8 +39,7 @@ class Home extends Component {
     state = {...initialState}
 
     componentWillMount() {            
-        AppApi.getTemplates().then(response => {
-            debugger                 
+        AppApi.getTemplates().then(response => {                            
             this.setState({listCards: response})                        
         })
     }

@@ -17,8 +17,7 @@ class Detail extends Component {
     componentWillMount() {
         const id = !this.props.location.query || undefined ? null : this.props.location.query.id
         const name = id ? null : this.props.match.params.name     
-        AppApi.getTemplateDetail(id, name).then(response => {
-            debugger                             
+        AppApi.getTemplateDetail(id, name).then(response => {                                         
             this.setState({template: response, termineted: true})
         })
     }
