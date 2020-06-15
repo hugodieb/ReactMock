@@ -12,13 +12,11 @@ class Nav extends Component {
         user: {}
     }
 
-    componentWillMount() {
-        debugger                     
+    componentWillMount() {                  
         this.setState({user: this.props.currentUser})
     }
 
-    componentWillReceiveProps(prevProps, prevState) {
-        debugger                       
+    componentWillReceiveProps(prevProps, prevState) {                    
         if(this.props.currentUser !== prevProps.currentUser) {
             this.setState({user: prevProps.currentUser})
         }       
@@ -65,8 +63,7 @@ class Nav extends Component {
         }
     }
 
-    RenderLoginLogout() {
-        debugger                             
+    RenderLoginLogout() {                        
         if(this.state.user !== null) {
             return (                
                 <div className="navbar-item has-dropdown is-hoverable">

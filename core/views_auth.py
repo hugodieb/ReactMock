@@ -2,6 +2,7 @@ from django.http.response import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
 from core.models import User
+from commons.model_utils import get_or_none
 
 AUTH_BACKEND = 'django.contrib.auth.backends.ModelBackend'
 
@@ -9,7 +10,7 @@ AUTH_BACKEND = 'django.contrib.auth.backends.ModelBackend'
 def login(request):
     email = request.POST['email']
     password = request.POST['password']
-    user = User.objects.get(email=email)
+    user = get_or_none(User, email=email)
     user_dict = None
     if user is not None:
         if user.is_active and user.check_password(password):
