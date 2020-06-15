@@ -7,7 +7,7 @@ import Snackbar from '@components/Snackbar'
 import { BrowserRouter } from 'react-router-dom'
 
 
-export default props =>
+export default props =>    
     <BrowserRouter>        
         <div className="app">           
             <Nav/>

@@ -5,20 +5,22 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import AppApi from '~apijs'
 import { removeCurrentUserAction } from '../../actions/auth'
-import Auth from '../../services/auth'
+import { authentication } from '../../services/auth'
 
 class Nav extends Component {
     state = {
         user: {}
     }
 
-    componentDidMount() {               
+    componentWillMount() {
+        debugger                     
         this.setState({user: this.props.currentUser})
     }
 
-    componentDidUpdate(prevProps, prevState) {                    
+    componentWillReceiveProps(prevProps, prevState) {
+        debugger                       
         if(this.props.currentUser !== prevProps.currentUser) {
-            this.setState({user: this.props.currentUser})
+            this.setState({user: prevProps.currentUser})
         }       
     }
 
@@ -33,7 +35,7 @@ class Nav extends Component {
     renderLogout() {                
         AppApi.logout().then(user => {                  
             this.props.dispatch(removeCurrentUserAction())
-            Auth.authentication()
+            authentication()
             this.props.history.push('/')  
                      
         })
@@ -63,8 +65,9 @@ class Nav extends Component {
         }
     }
 
-    RenderLoginLogout() {                     
-        if(this.state.user != null) {
+    RenderLoginLogout() {
+        debugger                             
+        if(this.state.user !== null) {
             return (                
                 <div className="navbar-item has-dropdown is-hoverable">
                     <span className="navbar-item is-drop">

@@ -4,7 +4,7 @@ import Main from '@components/template/Main'
 import { snackbarOpen } from '../../actions/snackbar'
 import { setCurrentUserAction } from '../../actions/auth'
 import AppApi from '~apijs'
-import Auth from '../../services/auth'
+import { authentication, isAuthenticated } from '../../services/auth'
 
 const initialState = {
   input_data: {email: '', password: ''},
@@ -36,8 +36,9 @@ class LoginUser extends Component {
     let password = this.state.input_data.password      
     AppApi.login(email, password).then(user => {                            
       if(user && user.id) {
-        Auth.authentication().then(() => {                  
-          if(Auth.isAuthenticated()){            
+        authentication().then(() => {                  
+          if(isAuthenticated()){
+            localStorage.setItem('user', JSON.stringify(user))            
             this.props.dispatch(setCurrentUserAction(user))            
             const location = this.props.location.state
             location ? this.props.history.push(location.from.pathname) : this.props.history.push('/')
@@ -55,7 +56,7 @@ class LoginUser extends Component {
 
   renderFormLogin() {
       return (               
-        <div className="box">
+        <div className="box" >
           <figure className="avatar">
             <img src="https://cdn.icon-icons.com/icons2/1146/PNG/128/1486485581-account-audience-person-customer-profile-user_81164.png"
              alt="avatar"/>

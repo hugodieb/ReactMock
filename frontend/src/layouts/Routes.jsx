@@ -8,14 +8,18 @@ import Detail from '../pages/detail/Detail'
 import NewCart from '../pages/cart/NewCart'
 import Success from '../pages/cart/success/Success'
 import Cancel from '../pages/cart/cancel/Cancel'
-import Auth from '../services/auth'
+import { isAuthenticated, isUser, authentication } from '../services/auth'
+
+import { connect } from 'react-redux'
+import { setCurrentUserAction } from '../actions/auth'
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => {    
     return (
         <Route
             {...rest}
             render={props =>
-            Auth.isAuthenticated() ? <Component {...props} /> : <Redirect to={{ pathname: "perfil/entrar", state: { from: props.location } }} />
+            isAuthenticated() ? <Component {...props} /> : <Redirect to={{ pathname: "perfil/entrar", state: { from: props.location } }} />
             }
         />
     )
@@ -23,9 +27,15 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
 class Routes extends Component {
     componentWillMount() {
-        console.log('estou aquiiiiiiiiii')
-    }
-    render() {
+        if(!isAuthenticated()){
+            debugger
+            authentication().then(() => {
+                debugger
+                this.props.dispatch(setCurrentUserAction(isUser()._user))
+            })
+        }             
+    }   
+    render() {        
         return (
             <Switch>
                 <Route exact path='/' component={Home} />                              
@@ -41,4 +51,10 @@ class Routes extends Component {
     }
 }
 
-export default Routes
+const mapDispatchToProps = dispatch => {      
+    return {
+        setCurrentUserAction: user => dispatch(setCurrentUserAction(user)),
+    }
+  }
+
+export default connect(mapDispatchToProps) (Routes)

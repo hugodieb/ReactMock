@@ -1,23 +1,23 @@
 import AppApi from '~apijs'
 
-class Auth {
-    constructor() {
-      this.authenticated = false
-    }
-    
-    authentication() {        
-        return (        
-            AppApi.whoami().then(response => {
-                debugger                               
-                this.authenticated = response.authenticated
-            })
-        )         
-    }
-  
-    isAuthenticated() {
-        return this.authenticated
-    }
-  }
-  
-  export default new Auth();
-  
+const user = {
+    authenticated: false,
+    _user: undefined   
+}
+
+export const authentication = () => {
+    return (
+        AppApi.whoami().then(response => {                                         
+            user.authenticated = response.authenticated
+            user._user = response.user ? response.user : null
+        })
+    )
+}
+
+export const isAuthenticated = () => {
+    return user.authenticated
+}
+
+export const isUser = () => {
+    return user
+}

@@ -11,4 +11,4 @@ export const Reducers = combineReducers({
   currentUser: currentUserReducer,  
   snackbar: snackbarReducer,
   templateDetail: templateDetailReducer
-});
+})
