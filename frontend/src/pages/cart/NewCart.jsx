@@ -12,7 +12,8 @@ class Checkout extends Component {
         template: {}
     }
 
-    componentDidMount() {             
+    componentDidMount() {
+        debugger             
         const { templateDetail } = this.props
         this.setState({template : templateDetail})
     }   
@@ -35,7 +36,8 @@ class Checkout extends Component {
         }        
     }
 
-    renderCartItems() {        
+    renderCartItems() {
+        debugger        
         if(!this.state.template.id){
             return (
                 <div className="empty-cart">

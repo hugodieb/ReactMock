@@ -1,21 +1,12 @@
 import * as types from '../actions/actionTypes'
 
-const template = {
-    "id": "",
-    "thumbnails": [],
-    "originals": [],
-    "title": "",
-    "sku": "",
-    "price": "",
-    "pricePay": "",
-    "discount": "",    
-    "descrption": "",
-    "gallery": ""
-}
+const template = JSON.parse(localStorage.getItem('template'))    
 
-export const templateDetailReducer = (state, action) => {          
+export const templateDetailReducer = (state, action) => {
+    debugger          
     switch (action.type) {
         case types.TEMPLATE_DETAIL:
+            localStorage.setItem('template', JSON.stringify(action.template))
             Object.assign(template, action.template)
             return {
                 ...state,       

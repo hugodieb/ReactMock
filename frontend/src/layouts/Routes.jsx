@@ -14,7 +14,7 @@ import { connect } from 'react-redux'
 import { setCurrentUserAction } from '../actions/auth'
 
 
-const PrivateRoute = ({ component: Component, ...rest }) => {    
+const PrivateRoute = ({ component: Component, ...rest }) => {   
     return (
         <Route
             {...rest}
@@ -27,10 +27,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
 class Routes extends Component {
     componentWillMount() {
-        if(!isAuthenticated()){
-            debugger
-            authentication().then(() => {
-                debugger
+        if(!isAuthenticated()){            
+            authentication().then(() => {                
                 this.props.dispatch(setCurrentUserAction(isUser()._user))
             })
         }             
