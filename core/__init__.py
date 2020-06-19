@@ -9,3 +9,7 @@ class DiscountValueType:
 
 class StatusPayment:
     STATUS = [(c, c) for c in ['waiting', 'paid', 'disapproved']]
+
+
+class StatusCart:
+    STATUS = [(c, c) for c in ['open', 'closed']]

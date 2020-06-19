@@ -5,7 +5,7 @@ const currentUser = {}
 export const setCurrentUserReducer = (state = {...currentUser}, action) => {   
   switch (action.type) {
     case types.SET_USER:      
-      Object.assign(currentUser, action.user)                    
+      Object.assign(currentUser, action.user)               
       return {
         ...state,       
         response: action.user
@@ -18,7 +18,8 @@ export const setCurrentUserReducer = (state = {...currentUser}, action) => {
 export const removeCurrentUserReducer = (state = {...currentUser}, action) => { 
   switch (action.type) {
     case types.REMOVE_USER:      
-      Object.keys(currentUser).forEach(function(key) { delete currentUser[key]; });                  
+      Object.keys(currentUser).forEach(function(key) { delete currentUser[key] })
+      localStorage.setItem('isAuthenticated', false)                  
       return {
         ...state,       
         response: state

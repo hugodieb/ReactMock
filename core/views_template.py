@@ -22,7 +22,4 @@ def template_detail(request):
         return JsonResponse({}, status=404)
     return JsonResponse(detail, safe=False)
 
-
-
-
-
+    return JsonResponse({}, safe=False)

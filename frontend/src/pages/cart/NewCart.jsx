@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Main from '@components/template/Main'
 import ItemCart from '@components/cart/ItemCart'
 import ItemCartPay from '@components/cart/ItemCartPay'
@@ -9,16 +9,19 @@ import ItemCartPay from '@components/cart/ItemCartPay'
 class Checkout extends Component {
 
     state = {
-        template: {}
+        template: {
+            id: ''
+        }
     }
 
-    componentDidMount() {
-        debugger             
+    componentDidMount() {               
         const { templateDetail } = this.props
-        this.setState({template : templateDetail})
+        if(templateDetail) {
+            this.setState({template : templateDetail})
+        }        
     }   
 
-    renderNotification() {        
+    renderNotification() {           
         if(this.state.template.id) {
             return (
                 <div className="notice has-text-centered">                       
@@ -36,8 +39,7 @@ class Checkout extends Component {
         }        
     }
 
-    renderCartItems() {
-        debugger        
+    renderCartItems() {            
         if(!this.state.template.id){
             return (
                 <div className="empty-cart">

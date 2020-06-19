@@ -8,30 +8,18 @@ import Detail from '../pages/detail/Detail'
 import NewCart from '../pages/cart/NewCart'
 import Success from '../pages/cart/success/Success'
 import Cancel from '../pages/cart/cancel/Cancel'
-import { isAuthenticated, isUser, authentication } from '../services/auth'
+import { isUser, authentication } from '../services/auth'
 
 import { connect } from 'react-redux'
 import { setCurrentUserAction } from '../actions/auth'
-
-
-const PrivateRoute = ({ component: Component, ...rest }) => {   
-    return (
-        <Route
-            {...rest}
-            render={props =>
-            isAuthenticated() ? <Component {...props} /> : <Redirect to={{ pathname: "perfil/entrar", state: { from: props.location } }} />
-            }
-        />
-    )
-}
+import PrivateRoute from './PrivateRoutes'
 
 class Routes extends Component {
-    componentWillMount() {
-        if(!isAuthenticated()){            
-            authentication().then(() => {                
-                this.props.dispatch(setCurrentUserAction(isUser()._user))
-            })
-        }             
+    componentWillMount() {                 
+        authentication().then(() => {
+            const user = isUser()._user                             
+            this.props.dispatch(setCurrentUserAction(user))
+        })              
     }   
     render() {        
         return (
@@ -53,6 +41,8 @@ const mapDispatchToProps = dispatch => {
     return {
         setCurrentUserAction: user => dispatch(setCurrentUserAction(user)),
     }
-  }
+}
 
-export default connect(mapDispatchToProps) (Routes)
+
+
+export default connect(mapDispatchToProps)(Routes)

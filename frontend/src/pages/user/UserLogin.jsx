@@ -38,7 +38,7 @@ class LoginUser extends Component {
       if(user && user.id) {
         authentication().then(() => {                  
           if(isAuthenticated()){
-            localStorage.setItem('user', JSON.stringify(user))            
+            localStorage.setItem('user', JSON.stringify(user))                        
             this.props.dispatch(setCurrentUserAction(user))            
             const location = this.props.location.state
             location ? this.props.history.push(location.from.pathname) : this.props.history.push('/')

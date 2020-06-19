@@ -2,11 +2,13 @@ import json
 from django.test.client import Client
 from django.test.testcases import TestCase
 from core.tests import fixtures
+from core.models import User, Cart, Template
 
 
 class TestTemplatesApi(TestCase):
     @classmethod
     def setUpTestData(cls):
+        fixtures.user_sheik()
         fixtures.templates()
 
     def test_templates_api(self):
@@ -74,4 +76,18 @@ class TestTemplatesApi(TestCase):
         self.assertEqual(['/images/image2.jpg'], res['originals'])
         self.assertEqual('22.00', res['price_pay'])
         self.assertEqual({'thumbnail': '/images/image1.jpg', 'original': '/images/image2.jpg'}, res['gallery'][0])
+
+    def test_get_or_save_item_to_cart_api(self):
+        client = Client()
+        client.force_login(User.objects.get(username='sheikdog'))
+        user = User.objects.get(username='sheikdog')
+        template = Template.objects.get(title='TemplateOne')
+        get_cart = Cart.objects.all().count()
+        self.assertEqual(0, get_cart)
+        c = client.post('/api/item_cart', {'user_id': user.id, 'template_id': template.id})
+        self.assertEquals(200, c.status_code)
+        cart = Cart.objects.get(user=user.id)
+        self.assertEqual('sheikdog', cart.user.username)
+        self.assertEqual('TemplateOne', cart.template.title)
+        self.assertEqual('open', cart.status)
 

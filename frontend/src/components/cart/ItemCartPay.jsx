@@ -33,7 +33,7 @@ class ItemCartPay extends Component {
         localStorage.removeItem(process.env.REACT_APP_KEY_NAME)
     }
     
-    paymentService () {
+    paymentService () {       
         const params = {
             'id': this.state.template,
             'payment_method': 'paypal'
@@ -49,7 +49,7 @@ class ItemCartPay extends Component {
         })             
     }   
 
-    render() {
+    render() {        
         const { error, display } = this.state        
         return (
             <div className="item-cart-parent item-cart-pay">
@@ -65,7 +65,7 @@ class ItemCartPay extends Component {
                         </div>
                         <div className="column">
                             <p>
-                                R$ {this.state.template.pricePay}
+                                R$ {this.state.template.price_pay}
                             </p>                      
                         </div>                    
                     </div>
@@ -76,7 +76,7 @@ class ItemCartPay extends Component {
                         </div>
                         <div className="column">
                             <p>
-                                R$ {this.state.template.pricePay}                                   
+                                R$ {this.state.template.price_pay}                                   
                             </p>                        
                         </div>                                        
                     </div>

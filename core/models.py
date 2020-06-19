@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from . import DiscountValueType, StatusPayment
+from . import DiscountValueType, StatusPayment, StatusCart
 from commons.utils import random_sku_template
 
 
@@ -109,7 +109,7 @@ class Discount(models.Model):
 
 
 class InvoiceOrder(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     template = models.ForeignKey(Template, related_name='invoice', on_delete=models.CASCADE)
     subtotal = models.DecimalField('Subtotal', decimal_places=2, max_digits=8)
     total = models.DecimalField('Total', decimal_places=2, max_digits=8)
@@ -142,3 +142,15 @@ class InvoiceOrder(models.Model):
             'items': items
         }
         return d
+
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    template = models.ForeignKey(Template, related_name='template', on_delete=models.CASCADE)
+    status = status = models.CharField('Status', max_length=32, default='open', choices=StatusCart.STATUS)
+    created_at = models.DateTimeField('Criado em', auto_now_add=True)
+    update_at = models.DateTimeField('Atualizado em', auto_now=True)
+
+    def __str__(self):
+        return '%s' % (self.status)
+
+

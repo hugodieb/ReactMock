@@ -10,6 +10,7 @@ export const authentication = () => {
         AppApi.whoami().then(response => {                                         
             user.authenticated = response.authenticated
             user._user = response.user ? response.user : null
+            localStorage.setItem('isAuthenticated', user.authenticated)
         })
     )
 }
