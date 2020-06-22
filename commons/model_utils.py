@@ -7,6 +7,9 @@ def get_or_none(model, **kwargs):
     except model.DoesNotExist:
         return None
 
+def get_template_id_or_title(model, id, title):
+    return get_or_none(model, pk=id) if id else get_or_none(model, title=title)
+
 
 def dictfetchall(sql):
     with connection.cursor() as cursor:

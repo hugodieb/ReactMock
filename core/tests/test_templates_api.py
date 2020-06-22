@@ -94,10 +94,10 @@ class TestTemplatesApi(TestCase):
         res = json.loads((c.content.decode('utf-8')))
         self.assertEqual(2, self._get_items_count_cart())
         for r in range(2):
-            last_update_at = self._get_template_id_cart(template_one.id).update_at
-            client.post('/api/item_cart', {'user_id': user.id, 'template_id': template_one.id})
+            last_update_at = self._get_template_id_cart(user.id, template_one.id).update_at
+            client.post('/api/item_cart', {'user_id': user.id, 'template_title': template_one.title})
             self.assertEqual(2, self._get_items_count_cart())
-            self.assertNotEqual(last_update_at, self._get_template_id_cart(template_one.id).update_at)
+            self.assertNotEqual(last_update_at, self._get_template_id_cart(user.id, template_one.id).update_at)
             self.assertEqual(2, res['id'])
             self.assertEqual('TemplateOne', res['title'])
             self.assertEqual('32.50', res['price'])
@@ -115,5 +115,5 @@ class TestTemplatesApi(TestCase):
     def _get_Cart_user_id(self, user_id):
         return Cart.objects.get(user=user_id)
 
-    def _get_template_id_cart(self, template_id):
-        return Cart.objects.get(pk=template_id)
+    def _get_template_id_cart(self, user_id ,template_id):
+        return Cart.objects.get(user=user_id, template=template_id)

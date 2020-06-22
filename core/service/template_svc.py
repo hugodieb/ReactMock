@@ -1,5 +1,5 @@
 from core.models import Template
-from commons.model_utils import get_or_none
+from commons.model_utils import get_or_none, get_template_id_or_title
 
 
 def template_detail(template_id=None, template_title=None):
@@ -7,8 +7,7 @@ def template_detail(template_id=None, template_title=None):
     template_title = template_title
     discount = ''
     price_pay = ''
-
-    template = get_or_none(Template, pk=template_id) if template_id else get_or_none(Template, title=template_title)
+    template = get_template_id_or_title(Template, template_id, template_title)
     if template:
         thumbs = template.images.all()
         thumbnails_url = [thumb.thumbnails for thumb in thumbs]
