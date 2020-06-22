@@ -21,5 +21,3 @@ def template_detail(request):
     if not detail:
         return JsonResponse({}, status=404)
     return JsonResponse(detail, safe=False)
-
-    return JsonResponse({}, safe=False)

@@ -1,4 +1,5 @@
-from core.models import User, Profile, Template, Discount, TemplateImage, InvoiceOrder
+from core.models import User, Profile, Template, Discount,\
+    TemplateImage, InvoiceOrder, Cart
 
 def user_sheik():
     sheik = User.objects.create_user(
@@ -61,3 +62,9 @@ def invoice():
     )
     invoice_order.save()
     return invoice_order
+
+
+def cart():
+    sheik = User.objects.get(username='sheikdog')
+    temp = Template.objects.get(title='TemplateTwo')
+    Cart.objects.create(user=sheik, template=temp)

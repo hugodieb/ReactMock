@@ -10,6 +10,7 @@ class TestTemplatesApi(TestCase):
     def setUpTestData(cls):
         fixtures.user_sheik()
         fixtures.templates()
+        fixtures.cart()
 
     def test_templates_api(self):
         client = Client()
@@ -81,13 +82,38 @@ class TestTemplatesApi(TestCase):
         client = Client()
         client.force_login(User.objects.get(username='sheikdog'))
         user = User.objects.get(username='sheikdog')
-        template = Template.objects.get(title='TemplateOne')
-        get_cart = Cart.objects.all().count()
-        self.assertEqual(0, get_cart)
-        c = client.post('/api/item_cart', {'user_id': user.id, 'template_id': template.id})
-        self.assertEquals(200, c.status_code)
-        cart = Cart.objects.get(user=user.id)
+        self.assertEqual(1, self._get_items_count_cart())
+        cart = self._get_Cart_user_id(user.id)
         self.assertEqual('sheikdog', cart.user.username)
-        self.assertEqual('TemplateOne', cart.template.title)
+        self.assertEqual('TemplateTwo', cart.template.title)
         self.assertEqual('open', cart.status)
+        self.assertEqual(1, self._get_items_count_cart())
+        template_one = Template.objects.get(title='TemplateOne')
+        c =client.post('/api/item_cart', {'user_id': user.id, 'template_id': template_one.id})
+        self.assertEquals(200, c.status_code)
+        res = json.loads((c.content.decode('utf-8')))
+        self.assertEqual(2, self._get_items_count_cart())
+        for r in range(2):
+            last_update_at = self._get_template_id_cart(template_one.id).update_at
+            client.post('/api/item_cart', {'user_id': user.id, 'template_id': template_one.id})
+            self.assertEqual(2, self._get_items_count_cart())
+            self.assertNotEqual(last_update_at, self._get_template_id_cart(template_one.id).update_at)
+            self.assertEqual(2, res['id'])
+            self.assertEqual('TemplateOne', res['title'])
+            self.assertEqual('32.50', res['price'])
+            self.assertEqual('teste template', res['description'])
+            self.assertEqual(10, res['discount'])
+            self.assertEqual(['/images/image1.jpg'], res['thumbnails'])
+            self.assertEqual(['/images/image2.jpg'], res['originals'])
+            self.assertEqual('22.00', res['price_pay'])
+            self.assertEqual({'thumbnail': '/images/image1.jpg', 'original': '/images/image2.jpg'}, res['gallery'][0])
 
+
+    def _get_items_count_cart(self):
+        return Cart.objects.all().count()
+
+    def _get_Cart_user_id(self, user_id):
+        return Cart.objects.get(user=user_id)
+
+    def _get_template_id_cart(self, template_id):
+        return Cart.objects.get(pk=template_id)
