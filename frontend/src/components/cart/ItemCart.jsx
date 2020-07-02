@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const ItemCart = props => {    
-    const { template } = props
+    const { template, temp } = props
     return (
         <div className="item-cart-parent has-text-centered">
             <div className="item-cart-header"></div>
@@ -46,7 +46,8 @@ const ItemCart = props => {
 }
 
 const mapStateToProps = store => ({    
-    template: store.templateDetail.response
+    template: store.templateDetail.template,
+    temp: store.templateDetail
 })
 
 export default  connect(mapStateToProps)(ItemCart)

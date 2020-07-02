@@ -117,13 +117,13 @@
     "template_id": 1,
     "subtotal": "130.00",
     "total": "120.00",
-    "order_number": "40354634",
+    "order_number": "40354635",
     "status": "wating",
     "payment_method": "paypal"
   },
   "invoicePayment": {
     "id": "1",
-    "invoice_number": "40354634",
+    "invoice_number": "40354635",
     "subtotal": "150.00",
     "total": "150.00",
     "items": [
@@ -137,5 +137,51 @@
         "currency": "BRL"
       }
     ]
+  },
+  "cart": {
+    "id": "1",
+    "thumbnails": [
+      "/imagens/shopmax/thumbnails/shopmax1.svg",
+      "/imagens/shopmax/thumbnails/shopmax2.svg",
+      "/imagens/shopmax/thumbnails/shopmax3.svg",
+      "/imagens/shopmax/thumbnails/shopmax4.svg",
+      "/imagens/shopmax/thumbnails/shopmax5.svg",
+      "/imagens/shopmax/thumbnails/shopmax6.svg"      
+    ],
+    "originals": [
+      "/imagens/shopmax/originals/shopmax1.svg"
+    ],
+    "gallery": [
+      {
+        "original": "/imagens/shopmax/originals/shopmax1.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax1.svg"
+      },
+      {
+        "original": "/imagens/shopmax/originals/shopmax2.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax2.svg"
+      },
+      {
+        "original": "/imagens/shopmax/originals/shopmax3.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax3.svg"
+      },
+      {
+        "original": "/imagens/shopmax/originals/shopmax4.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax4.svg"
+      },
+      {
+        "original": "/imagens/shopmax/originals/shopmax5.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax5.svg"
+      },
+      {
+        "original": "/imagens/shopmax/originals/shopmax6.svg",
+        "thumbnail": "/imagens/shopmax/originals/shopmax6.svg"
+      }
+    ],
+    "title": "Shopmax",
+    "sku": "BRWDMC8",
+    "price": "120.00",
+    "price_pay": "89.99",
+    "discount": "30",
+    "description": "Loja ecommerce com código HTML, CSS e JAVASCRIPT prontinhos para voçê iniciar sua loja. Seu cliente vai navegar no seu site de forma intuitiva e ágil. Pagina de apresentação da sua loja(Home), página de detalhe do produto, adicionar ao carrinho, checkout e finalização do processo de compra. Caso precise de auxilio, teremos muita satisfação em ajudar, inclusive temos nossos desenvolvedores que poderam orientá-lo com algumas dúvidas e se ainda voçê não tenha um desenvolvedor, podemos lhe oferecer também este serviço."
   }
 }

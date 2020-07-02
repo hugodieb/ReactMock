@@ -40,6 +40,16 @@ const api = {
          get(baseUrl + `/template?id=${id}`).then(response => response.data)
          : get(baseUrl + `/template?name=${name}`).then(response => response.data) 
         return mockObject(template).then(response => response.data)      
+    },
+    async cartItem(user, template_id, template_title){
+        let cart = template_id ?
+         get(baseUrl + `/cart?=${template_id}`).then(response => response.data)
+         : get(baseUrl + `/cart?name=${template_title}`).then(response => response.data) 
+        return mockObject(cart).then(response => response.data)
+    },
+    async getItemCart(){
+        let cart = get(baseUrl + '/cart').then(response => response.data)
+        return mockObject(cart).then(response => response.data)
     },   
     async sale(params) {        
         let sale = get(baseUrl + `/invoicePayment?id=${params.id}`)

@@ -1,19 +1,17 @@
 import * as types from '../actions/actionTypes'
 
-//const template = JSON.parse(localStorage.getItem('template')) || {}   
+const initialState = {}
 
-export const templateDetailReducer = (state, action) => {         
-    switch (action.type) {
-        case types.TEMPLATE_DETAIL:            
-            //localStorage.setItem('template', JSON.stringify(action.template))
-            //Object.assign(template, action.template)
+export const templateDetailReducer = (state=initialState, action) => {
+    state = Object.keys(initialState).length !== 0 ? {...initialState} : null   
+    switch (action.type) {           
+        case types.TEMPLATE_DETAIL:
+            Object.assign(initialState, action.template)
             return {
                 ...state,       
-                response: action.template
-        }
-        default:
-            return {
-                response: state
+                template: action.template
             }
+        default:
+            return {template: state}
     }
 }

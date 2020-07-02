@@ -16,7 +16,7 @@ class ItemCartPay extends Component {
     }
   
     componentWillMount() {             
-        payment.init(window.document)
+        payment.init(window.document)  
         const { templateDetail } = this.props
         this.setState({template : templateDetail})                
     }
@@ -114,7 +114,7 @@ class ItemCartPay extends Component {
 }
 
 const mapStateToProps = store => ({  
-    templateDetail: store.templateDetail.response
+    templateDetail: store.templateDetail.template
 })
 
 export default withRouter( connect(mapStateToProps)(ItemCartPay))

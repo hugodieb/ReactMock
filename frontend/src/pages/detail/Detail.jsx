@@ -22,9 +22,12 @@ class Detail extends Component {
         })
     }
 
-    checkout() {       
-        this.props.dispatch(templateDetailAction(this.state.template))
-        this.props.history.push('/carrinho')       
+    checkout() {        
+        AppApi.cartItem(this.state.template.id)
+        .then(() => {                
+            this.props.dispatch(templateDetailAction(this.state.template))
+            this.props.history.push('/carrinho')
+        })          
     }
 
     renderDetail(template) {

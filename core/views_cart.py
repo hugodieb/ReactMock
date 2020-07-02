@@ -1,11 +1,18 @@
 from django.http.response import JsonResponse
 from core.service import cart_svc
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def item_to_cart(request):
-    user_id = request.POST['user_id'] if 'user_id' in request.POST else None
     template_id = request.POST['template_id'] if 'template_id' in request.POST else None
-    template_title = request.POST['template_title'] if 'template_title' in request.POST else None
-    cart = cart_svc.item_cart(user_id, template_id, template_title)
-    if not cart:
-        return JsonResponse({}, status=404)
+    token = request.COOKIES.get('cart')
+    cart = cart_svc.item_to_cart(template_id, token)
+
+    return cart
+
+def get_item_cart(request):
+    user = request.GET['user'] if 'user' in request.GET else None
+    token = request.COOKIES.get('cart')
+    cart = cart_svc.get_item_cart(user, token)
+
     return JsonResponse(cart, safe=False)

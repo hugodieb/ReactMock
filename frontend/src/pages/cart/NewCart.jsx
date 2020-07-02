@@ -4,21 +4,30 @@ import { Link } from 'react-router-dom'
 import Main from '@components/template/Main'
 import ItemCart from '@components/cart/ItemCart'
 import ItemCartPay from '@components/cart/ItemCartPay'
-
+import { templateDetailAction } from '../../actions/templateDetail'
+import Loading from '@components/loading'
+import AppApi from '~apijs'
 
 class Checkout extends Component {
-
     state = {
         template: {
             id: ''
-        }
+        },
+        termineted: false
     }
 
-    componentDidMount() {               
-        const { templateDetail } = this.props
+    componentWillMount() {         
+        const { templateDetail, currentUser, temp } = this.props
+        console.log(temp)
         if(templateDetail) {
-            this.setState({template : templateDetail})
-        }        
+            this.setState({template: templateDetail,
+                 termineted: true, user: currentUser})
+        }else {                       
+            AppApi.getItemCart(currentUser).then(response => {                    
+                this.props.dispatch(templateDetailAction(response))                
+                this.setState({template: response, termineted: true})            
+            })
+        }       
     }   
 
     renderNotification() {           
@@ -39,7 +48,7 @@ class Checkout extends Component {
         }        
     }
 
-    renderCartItems() {            
+    renderCartItems() {                
         if(!this.state.template.id){
             return (
                 <div className="empty-cart">
@@ -64,7 +73,7 @@ class Checkout extends Component {
                     <div className="tile is-parent item">
                         <article className="tile is-child box">                            
                             <div className="content">
-                                <ItemCart />                                
+                                <ItemCart />                                                                
                             </div>
                         </article>
                     </div>
@@ -80,12 +89,16 @@ class Checkout extends Component {
         }        
     }
 
-    render() {        
+    render() {
+        const { termineted } = this.state        
         return(            
             <Main>
                 <div className="container newcart">
-                    {this.renderNotification()}                  
-                    {this.renderCartItems()}
+                    {this.renderNotification()}
+                    {termineted ? 
+                        this.renderCartItems() :
+                        < Loading />
+                    }                   
                 </div>
             </Main>
         )
@@ -93,7 +106,9 @@ class Checkout extends Component {
 }
 
 const mapStateToProps = store => ({  
-    templateDetail: store.templateDetail.response
+    templateDetail: store.templateDetail.template,
+    currentUser: store.currentUser.response,
+    temp: store.templateDetail
 })
 
 export default connect(mapStateToProps)(Checkout)

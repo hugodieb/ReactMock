@@ -144,9 +144,10 @@ class InvoiceOrder(models.Model):
         return d
 
 class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
     template = models.ForeignKey(Template, related_name='template', on_delete=models.CASCADE)
     status = status = models.CharField('Status', max_length=32, default='open', choices=StatusCart.STATUS)
+    token = models.CharField(max_length=32, null=True, blank=True)
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
     update_at = models.DateTimeField('Atualizado em', auto_now=True)
 

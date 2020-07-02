@@ -14,6 +14,7 @@ urlpatterns = [
 
     # Cart
     path('api/item_cart', views_cart.item_to_cart),
+    path('api/get_item_cart', views_cart.get_item_cart),
 
     # Invoice
     path('api/create_invoice', views_invoice.crate_invoice_order),

@@ -1,8 +1,4 @@
-import axios from 'axios'
-
-axios.defaults.xsrfHeaderName = "X-CSRFToken"
-axios.defaults.xsrfCookieName = "csrftoken"
-
+import axios from '../axios'
 const api = {
   login(email, password){
       return post('/api/login', {email: email, password: password})
@@ -19,7 +15,13 @@ const api = {
   },
   async getTemplateDetail(id, name){
     return get('/api/template', {id: id, name: name}).then(response => response.data)
-  }, 
+  },
+  async cartItem(template_id){   
+    return post('/api/item_cart', {template_id:template_id}).then(response => response.data)
+  },
+  async getItemCart(user){
+    return get('/api/get_item_cart', {user:user}).then(response => response.data)
+  },
   async sale(params){
     return post('')
   }
