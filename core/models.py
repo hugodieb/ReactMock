@@ -14,6 +14,9 @@ class Profile(models.Model):
     def save(self, *args, **kwargs):
         super(Profile, self).save(*args, **kwargs)
 
+    def get_fullname(self):
+        return '%s %s' % (self.user.first_name, self.user.last_name)
+
     def to_dict_json(self):
         permissons = {
             'ADMIN': self.user.is_superuser,
@@ -25,6 +28,7 @@ class Profile(models.Model):
             'email': self.user.email,
             'first_name': self.user.first_name,
             'last_name': self.user.last_name,
+            'fullname': self.get_fullname(),
             'cell_phone': self.cell_phone,
             'birth_date': self.birth_date.strftime('%Y-%m-%d') if self.birth_date else None,
             'photo_url': self.photo_url,

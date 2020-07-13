@@ -89,15 +89,18 @@ class TestTemplatesApi(TestCase):
         self.assertEqual('open', cart.status)
         self.assertEqual(1, self._get_items_count_cart())
         template_one = Template.objects.get(title='TemplateOne')
-        c =client.post('/api/item_cart', {'user_id': user.id, 'template_id': template_one.id})
-        self.assertEquals(200, c.status_code)
-        res = json.loads((c.content.decode('utf-8')))
+        cart = client.post('/api/item_cart', {'user_id': user.id, 'template_id': template_one.id})
+        self.assertEquals(200, cart.status_code)
+        self.assertEqual('cart', cart.cookies['cart'].key)
+        cart_token = cart.cookies['cart'].value
+        res = client.get('/api/get_item_cart')
+        res = json.loads((res.content.decode('utf-8')))
         self.assertEqual(2, self._get_items_count_cart())
         for r in range(2):
-            last_update_at = self._get_template_id_cart(user.id, template_one.id).update_at
-            client.post('/api/item_cart', {'user_id': user.id, 'template_title': template_one.title})
+            template = self._get_template_id_cart(user.id, cart_token)
+            client.post('/api/item_cart', {'user_id': user.id, 'template_id': template_one.id})
             self.assertEqual(2, self._get_items_count_cart())
-            self.assertNotEqual(last_update_at, self._get_template_id_cart(user.id, template_one.id).update_at)
+            self.assertNotEqual(template.update_at, self._get_template_id_cart(user.id, cart_token).update_at)
             self.assertEqual(2, res['id'])
             self.assertEqual('TemplateOne', res['title'])
             self.assertEqual('32.50', res['price'])
@@ -115,5 +118,5 @@ class TestTemplatesApi(TestCase):
     def _get_Cart_user_id(self, user_id):
         return Cart.objects.get(user=user_id)
 
-    def _get_template_id_cart(self, user_id ,template_id):
-        return Cart.objects.get(user=user_id, template=template_id)
+    def _get_template_id_cart(self, user_id ,token):
+        return Cart.objects.get(token=token)
