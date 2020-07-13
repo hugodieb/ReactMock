@@ -12,7 +12,8 @@ export const phone = (event) => {
     }               
 }
 
-export const email = (event) => {    
+export const email = (event) => {
+    debugger    
     const email = event.target.value || ""    
     if(!email) {
         event.target.setCustomValidity('Kd o email ?')
@@ -24,7 +25,8 @@ export const email = (event) => {
     
 }
 
-export const fullname = (event) => {    
+export const fullname = (event) => {
+    debugger    
     const name = event.target.value || ""
     if(!name) {
         event.target.setCustomValidity('Kd seu nome ?')
@@ -37,6 +39,7 @@ export const fullname = (event) => {
 }
 
 export const cpf = event => {
+    debugger
     const cpf = event.target.value || ""
     if(!cpf) {
         event.target.setCustomValidity('Kd seu cpf ?')

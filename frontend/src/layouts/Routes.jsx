@@ -15,7 +15,8 @@ import { setCurrentUserAction } from '../actions/auth'
 import PrivateRoute from './PrivateRoutes'
 
 class Routes extends Component {
-    componentWillMount() {                 
+    componentWillMount() {
+        console.log('routes')                 
         authentication().then(() => {
             const user = isUser()._user                             
             this.props.dispatch(setCurrentUserAction(user))

@@ -13,16 +13,19 @@ class UserProfile extends Component {
     user: {}
   }
 
-  componentWillMount() {    
+  componentWillMount() { 
     const { currentUser } = this.props
-    this.setState({user : currentUser})    
+    if(currentUser){
+      this.setState({user : currentUser})
+    }        
   }
   
-  componentDidUpdate(prevProps, prevState) {                
+  componentDidUpdate(prevProps, prevState) {
+    debugger                
     if(this.props.currentUser !== prevProps.currentUser) {
         this.setState({user: this.props.currentUser})
     }       
-}
+  }
 
   updateField = (event, value) => {
     const user  = { ...this.state.user }
@@ -39,7 +42,7 @@ class UserProfile extends Component {
     })              
   }
   render() {
-    
+      debugger
       return (
         <Main>               
             <section className="container user">              
@@ -49,22 +52,23 @@ class UserProfile extends Component {
                     <label className="label">Nome Completo</label>
                     <p className="control">
                       <input name="name" className="input" type="text" onInput={e => fullname(e)}
-                       value={this.state.user.name} onChange={e => this.updateField(e)} required />
+                       value={this.state.user.fullname} onChange={e => this.updateField(e)} required />
                     </p>
                     <label className="label">Cpf</label>
                     <p className="control">
-                      <InputField className="input"  name="cpf"
-                        value={this.state.user.cpf} onChange={this.updateField} mask="cpf"/>
+                      <InputField className="input"  name="cpf" 
+                        field={this.state.user.cpf}
+                        onChange={this.updateField} mask="cpf"/>
                     </p>
                     <label className="label">Email</label>
                     <p className="control">
-                      <input name="email" className="input" type="text" onInput={e =>  email(e)}
+                      <input name="email" className="input" type="text" 
                        value={this.state.user.email} onChange={e => this.updateField(e)} required />
                     </p>                 
                     <label className="label">Celular</label>
                     <p className="control">
-                      <InputField className="input"  name="cellphone"
-                        value={this.state.user.cellphone} onChange={this.updateField} mask="phone"/>
+                      <InputField className="input"  name="cellphone" 
+                        field={this.state.user.cellphone} onChange={this.updateField} mask="phone"/>
                     </p> <span>{this.state.user.cellphone}</span>
                     <br/>
                     <br/>

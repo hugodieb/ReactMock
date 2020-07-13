@@ -22,7 +22,7 @@ const ItemCart = props => {
                             </p>
                             <div className="item-price">
                                 <p> <span> R$ {template.price}</span> </p>
-                                <p>R$ {template.pricePay}</p>
+                                <p>R$ {template.price_pay}</p>
                             </div>
                             <div className="subtitle">
                                 Suporte: 6 meses            

@@ -9,12 +9,18 @@ class InputField extends Component {
         value: ''
     }
 
-    componentDidMount() {        
-        this.setState({value: this.props.value})        
+    componentDidMount() {                
+        this.setState({value: this.props.field})        
         this.whatmask(null, this.props.mask)
     }
 
-    whatmask = ( event, masktype) => {        
+    componentDidUpdate(prevProps, prevState) {        
+        if(this.props.field !== prevProps.field){
+            this.setState({value: this.props.field})
+        }        
+    }
+
+    whatmask = ( event, masktype) => {                
         return masks.includes(masktype) ? this.selectMask(event, masktype) : ''      
     }
 
@@ -26,15 +32,18 @@ class InputField extends Component {
             case 'cpf':
                 this.cpfMask(event)
                 break
+            default:                
         }  
     }
     
-    phoneMask = e => {        
+    phoneMask = e => {              
         let v = ''
-        e !== null ? v = e.target.value : v = this.props.value                      
-        v = v.replace(/\D/g, "")
-        v = v.replace(/^(\d\d)(\d)/g,"($1)$2")
-        v = v.length < 13 ? v.replace(/(\d{4})(\d)/, "$1-$2") : v.replace(/(\d{5})(\d)/,"$1-$2")        
+        e !== null ? v = e.target.value : v = this.props.field
+        if(v !== undefined){
+            v = v.replace(/\D/g, "")
+            v = v.replace(/^(\d\d)(\d)/g,"($1)$2")
+            v = v.length < 13 ? v.replace(/(\d{4})(\d)/, "$1-$2") : v.replace(/(\d{5})(\d)/,"$1-$2")
+        }         
         if(e) {            
             e.target.value = v
             phone(e)
@@ -42,17 +51,20 @@ class InputField extends Component {
             return this.props.onChange(e, v)
         } else {
             this.setState({value: v})
-            return this.props.value
+            this.refs.input_masked.value = v
+            return this.props.field
         }        
     }
 
-    cpfMask = e => {        
+    cpfMask = e => {                
         let v = ''
-        e !== null ? v = e.target.value : v = this.props.value
-        v = v.replace(/\D/g, "")
-        v = v.replace(/(\d{3})(\d)/, "$1.$2")
-        v = v.replace(/(\d{3})(\d)/, "$1.$2")
-        v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+        e !== null ? v = e.target.value : v = this.props.field
+        if(v !== undefined){
+           v = v.replace(/\D/g, "")
+           v = v.replace(/(\d{3})(\d)/, "$1.$2")
+           v = v.replace(/(\d{3})(\d)/, "$1.$2")
+           v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2") 
+        }        
         if(e) {
             e.target.value = v
             cpf(e)
@@ -60,7 +72,8 @@ class InputField extends Component {
             return this.props.onChange(e, v)
         } else {
             this.setState({value: v})
-            return this.props.value
+            this.refs.input_masked.value = v
+            return this.props.field
         }
     }
 
@@ -70,9 +83,9 @@ class InputField extends Component {
                 type="text"
                 ref="input_masked"
                 className={this.props.className}
-                name={this.props.name}
-                value={this.state.value}
-                onChange={e => this.whatmask(e, this.props.mask)}                           
+                name={this.props.name}                
+                field={this.props.field}
+                onChange={e => this.whatmask(e, this.props.mask)}                                           
             />    
         )
     }

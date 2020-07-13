@@ -146,7 +146,10 @@ export default {
         }
     },
     
-    getInvoicePayment(invoice) {
+    getInvoicePayment(invoice) {        
+        const invoice_number = process.env.NODE_ENV === 'development'
+         ? Math.floor(Math.random() * invoice.invoice_number) : invoice.invoice_number 
+
         return {
             "intent": "sale",
             "payer": {
@@ -167,8 +170,8 @@ export default {
                         }
                     },
                     "description": "The payment transaction.",
-                    "custom": "EBAY_EMS_" + invoice.invoice_number,
-                    "invoice_number": invoice.invoice_number,
+                    "custom": "EBAY_EMS_" + invoice_number,
+                    "invoice_number": invoice_number,
                     "payment_options": {
                         "allowed_payment_method": "INSTANT_FUNDING_SOURCE"
                     },
