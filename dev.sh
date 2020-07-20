@@ -26,11 +26,15 @@ function devhelp {
     echo -e ""       
     echo -e "${GREEN}dkbuild${RESTORE}           Builds a ${RED}docker image${RESTORE} for this project"
     echo -e ""
+    echo -e "${GREEN}dkbuildmock${RESTORE}       Builds a ${RED}docker mock image${RESTORE} for this project"
+    echo -e ""
     echo -e "${GREEN}dknpminstall${RESTORE}      Download node dependencies to ${RED}./node_modules/${RESTORE}"
     echo -e ""
     echo -e "${GREEN}dknginx${RESTORE}           Starts a nginx dockerized ${RED} for this project${RESTORE}"
     echo -e ""
-    echo -e "${GREEN}dkrun_dev${RESTORE}        Starts Frontend (dockerized) in dev mode."
+    echo -e "${GREEN}dkrun_dev${RESTORE}         Starts Frontend (dockerized) in dev mode."
+    echo -e ""
+    echo -e "${GREEN}dkrun_mock${RESTORE}    Starts Frontend (dockerized) in dev mock mode."
     echo -e ""    
     echo -e "${GREEN}dk <command>${RESTORE}      Runs ${RED}<command>${RESTORE} inside main container"
     echo -e "                  Example:"
@@ -43,6 +47,15 @@ function dkbuild {
     CD=$(pwd)
     cd $PROJ_BASE
     docker build -t indow .
+    exitcode=$?
+    cd $CD
+    return $exitcode
+}
+
+function dkbuildmock {
+    CD=$(pwd)
+    cd $PROJ_BASE/frontend
+    docker build -t indow_mock .
     exitcode=$?
     cd $CD
     return $exitcode
@@ -69,11 +82,19 @@ function dknginx {
 function dkrun_dev {
     docker stop indow
     docker rm indow
-    docker run -it --restart unless-stopped --name indow -p 3000:3000 -p 3001:3001 indow start_dev.sh
+    docker run -it --restart unless-stopped --name indow \
+     -p 3000:3000 -p 3001:3001 indow
+}
+
+function dkrun_mock {
+    docker stop indow_mock
+    docker rm indow_mock
+    docker run --name indow_mock -d \
+     -p 3002:3002 -p 3003:3003 indow_mock process_server_mock.sh 
 }
 
 function dk {
-    docker exec -it indow $@
+    docker exec -it indow_mock $@
 }
 
 function echo_red {

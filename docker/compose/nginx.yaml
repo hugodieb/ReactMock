@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx:
-    container_name: indow_container
+    container_name: indow_nginx
     image: nginx
     network_mode: "host"
     volumes:

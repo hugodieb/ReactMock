@@ -18,12 +18,13 @@ RUN cd /tmp && \
     rm node-v12.11.0-linux-x64.tar.xz && \
     npm install pm2 -g
 
-WORKDIR /app
+WORKDIR /front
+ENV SHELL=/bin/bash PYTHONUNBUFFERED=1 HOST=0.0.0.0  PORT=3000 BASE_URL=http://localhost:8000
 
-COPY frontend/package.json frontend/package.json
-RUN cd frontend && npm install
-COPY frontend frontend
-RUN cd frontend && npm run build
-ENV SHELL=/bin/bash PYTHONUNBUFFERED=1
-COPY . /app
+COPY package.json package.json
+RUN npm install
+COPY . /front
+RUN npm run build
+
 COPY docker/bin/* /usr/bin/
+
